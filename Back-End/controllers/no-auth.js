@@ -1,6 +1,7 @@
 const CustomAPIError = require('../errors/custom-error')
 const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
+const products = require('../models/products')
 
 const getAllProducts = async (req, res)=>{
   const {name, company, sort, numericFilters} = req.query
@@ -52,7 +53,14 @@ const getAllProducts = async (req, res)=>{
 // id is inside params object
 // products.findOne({})
 const getProduct = async (req, res)=>{
-  
+  try{
+    const productId = req.params.id
+    const product = await products.findOne({_id:id})
+    res.status(StatusCodes.OK).json({product})
+  }
+  catch{
+    console.error(error);
+  }
 }
 
 module.exports = {
