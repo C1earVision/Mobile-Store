@@ -55,7 +55,7 @@ const getAllProducts = async (req, res)=>{
 const getProduct = async (req, res)=>{
   try{
     const productId = req.params.id
-    const product = await products.findOne({_id:id})
+    const product = await products.findOne({_id:productId})
     res.status(StatusCodes.OK).json({product})
   }
   catch{
