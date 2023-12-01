@@ -6,7 +6,7 @@ const User = require('../models/users')
 
 const addProduct = async (req,res)=>{
   try { 
-    const userid = req.params.id
+
   }
   catch (error){
     console.error(error);
