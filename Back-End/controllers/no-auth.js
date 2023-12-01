@@ -58,7 +58,7 @@ const getProduct = async (req, res)=>{
     const product = await products.findOne({_id:productId})
     res.status(StatusCodes.OK).json({product})
   }
-  catch{
+  catch (error){
     console.error(error);
   }
 }
