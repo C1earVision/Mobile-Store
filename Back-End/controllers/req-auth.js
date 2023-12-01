@@ -5,17 +5,12 @@ const User = require('../models/users')
 
 
 const addProduct = async (req,res)=>{
-<<<<<<< HEAD
   try { 
 
   }
   catch (error){
     console.error(error);
   }
-=======
-  const product = await Products.create(req.body)
-  res.status(StatusCodes.CREATED).json({product})
->>>>>>> a3bba03a1ff1ba64847dd1a031f1e6dd3f899e97
 }
 
 const modifyProduct = async (req, res)=>{
