@@ -5,7 +5,7 @@ const User = require('../models/users')
 
 
 const addProduct = async (req,res)=>{
-
+  
 }
 
 const modifyProduct = async (req, res)=>{
