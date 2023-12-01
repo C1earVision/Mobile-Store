@@ -3,9 +3,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 
-const Book = () => {
+const Product = () => {
 
   return 
 };
 
-export default Book;
+export default Product;
