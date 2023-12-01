@@ -12,9 +12,6 @@ const getAllProducts = async (req, res)=>{
   if(company){
     querys.company = company
   }
-  if(genre){
-    querys.genre = { $regex: genre, $options: 'i'}
-  }
   let result = Products.find(querys)
   if(sort){
     sortList = sort.split(',').join(' ')
@@ -53,14 +50,9 @@ const getAllProducts = async (req, res)=>{
 // id is inside params object
 // products.findOne({})
 const getProduct = async (req, res)=>{
-  try{
-    const productId = req.params.id
-    const product = await products.findOne({_id:productId})
-    res.status(StatusCodes.OK).json({product})
-  }
-  catch (error){
-    console.error(error);
-  }
+  const {id} = req.params
+  const product = Products.findOne({_id:id})
+  res.status(200).json({product})
 }
 
 module.exports = {

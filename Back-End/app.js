@@ -28,7 +28,7 @@ app.use(rateLimiter({
 //routes
 app.use('/api/v1', noAuthRoutes)
 app.use('/api/v1/auth', auth)
-app.use('/api/v1/user', routeAuth, reqAuthRoutes)
+app.use('/api/v1/user', reqAuthRoutes)
 
 //error handlers
 app.use(errorHandlerMiddleware)
