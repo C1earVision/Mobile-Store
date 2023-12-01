@@ -1,6 +1,7 @@
 const CustomAPIError = require('../errors/custom-error')
 const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
+const products = require('../models/products')
 
 const getAllProducts = async (req, res)=>{
   const {name, company, sort, numericFilters} = req.query
