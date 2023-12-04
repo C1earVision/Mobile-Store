@@ -26,11 +26,11 @@ const ProductsSchema = new mongoose.Schema({
   },
   specifications:{
     body:{
-      Dimensions:{
+      dimensions:{
         type:String,
         required: [true, 'Please provide the dimensions of the phone']
       },
-      Weight:{
+      weight:{
         type:Number,
         required: [true, 'Please provide the weight of the phone']
       },

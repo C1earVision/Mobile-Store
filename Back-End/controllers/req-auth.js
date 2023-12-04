@@ -5,12 +5,8 @@ const User = require('../models/users')
 
 
 const addProduct = async (req,res)=>{
-  try { 
-
-  }
-  catch (error){
-    console.error(error);
-  }
+  const book = await Books.create(req.body)
+  res.status(StatusCodes.CREATED).json({book})
 }
 
 const modifyProduct = async (req, res)=>{
