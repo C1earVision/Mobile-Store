@@ -38,9 +38,9 @@ const ProductsSchema = new mongoose.Schema({
         type:String,
         required: [true, 'Please provide the build of the phone']
       },
-      Sim:{
+      sim:{
         type:String,
-        required: [true, 'Please provide the build of the phone']
+        required: [true, 'Please provide the sim of the phone']
       }
     },
     display:{
