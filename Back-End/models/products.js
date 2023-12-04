@@ -21,8 +21,38 @@ const ProductsSchema = new mongoose.Schema({
   },
   description:{
     type:String,
-    required: [true, 'Please provide the discreption of the book'],
+    required: [true, 'Please provide the discreption of the Phone'],
     minlength:5,
+  },
+  specifications:{
+    body:{
+      Dimensions:{
+        type:String,
+        required: [true, 'Please provide the dimensions of the phone']
+      },
+      Weight:{
+        type:Number,
+        required: [true, 'Please provide the weight of the phone']
+      },
+      build:{
+        type:String,
+        required: [true, 'Please provide the build of the phone']
+      },
+      Sim:{
+        type:String,
+        required: [true, 'Please provide the build of the phone']
+      }
+    },
+    display:{
+      type:{
+        type:String,
+        required: [true, 'Please provide the type of the display']
+      },
+      size:{
+        type:String,
+        required: [true, 'Please provide the size of the display']
+      }
+    }
   },
   createdAt:{
     type:Date,
