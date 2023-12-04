@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewports" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneDizer</title>
+    <link rel="stylesheet" href="../CSS/register.css">
+</head>
+
+<body>
+    <form id="form">
+        <div class="imgcontainer">
+            <img src="../media/gerndizer[1]-01.png"/>
+        </div>
+        <h6>NEW REGISTRATION</h6>
+
+        <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <label for="confirm-password"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Confirm New Password" name="confirm-password" required>
+
+            <button type="submit">Create A New Account</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw"><a href="#">Forgot Password?</a></span>
+        </div>
+    </form>
+    <script src="../JS/register.js" ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>
