@@ -5,8 +5,8 @@ const User = require('../models/users')
 
 
 const addProduct = async (req,res)=>{
-  const book = await Books.create(req.body)
-  res.status(StatusCodes.CREATED).json({book})
+  const product = await Products.create(req.body)
+  res.status(StatusCodes.CREATED).json({product})
 }
 
 const modifyProduct = async (req, res)=>{
