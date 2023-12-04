@@ -54,7 +54,7 @@ const ProductsSchema = new mongoose.Schema({
       }
     },
     memory:{
-      type:String,
+      type:Number,
       required: [true, 'Please provide the memory']
     },
     mainCamera:{
