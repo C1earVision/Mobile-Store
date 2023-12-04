@@ -52,6 +52,34 @@ const ProductsSchema = new mongoose.Schema({
         type:String,
         required: [true, 'Please provide the size of the display']
       }
+    },
+    memory:{
+      type:String,
+      required: [true, 'Please provide the memory']
+    },
+    mainCamera:{
+      features:{
+        type:String,
+        required: [true, 'Please provide the features of the camera']
+      },
+      video:{
+        type:String,
+        required: [true, 'Please provide the video specs of the camera']
+      }
+    },
+    selfieCamera:{
+      features:{
+        type:String,
+        required: [true, 'Please provide the features of the camera']
+      },
+      video:{
+        type:String,
+        required: [true, 'Please provide the video specs of the camera']
+      }
+    },
+    battery:{
+      type:Number,
+      required: [true, 'Please provide the power of the battery']
     }
   },
   createdAt:{
