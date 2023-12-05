@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.methods.createJWT = function (){
-  return jwt.sign({admin:this.admin ,userId:this._id, name:this.name}, process.env.JWT_SECRET, {expiresIn:process.env.JWT_LIFETIME})
+  return jwt.sign({admin:this.admin ,userId:this._id}, process.env.JWT_SECRET, {expiresIn:process.env.JWT_LIFETIME})
 }
 
 userSchema.pre('save', async function(){
