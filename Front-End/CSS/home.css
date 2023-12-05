@@ -11,6 +11,15 @@ section {
     padding: 20px;
 }
 
+/* done by Elmohamady */
+#signUp,#signIn{
+    display: none;
+}
+
+#signOut,#userProfile{
+    display: none;
+}
+/* End */
 header {
 
     text-align: left;
@@ -25,7 +34,7 @@ font-weight: bold   ;
     font-size: 1rem;
 }
 .offcanvas-body {
-    background-image: url('/media/nav1.jpg');
+    background-image: url('/Front-Endvbndsfkjbv;ksjdfbv;kjnb/media/nav1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -56,6 +65,51 @@ letter-spacing: 0.1rem;
     color: #151414;
     font-weight: bold;
 }
+
+
+#user ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#user .user-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10rem; /* Adjust margin as needed */
+}
+
+#user .out .out-icon {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s;
+    margin-bottom: 10px; /* Adjust margin-bottom as needed */
+}
+
+#user .out .out-icon:hover {
+    color: #ff0000;
+    background-color: #ffffff;
+    border-radius:5rem;
+
+}
+
+/* done by Elmohamady */
+#user .out {
+    cursor: pointer;
+}
+
+
+
+
+
 
 /* Navbar dropdown item hover effect */
 .dropdown-item:hover {
@@ -170,22 +224,22 @@ footer {
 }
 @media only screen and (max-width: 600px) {
     .home-content h1 {
-        font-size: 2.8rem;
+        font-size: 2.3rem;
         letter-spacing: 0.3rem;
         margin-top: 1rem;
         
     }
 
     .home-content h3{
-        font-size: 1.5rem;
+        font-size: 1.0rem;
         margin-top: 2rem;
         margin-bottom: 3rem;
     }
     .home-content h2{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     .home-content p {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 }
 
@@ -194,14 +248,39 @@ footer {
 
       align-items:center;
     }
+    .navbar-brand{
+        font-size: 2.5rem;
+    margin-left: 0rem;
+    font-weight: bold   ;
+    }
+    .container-fluid{
+        width: auto;
+    }
   
     .header-container img {
-        width: 44px;
-      margin-right: 0;
+        width: 30px;
+
       margin-top: 0;
       margin-bottom: 10px; /* Add spacing between image and other elements in smaller screens */
     }
+    #user .user-img img {
+
+        margin-right:auto; /* Adjust margin as needed */
+    }
+
   }
+@media screen and (max-width: 375px){
+    #user .out .out-icon {
+
+        font-size: 10px;
+        font-weight: bold;
+
+    }
+}
+    
+
+
+
 
 
 

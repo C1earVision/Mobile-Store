@@ -1,17 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900& display=swap');
 
-html,
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins', 'sans-serif';
     height: 100%;
     width: 100%;
-    margin: 0%;
+    margin: 0;
     padding: 0;
-    background-color: #151414;
+    display: flex;
+    background: linear-gradient(45deg, #000000, #201e1e, #000000);
+    background-size: 200% 100%; /* Added background-size property */
+    animation: color 4s ease-in-out infinite; /* Adjusted animation duration */
 }
 
-body {
-    display: flex;
+@keyframes color {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 form {

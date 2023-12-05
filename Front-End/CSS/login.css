@@ -1,18 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900& display=swap');
 
-html,
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins', 'sans-serif';
     height: 100%;
     width: 100%;
-    margin: 0%;
+    margin: 0;
     padding: 0;
-    background-color: #151414;
+    display: flex;
+    background: linear-gradient(45deg, #000000, #201e1e, #000000);
+    background-size: 200% 100%; /* Added background-size property */
+    animation: color 4s ease-in-out infinite; /* Adjusted animation duration */
 }
 
-body {
-    display: flex;
+@keyframes color {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
+
+
 
 form {
     margin: auto;
@@ -31,19 +49,26 @@ input[type=password] {
     border-radius: 0.5rem;
 }
 
+
 /* Set a style for all buttons */
 button {
     font-family: 'Poppins', 'sans-serif';
     background-color: #dde410;
-    color: black;
+    color: rgb(9, 7, 7);
     font-weight: bold;
     padding: 14px 20px;
+    font-size: 1.2rem;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
     border-radius: 0.5rem;
 }
+button:first-child{
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+}
+
 
 /* Add a hover effect for buttons */
 button:hover {
@@ -54,7 +79,7 @@ button:hover {
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #ec2600;
+    background-color: #ab1d00;
 }
 
 /* Center the avatar image inside this container */
@@ -82,7 +107,7 @@ h6 {
 }
 
 .container span a{
-    color: #1e47eb;
+    color: #5577ff;
 }
 
 label, span{
@@ -101,4 +126,7 @@ span.psw {
     form {
         width: 70%;
     }
+}
+.error{
+    color: #ec2600;
 }
