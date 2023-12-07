@@ -12,11 +12,11 @@ section {
 }
 
 /* done by Elmohamady */
-#signUp,#signIn{
+#signUp,#signIn,#signUp2,#signIn2{
     display: none;
 }
 
-#signOut,#userProfile{
+#signOut,#userProfile,#signOut2,#userProfile2{
     display: none;
 }
 /* End */
@@ -82,7 +82,7 @@ letter-spacing: 0.1rem;
     margin-left: 10rem; /* Adjust margin as needed */
 }
 
-#user .out .out-icon {
+.out .out-icon {
     color: #ffffff;
     text-decoration: none;
     font-size: 18px;
@@ -94,7 +94,7 @@ letter-spacing: 0.1rem;
     margin-bottom: 10px; /* Adjust margin-bottom as needed */
 }
 
-#user .out .out-icon:hover {
+.out .out-icon:hover {
     color: #ff0000;
     background-color: #ffffff;
     border-radius:5rem;
@@ -102,14 +102,21 @@ letter-spacing: 0.1rem;
 }
 
 /* done by Elmohamady */
-#user .out {
+.out {
     cursor: pointer;
 }
 
 
 
 
-
+/* done by elmohamady */
+#drop-down-menu{
+    display: none;
+}
+.dropDown{
+    margin-top: 33px;
+}
+/* end */
 
 /* Navbar dropdown item hover effect */
 .dropdown-item:hover {
