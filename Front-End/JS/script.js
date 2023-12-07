@@ -1,14 +1,14 @@
 ScrollReveal({
-    reset: false,
-    distance: '1000px',
+    reset: true,
+    distance: '150px',
     duration: 1500,
     delay: 20,
 });
 
-ScrollReveal().reveal('.home-content h1 ', { origin: 'top' });
-ScrollReveal().reveal('.home-content p', { origin: 'bottom' });
-  ScrollReveal().reveal('.home-content h3 ,.Lefth', { origin: 'left' });
-  ScrollReveal().reveal('.home-content h2 , .Righh', { origin: 'right' });
+ScrollReveal().reveal('.home-content h1 ,.home-content h3 ,.new-content h1 ,.used-content h1', { origin: 'top' });
+ScrollReveal().reveal('.home-content p ,.home-content h2 ', { origin: 'bottom' });
+  ScrollReveal().reveal('.Lefth  ', { origin: 'left' });
+  ScrollReveal().reveal(' .Righh ', { origin: 'right' });
   
   const typed = new Typed('.multi-text', {
     strings: ['Unleash Innovation, Embrace Quality.'],
