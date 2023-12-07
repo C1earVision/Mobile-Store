@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/home.css">
+  <link rel="stylesheet" href="../CSS/products.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Include the customized Bootstrap CSS file -->
+  <link href="path/to/bootstrap-custom.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <title>Phondizer</title>
+  <link rel="icon" type="image/png" href="../media/gerndizer[1]-01.png"/>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid justify-content-between gap-4">
+          <a class="navbar-brand" href="#">Phondizer</a>
+          <!-- done by elmohamady -->
+          <div class="offcanvas-body justify-content-evenly d-md-flex d-none flex-row gap-2">
+            <ul class="navbar-nav justify-content-center gap-5 flex-row">
+              <li class="nav-item mt-4">
+                <a class="nav-link active" aria-current="page" href="../index.html"> <i class='bx bxs-home'>  </i>  Home</a>
+              </li>
+              <li class="nav-item mt-4" id="signIn2">
+                <a class="nav-link" href="/Front-End/HTML/Login.html"><i class="fa-solid fa-right-to-bracket" ></i></i>      Sign In</a>
+              </li> 
+              <li class="nav-item mt-4" id="signUp2">
+                <a class="nav-link" href="/Front-End/HTML/Register.html"><i class="fa-solid fa-user-plus"></i></i>    Sign Up</a>
+              </li>
+            </ul>
+            <div class="d-flex flex-column dropDown">
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mt-1" id="drop-down-toggle" href="#" role="button" aria-expanded="false">
+                  <i class="fa-solid fa-cart-shopping"></i>   SHOP NOW!
+                </a>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-dark mt-5 align-self-center" id="drop-down-menu">
+                <li><a class="dropdown-item" href="./HTML/ProductsPage.html">NEW Phones  </a></li>
+                <li><a class="dropdown-item" href="#used">USED Phones</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">SELL Your Device</a></li>
+              </ul>
+            </div>
+
+            <form class="d-flex mt-1 p-4" role="search" id="search-form-2">
+              <input class="form-control me-2" type="search" id="search-input-2" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+            <div class="d-flex mt-2 align-items-center gap-3">
+              <div class="out" id="signOut2">
+                <a class="out-icon"> Sign OUT   <i class="fa-solid fa-right-from-bracket"></i></a>
+              </div>
+              <div class="user-img " id="userProfile2">
+                  <a href="#"><img class="rounded-circle" width="50px" src="/Front-End/media/user.jpg" title="Your Profile" alt=""></a>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
+          <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Phondizer</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"> <i class='bx bxs-home'>  </i>  Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-cart-shopping"></i>   SHOP NOW!
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#new">NEW Phones  </a></li>
+                    <li><a class="dropdown-item" href="#used">USED Phones</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">SELL Your Device</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item" id="signIn">
+                  <a class="nav-link" aria-current="page" href="/Front-End/HTML/Login.html"><i class="fa-solid fa-right-to-bracket" ></i>      Sign In</a>
+                </li> 
+                <li class="nav-item" id="signUp">
+                  <a class="nav-link" href="/Front-End/HTML/Register.html"><i class="fa-solid fa-user-plus"></i>    Sign Up</a>
+                </li>
+              </ul>
+              <form class="d-flex mt-3" id="search-form">
+                <input type="search" class="form-control me-2" id="search-input" placeholder="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+              <hr style="margin-bottom: 1rem;">
+              <div class="user" id="user">
+                <ul>
+                    <li class="out" id="signOut">
+                        <a class="out-icon"> Sign OUT   <i class="fa-solid fa-right-from-bracket"></i></a>
+                    </li>
+                    <li class="user-img" id="userProfile">
+                        <a href="#"><img src="/Front-End/media/user.jpg" title="Your Profile" alt=""></a>
+                    </li>
+                </ul>
+              </div>
+
+            </div>
+            
+            </div>
+          </div>
+        </div>
+      </nav>
+</header>
+  <!-- done by elmohamady -->
+  <div class="filter d-md-none d-block" id="toggle-filters">
+    <button class="btn btn-dark" type="button">Filters<span class="fa fa-filter pl-1"></span></button>
+  </div>
+<div class="bg-red text-bg-dark mt-2" id="mobile-filter">
+    <section class="text-bg-dark col-12 rounded-3">
+      <div class="">
+          <h6 class="p-1 border-bottom">Company</h6>
+          <form class="d-flex flex-column gap-2" id="company-form-mobile">
+            <div>
+              <input type="radio" value="samsung" name="company">
+              <label>Samsung</label>
+            </div>
+            <div>
+              <input type="radio" value="Shaomi" name="company">
+              <label for="">Shaomi</label>
+            </div>
+            <div>
+              <input type="radio" value="Hwawi" name="company">
+              <label for="">Hwawi</label>
+            </div>
+            <div>
+              <input type="radio" value="Apple" name="company">
+              <label for="">Apple</label>
+            </div>
+            <div>
+              <input type="radio" value="Nokia" name="company">
+              <label for="">Nokia</label>
+            </div>
+          </form>
+      </div>
+      <form id="date-form-mobile">
+          <h6 class="p-1 border-bottom">Filter By</h6>
+          <p class="mb-2">Date</p>
+          <ul class="list-group">
+              <li class="list-group-item list-group-item-action mb-2 rounded">
+                <input type="radio" value="createdAt" name="company">
+                <label for="">Newest</label>
+              </li>
+              <li class="list-group-item list-group-item-action mb-2 rounded">
+                <input type="radio" value="-createdAt" name="company">
+                <label for="">Oldest</label>
+              </li>
+          </ul>
+      </form>
+      <div>
+          <h6>Price</h6>
+          <form class="ml-md-2" id="price-form-mobile">
+              <div class="form-inline border rounded p-sm-2 my-2">
+                  <input value="-price"  type="radio" name="price" id="price-h">
+                  <label for="price-h" class="pl-1 pt-sm-0 pt-1">Price (H-L)</label>
+              </div>
+              <div class="form-inline border rounded p-sm-2 my-2">
+                  <input value="price" type="radio" name="price" id="price-l">
+                  <label for="price-l" class="pl-1 pt-sm-0 pt-1">Price (L-H)</label>
+              </div>
+          </form>
+      </div>
+    </section>
+  </div>
+  <div class="d-flex col-12 mb-5" id="content-container">
+      <section class="text-bg-dark ms-3 col-3 rounded-3 d-md-block d-none" id="sidebar">
+        <div class="">
+            <h6 class="p-1 border-bottom">Company</h6>
+            <form class="d-flex flex-column gap-2" id="company-form">
+              <div>
+                <input type="radio" value="samsung" name="company">
+                <label>Samsung</label>
+              </div>
+              <div>
+                <input type="radio" value="Shaomi" name="company">
+                <label for="">Shaomi</label>
+              </div>
+              <div>
+                <input type="radio" value="Hwawi" name="company">
+                <label for="">Hwawi</label>
+              </div>
+              <div>
+                <input type="radio" value="Apple" name="company">
+                <label for="">Apple</label>
+              </div>
+              <div>
+                <input type="radio" value="Nokia" name="company">
+                <label for="">Nokia</label>
+              </div>
+            </form>
+        </div>
+        <form id="date-form">
+            <h6 class="p-1 border-bottom">Filter By</h6>
+            <p class="mb-2">Date</p>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action mb-2 rounded">
+                  <input type="radio" value="createdAt" name="company">
+                  <label for="">Newest</label>
+                </li>
+                <li class="list-group-item list-group-item-action mb-2 rounded">
+                  <input type="radio" value="-createdAt" name="company">
+                  <label for="">Oldest</label>
+                </li>
+            </ul>
+        </form>
+        <div>
+            <h6>Price</h6>
+            <form class="ml-md-2" id="price-form">
+                <div class="form-inline border rounded p-sm-2 my-2">
+                    <input value="-price"  type="radio" name="price" id="price-h">
+                    <label for="price-h" class="pl-1 pt-sm-0 pt-1">Price (H-L)</label>
+                </div>
+                <div class="form-inline border rounded p-sm-2 my-2">
+                    <input value="price" type="radio" name="price" id="price-l">
+                    <label for="price-l" class="pl-1 pt-sm-0 pt-1">Price (L-H)</label>
+                </div>
+            </form>
+        </div>
+      </section>
+      <div class="d-flex col-md-8 justify-content-center flex-row ms-5 flex-wrap gap-3" id="card-container">
+
+      </div>
+    </div>
+
+    <footer>
+      <p>Copyright &copy;  |  Desgined with <i class="fa-regular fa-heart fa-beat" style="color: #ffffff;"></i> By Phondizer Team  </p>
+    </footer>
+
+
+  <!-- typed js-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../JS/displayProducts.js"></script>
+  <script src="../js/script.js" ></script>
+  <script src="../JS/handleLogInStatus.js" ></script>
+</body>
+</html>

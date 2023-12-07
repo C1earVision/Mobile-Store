@@ -1,0 +1,210 @@
+*{
+  box-sizing: border-box;
+}
+#mobile-filter{
+  display: none;
+}
+
+#sidebar{
+  padding: 10px;
+  margin: 0;
+  float: left;
+}
+ul{
+  list-style: none;
+  padding: 5px;
+}
+li a{
+  color: darkgray;
+  text-decoration: none;
+}
+li a:hover{
+  text-decoration: none;
+  color: darksalmon;
+}
+.fa-circle{
+  font-size: 20px;
+}
+#red{
+  color: #e94545d7;
+}
+#teal{
+  color: rgb(69, 129, 129);
+}
+#blue{
+  color: #0000ff;
+}
+.filter{
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media(min-width:991px){
+  #mobile-filter{
+      display: none;
+  }
+}
+@media(min-width:768px) and (max-width:991px){
+  #mobile-filter{
+      display: none;
+  }
+}
+@media(min-width:568px) and (max-width:767px){
+  .fa-circle{
+      font-size: 15px;
+  }
+  #mobile-filter{
+      display: none;
+  }
+}
+@media(max-width:567px){
+  #sidebar{
+      width: 100%;
+      padding: 10px;
+      margin: 0;
+      float: left;
+  }
+  .list-group-item{
+      padding: 3px;
+  }
+  .offset-1{
+      margin-left: 8%;
+  }
+  .filter{
+      display: block;
+      margin-left: 70%;
+      margin-top: 2%;
+  }
+  #sidebar{
+      display: none;
+  }
+  #mobile-filter{
+      padding: 10px;
+  }
+}
+
+
+/* card css */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.card {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background-color: #efd315;
+    transform: skewY(345deg);
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    top: -70%;
+    transform: skewY(390deg);
+}
+
+.card .imgBox {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    z-index: 1;
+}
+
+.card .imgBox img {
+    max-width: 70%;
+    transition: .5s;
+}
+
+.card:hover .imgBox img {
+    max-width: 100%;
+}
+
+.card .contentBox {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.card .contentBox h3 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card .contentBox .price {
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card .contentBox .cart {
+    top: 100px;
+    opacity: 0;
+    padding: 5px;
+    margin-top: 10px;
+    color: #000000;
+    background: #efd315;
+    border-radius: 0.5rem;
+    transition: 0.2s;
+    font-size: 1.5em;
+}
+
+.card .contentBox .view{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.card:hover .contentBox .cart {
+    top: 0;
+    opacity: 1;
+}
+
+.card .contentBox .cart:hover {
+    background: none;
+    color: #ec2600;
+}
+
+.card .contentBox .cart:hover .view {
+    background: none;
+    color: #ec2600;
+}
+
+/* done by elmohamady */
+
+#toggle-filters{
+  margin-top: 100px;
+  margin-left: 30px;
+}
+#content-container{
+  margin-top: 130px;
+}
