@@ -14,109 +14,109 @@
       <link rel="icon" type="image/png" href="media/gerndizer[1]-01.png"/>
   </head>
   <body>
-      <header>
-        <nav class="navbar navbar-dark bg-dark fixed-top">
-            <div class="container-fluid justify-content-between gap-4">
-              <a class="navbar-brand" href="#">Phondizer</a>
-              <!-- done by elmohamady -->
-              <div class="offcanvas-body justify-content-evenly d-md-flex d-none flex-row gap-2">
-                <ul class="navbar-nav justify-content-center gap-5 flex-row">
-                  <li class="nav-item mt-4">
-                    <a class="nav-link active" aria-current="page" href="#"> <i class='bx bxs-home'>  </i>  Home</a>
+    <header>
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+          <div class="container-fluid justify-content-between gap-4">
+            <a class="navbar-brand" href="#">Phondizer</a>
+            <!-- done by elmohamady -->
+            <div class="offcanvas-body justify-content-evenly d-md-flex d-none flex-row gap-2">
+              <ul class="navbar-nav justify-content-center gap-5 flex-row">
+                <li class="nav-item mt-4">
+                  <a class="nav-link active" aria-current="page" href="../index.html"> <i class='bx bxs-home'>  </i>  Home</a>
+                </li>
+                <li class="nav-item mt-4" id="signIn2">
+                  <a class="nav-link" href="/Front-End/HTML/Login.html"><i class="fa-solid fa-right-to-bracket" ></i></i>      Sign In</a>
+                </li> 
+                <li class="nav-item mt-4" id="signUp2">
+                  <a class="nav-link" href="/Front-End/HTML/Register.html"><i class="fa-solid fa-user-plus"></i></i>    Sign Up</a>
+                </li>
+              </ul>
+              <div class="d-flex flex-column dropDown">
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle mt-1" id="drop-down-toggle" href="#" role="button" aria-expanded="false">
+                    <i class="fa-solid fa-cart-shopping"></i>   SHOP NOW!
+                  </a>
+                </div>
+                <ul class="dropdown-menu dropdown-menu-dark mt-5 align-self-center" id="drop-down-menu">
+                  <li><a class="dropdown-item" href="./HTML/ProductsPage.html">NEW Phones  </a></li>
+                  <li><a class="dropdown-item" href="#used">USED Phones</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
                   </li>
-                  <li class="nav-item mt-4" id="signIn2">
-                    <a class="nav-link" href="/Front-End/HTML/Login.html"><i class="fa-solid fa-right-to-bracket" ></i></i>      Sign In</a>
-                  </li> 
-                  <li class="nav-item mt-4" id="signUp2">
-                    <a class="nav-link" href="/Front-End/HTML/Register.html"><i class="fa-solid fa-user-plus"></i></i>    Sign Up</a>
-                  </li>
+                  <li><a class="dropdown-item" href="#">SELL Your Device</a></li>
                 </ul>
-                <div class="d-flex flex-column dropDown">
-                  <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="drop-down-toggle" href="#" role="button" aria-expanded="false">
-                      <i class="fa-solid fa-cart-shopping"></i>   SHOP NOW!
-                    </a>
-                  </div>
-                  <ul class="dropdown-menu dropdown-menu-dark mt-5 align-self-center" id="drop-down-menu">
-                    <li><a class="dropdown-item" href="./HTML/ProductsPage.html">NEW Phones  </a></li>
-                    <li><a class="dropdown-item" href="#used">USED Phones</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">SELL Your Device</a></li>
-                  </ul>
-                </div>
-
-                <form class="d-flex mt-1 p-4" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-success" type="submit">Search</button>
-                </form>
-                <div class="d-flex mt-2 align-items-center gap-3">
-                  <div class="out" id="signOut2">
-                    <a class="out-icon"> Sign OUT   <i class="fa-solid fa-right-from-bracket"></i></a>
-                  </div>
-                  <div class="user-img" id="userProfile2">
-                      <a href="#"><img width="50px" src="/Front-End/media/user.jpg" title="Your Profile" alt=""></a>
-                  </div>
-                </div>
               </div>
-              <!-- end -->
-              <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Phondizer</h5>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  
+              <form class="d-flex mt-1 p-4" role="search" id="search-form-2">
+                <input class="form-control me-2" type="search" id="search-input-2" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+              <div class="d-flex mt-2 align-items-center gap-3">
+                <div class="out" id="signOut2">
+                  <a class="out-icon"> Sign OUT   <i class="fa-solid fa-right-from-bracket"></i></a>
                 </div>
-                <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#"> <i class='bx bxs-home'>  </i>  Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-cart-shopping"></i>   SHOP NOW!
-                      </a>
-                      <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="#new">NEW Phones  </a></li>
-                        <li><a class="dropdown-item" href="#used">USED Phones</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">SELL Your Device</a></li>
-                      </ul>
-                    </li>
-                    <li class="nav-item" id="signIn">
-                      <a class="nav-link" aria-current="page" href="/Front-End/HTML/Login.html"><i class="fa-solid fa-right-to-bracket" ></i>      Sign In</a>
-                    </li> 
-                    <li class="nav-item" id="signUp">
-                      <a class="nav-link" href="/Front-End/HTML/Register.html"><i class="fa-solid fa-user-plus"></i>    Sign Up</a>
-                    </li>
-                  </ul>
-                  <form class="d-flex mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                  </form>
-                  <hr style="margin-bottom: 1rem;">
-                  <div class="user" id="user">
-                    <ul>
-                        <li class="out" id="signOut">
-                            <a class="out-icon"> Sign OUT   <i class="fa-solid fa-right-from-bracket"></i></a>
-                        </li>
-                        <li class="user-img" id="userProfile">
-                            <a href="#"><img src="/Front-End/media/user.jpg" title="Your Profile" alt=""></a>
-                        </li>
-                    </ul>
-                  </div>
-
-                </div>
-                
+                <div class="user-img " id="userProfile2">
+                    <a href="#"><img class="rounded-circle" width="50px" src="/Front-End/media/user.jpg" title="Your Profile" alt=""></a>
                 </div>
               </div>
             </div>
-          </nav>
-    </header>
+            <!-- end -->
+            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Phondizer</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"> <i class='bx bxs-home'>  </i>  Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa-solid fa-cart-shopping"></i>   SHOP NOW!
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" href="#new">NEW Phones  </a></li>
+                      <li><a class="dropdown-item" href="#used">USED Phones</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#">SELL Your Device</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item" id="signIn">
+                    <a class="nav-link" aria-current="page" href="/Front-End/HTML/Login.html"><i class="fa-solid fa-right-to-bracket" ></i>      Sign In</a>
+                  </li> 
+                  <li class="nav-item" id="signUp">
+                    <a class="nav-link" href="/Front-End/HTML/Register.html"><i class="fa-solid fa-user-plus"></i>    Sign Up</a>
+                  </li>
+                </ul>
+                <form class="d-flex mt-3" id="search-form">
+                  <input type="search" class="form-control me-2" id="search-input" placeholder="Search">
+                  <button class="btn btn-success" type="submit">Search</button>
+                </form>
+                <hr style="margin-bottom: 1rem;">
+                <div class="user" id="user">
+                  <ul>
+                      <li class="out" id="signOut">
+                          <a class="out-icon"> Sign OUT   <i class="fa-solid fa-right-from-bracket"></i></a>
+                      </li>
+                      <li class="user-img" id="userProfile">
+                          <a href="#"><img src="/Front-End/media/user.jpg" title="Your Profile" alt=""></a>
+                      </li>
+                  </ul>
+                </div>
+  
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </nav>
+  </header>
 <!--=============================================home section======================================================-->
     <section class="home" id="home">
       <div class="home-content" >
