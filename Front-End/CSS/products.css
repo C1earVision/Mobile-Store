@@ -133,12 +133,12 @@ li a:hover{
 }
 
 .card .imgBox img {
-    max-width: 70%;
+    max-width: 50%;
     transition: .5s;
 }
 
 .card:hover .imgBox img {
-    max-width: 100%;
+    max-width: 60%;
 }
 
 .card .contentBox {

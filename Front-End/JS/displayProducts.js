@@ -207,7 +207,7 @@ window.onload = async ()=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
     productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
+    <img src='../media/pokof3.jpg' alt=''>\
     </div>\
     <div class='contentBox'>\
       <h3>${name}</h3>\
