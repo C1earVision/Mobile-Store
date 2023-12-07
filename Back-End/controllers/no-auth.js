@@ -51,7 +51,7 @@ const getAllProducts = async (req, res)=>{
 // products.findOne({})
 const getProduct = async (req, res)=>{
   const {id} = req.params
-  const product = Products.findOne({_id:id})
+  const product = await Products.findOne({_id:id})
   res.status(200).json({product})
 }
 

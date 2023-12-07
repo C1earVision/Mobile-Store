@@ -12,14 +12,14 @@ const search_form_2 = document.getElementById('search-form-2')
 
 price_form.addEventListener('click',async (e)=>{
   console.log(e.target.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -35,14 +35,14 @@ price_form.addEventListener('click',async (e)=>{
 
 company_form.addEventListener('click',async (e)=>{
   console.log(e.target.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?company=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?company=${e.target.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -58,14 +58,14 @@ company_form.addEventListener('click',async (e)=>{
 
 date_form.addEventListener('click',async (e)=>{
   console.log(e.target.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -81,14 +81,14 @@ date_form.addEventListener('click',async (e)=>{
 // mobile forms
 price_form_mobile.addEventListener('click',async (e)=>{
   console.log(e.target.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -106,14 +106,14 @@ price_form_mobile.addEventListener('click',async (e)=>{
 
 company_form_mobile.addEventListener('click',async (e)=>{
   console.log(e.target.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?company=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?company=${e.target.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -129,14 +129,14 @@ company_form_mobile.addEventListener('click',async (e)=>{
 
 date_form_mobile.addEventListener('click',async (e)=>{
   console.log(e.target.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=${e.target.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -154,14 +154,14 @@ search_form.addEventListener('submit',async (e)=>{
   e.preventDefault()
   const search_input = document.getElementById('search-input')
   console.log(search_input.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -179,14 +179,14 @@ search_form_2.addEventListener('submit',async (e)=>{
   e.preventDefault()
   const search_input = document.getElementById('search-input-2')
   console.log(search_input.value)
-  data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
@@ -202,11 +202,11 @@ search_form_2.addEventListener('submit',async (e)=>{
 
 
 window.onload = async ()=>{
-  data = await axios.get("https://mobilestoreapi-eo3f.onrender.com/api/v1/products")
+  const data = await axios.get("https://mobilestoreapi-eo3f.onrender.com/api/v1/products")
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
-    const {name, price} = product
-    productDiv.innerHTML = `<div class='card'><div class='imgBox'>\
+    const {name, price, _id:id} = product
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
     <img src='../media/gerndizer[1]-01.png' alt=''>\
     </div>\
     <div class='contentBox'>\
