@@ -19,14 +19,14 @@ price_form.addEventListener('click',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -42,14 +42,14 @@ company_form.addEventListener('click',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -65,14 +65,14 @@ date_form.addEventListener('click',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -88,14 +88,14 @@ price_form_mobile.addEventListener('click',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -113,14 +113,14 @@ company_form_mobile.addEventListener('click',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -136,14 +136,14 @@ date_form_mobile.addEventListener('click',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -161,14 +161,14 @@ search_form.addEventListener('submit',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -186,14 +186,14 @@ search_form_2.addEventListener('submit',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/gerndizer[1]-01.png' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/gerndizer[1]-01.png' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -206,14 +206,14 @@ window.onload = async ()=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>\
-    <img src='../media/pokof3.jpg' alt=''>\
-    </div>\
-    <div class='contentBox'>\
-      <h3>${name}</h3>\
-      <h2 class='price'>${price}.<small>99</small> $</h2>\
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>\
-      <button class='cart'><a href='#' class='view'>View More</a></button>\
+    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    <img src='../media/pokof3.jpg' alt=''>
+    </div>
+    <div class='contentBox'>
+      <h3>${name}</h3>
+      <h2 class='price'>${price}.<small>99</small> $</h2>
+      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
