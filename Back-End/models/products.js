@@ -1,9 +1,17 @@
 const mongoose = require('mongoose')
 
 const ProductsSchema = new mongoose.Schema({
-  img:{
-    type:String,
-    required: [true, 'Please provide the image for the book'],
+  imges:{
+    img_1:{
+      type:String,
+      required: [true, 'Please provide the image for the book'],
+    },
+    img_2:{
+      type:String,
+    },
+    img_3:{
+      type:String,
+    }
   },
   name:{
     type:String,
