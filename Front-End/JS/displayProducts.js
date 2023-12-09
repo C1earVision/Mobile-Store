@@ -145,7 +145,7 @@ search_form_2.addEventListener('submit',async (e)=>{
 
 window.onload = async ()=>{
   const data = await axios.get("https://mobilestoreapi-eo3f.onrender.com/api/v1/products")
-  num_of_pages = Math.ceil(data.data.count / 12)
+  num_of_pages = Math.ceil(data.data.count / 1)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
