@@ -26,7 +26,7 @@ const getAllProducts = async (req, res)=>{
   result = result.skip(skip).limit(limit);
 
   const products = await result 
-  res.status(200).json({count: products.length, products})
+  res.status(200).json({countAll:Products.countDocuments(), count: products.length, products})
 }
 
 // id is inside params object
