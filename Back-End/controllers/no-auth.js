@@ -3,7 +3,7 @@ const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
 
 const getAllProducts = async (req, res)=>{
-  const {name, company, sort, numericFilters} = req.query
+  const {name, company, sort} = req.query
   const querys = {}
   if(name){
     querys.name = { $regex: name, $options: 'i'}
