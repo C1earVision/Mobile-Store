@@ -34,7 +34,6 @@ price_form.addEventListener('click',async (e)=>{
 })
 
 company_form.addEventListener('click',async (e)=>{
-  console.log(e.target.value)
   const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?company=${e.target.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
