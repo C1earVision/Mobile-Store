@@ -19,30 +19,10 @@ const getAllProducts = async (req, res)=>{
   }else{
     result = result.sort('-createdAt')
   }
-  if(numericFilters){
-    const operatorMapper = {
-      '>':'$gt',
-      '>=':'$gte',
-      '=':'$eq',
-      '<':'lt',
-      '<=':'lte'
-    }
-    const regEx = /\b(<|>|>=|=|<=)\b/g
-    let filters = numericFilters.replace(regEx,(match)=>`-${operatorMapper[match]}-`)
-    const options = ['price'];
-    filters = filters.split(',').forEach((item) => {
-      const [field, operator, value] = item.split('-');
-      if (options.includes(field)) {
-        querys[field] = { [field]: {[operator]: Number(value)} };
-        result = result.find(querys[field])
-      }
-    });
-  }
 
   const page = Number(req.query.page) || 1;
   const limit = 12;
   const skip = (page - 1) * limit;
-
   result = result.skip(skip).limit(limit);
 
   const products = await result 
