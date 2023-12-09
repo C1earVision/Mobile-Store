@@ -210,6 +210,10 @@ li a:hover{
   margin-top: 190px;
 }
 
+#card-container div i{
+  color: rgb(221,228,16);
+}
+
 .button button{
   padding: 4px 20px;
   background-color: rgb(221,228,16);
