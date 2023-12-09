@@ -229,3 +229,8 @@ li a:hover{
 .button button:active{
   background-color: rgb(145, 150, 12);
 }
+
+#pages{
+  width: 50%;
+  margin: auto;
+}
