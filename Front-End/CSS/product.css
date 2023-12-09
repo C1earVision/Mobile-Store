@@ -89,7 +89,7 @@
     color: gray;
 }
 
-.box .basic-info div .options a {
+.box .basic-info .options a {
     color: white;
     background-color: var(--secondary-color);
     display: inline-block;
@@ -101,7 +101,7 @@
     transition: 0.2s;
 }
 
-.box .basic-info div .options a:hover {
+.box .basic-info .options a:hover {
     background-color: var(--color-none);
     color: #d83f26;
     scale: 110%;
@@ -153,7 +153,7 @@
             "images description";
     }
 
-    .box .basic-info div .options a {
+    .box .basic-info .options a {
         padding: 8.5px 12px;
     }
 }
@@ -164,7 +164,7 @@
         align-self: flex-end;
     }
 
-    .box .basic-info div .options {
+    .box .basic-info .options {
         position: absolute;
         align-self: flex-end;
         margin-top: 40px;

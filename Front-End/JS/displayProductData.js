@@ -7,14 +7,13 @@ images_holder.addEventListener('click',(e)=>{
     active_image.src = e.target.src
 })
 
+
+
 window.onload = async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
   product_id = urlParams.get('product_id')
   let data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products/${product_id}`)
   data = data.data.product
-  // specifications:{body:{dimensions, weight, build, sim}}
-  // ,display:{type, size},memory,mainCamera:{features, video},
-  // selfieCamera:{features_selfie, video_selfie},battery
   const {name, company, price, description} = data
   const {memory, battery} = data.specifications
   const {dimensions, weight, build, sim} = data.specifications.body
@@ -27,8 +26,8 @@ window.onload = async ()=>{
   <span>$${price}</span>
   <span class="c">${company}</span>
   <div class="options">
-      <a href="#">Buy It Now</a>
-      <a href="#">Add to Cart</a>
+      <a href="#" id='buy-button'>Buy It Now</a>
+      <a href="#" id='add-to-cart'>Add to Cart</a>
   </div>`
   info.appendChild(info_div)
   // description
@@ -45,7 +44,7 @@ window.onload = async ()=>{
 
         <li class="body"><span>&nbsp;&nbsp;&nbsp;&nbsp;Body specifications:</span><br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dimensions: ${dimensions}<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weight: ${weight} gr<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weight: ${weight} g<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build: ${build}<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sim: ${sim}
         </li>
