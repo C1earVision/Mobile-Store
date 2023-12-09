@@ -3,8 +3,11 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const userSchema = new mongoose.Schema({
+  img:{
+    type:String
+  },
   name:{
-    type:String,
+    
     required: [true, 'Please provide a valid name'],
     minlength:5,
     maxlength:25,
