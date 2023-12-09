@@ -2,7 +2,6 @@ const CustomAPIError = require('../errors/custom-error')
 const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
 const User = require('../models/users')
-const stripe = require('stripe')
 
 
 const addProduct = async (req,res)=>{
@@ -62,5 +61,4 @@ module.exports = {
   addProductToWishList,
   getWishListProducts,
   deleteWishlistedProduct,
-  createCheckOutSession
 }
