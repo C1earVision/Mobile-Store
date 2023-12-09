@@ -25,7 +25,7 @@ const getAllProducts = async (req, res)=>{
   result = result.skip(skip).limit(limit);
 
   const products = await result 
-  const countAll = Products.estimatedDocumentCount()
+  const countAll = await Products.count()
   res.status(200).json({countAll, count: products.length, products})
 }
 
