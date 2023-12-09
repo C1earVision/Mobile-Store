@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     type:String
   },
   name:{
-    
+    type:String,
     required: [true, 'Please provide a valid name'],
     minlength:5,
     maxlength:25,
