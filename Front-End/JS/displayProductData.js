@@ -1,6 +1,11 @@
 const info = document.getElementById('info')
 const description_parent_element = document.getElementById('description')
 
+const images_holder = document.getElementById('images-holder') 
+const active_image = document.getElementById('active-image')
+images_holder.addEventListener('click',(e)=>{
+    active_image.src = e.target.src
+})
 
 window.onload = async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
@@ -10,8 +15,8 @@ window.onload = async ()=>{
   // specifications:{body:{dimensions, weight, build, sim}}
   // ,display:{type, size},memory,mainCamera:{features, video},
   // selfieCamera:{features_selfie, video_selfie},battery
-  const {name, company, price, description, memory} = data
-  const {battery} = data.specifications
+  const {name, company, price, description} = data
+  const {memory, battery} = data.specifications
   const {dimensions, weight, build, sim} = data.specifications.body
   const {type, size} = data.specifications.display
   const {features, video} = data.specifications.mainCamera
@@ -39,33 +44,33 @@ window.onload = async ()=>{
         <p>Specifications:</p>
 
         <li class="body"><span>&nbsp;&nbsp;&nbsp;&nbsp;Body specifications:</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${dimensions}<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${weight}<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${build}<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${sim}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dimensions: ${dimensions}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weight: ${weight} gr<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build: ${build}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sim: ${sim}
         </li>
 
         <li class="body"><span>&nbsp;&nbsp;&nbsp;&nbsp;Display specifications:</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${type}<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${size}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type: ${type}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size: ${size}
         </li>
 
         <li class="body"><span>&nbsp;&nbsp;&nbsp;&nbsp;Memory specifications:</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memory}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memory} GB<br>
         </li>
 
         <li class="body"><span>&nbsp;&nbsp;&nbsp;&nbsp;Main camera:</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${features}<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${video}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Photo: ${features}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Video: ${video}
         </li>
 
         <li class="body" id="selfie-camera-specs"><span>&nbsp;&nbsp;&nbsp;&nbsp;Selfie camera:</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${features_selfie}<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${video_selfie}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Photo: ${features_selfie}<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Video: ${video_selfie}
         </li>
 
         <li class="body" id="battery-specs"><span>&nbsp;&nbsp;&nbsp;&nbsp;Battery specifications:</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${battery}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${battery} Mah<br>
         </li>
   </div>
   </ul>`
