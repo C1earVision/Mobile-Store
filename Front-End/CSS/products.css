@@ -209,3 +209,7 @@ li a:hover{
 #content-container{
   margin-top: 190px;
 }
+
+#card-container{
+  color: rgb(221,228,16);
+}
