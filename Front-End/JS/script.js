@@ -48,7 +48,7 @@ $(window).on( 'resize', createSlick );
 window.onload = async ()=>{
   const new_phones_slider = document.getElementsByClassName('new-content')
   const new_slider_div = document.createElement('div')
-  const data = await axios.get("https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=createdAt")
+  const data = await axios.get("https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=createdAt&limit=1")
   new_slider_div.innerHTML = 
   `<img src="https://cdn.pixabay.com/photo/2017/09/05/23/07/dog-2719601__340.jpg">
   <div class="desc">
