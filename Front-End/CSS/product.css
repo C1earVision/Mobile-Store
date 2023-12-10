@@ -2,8 +2,8 @@
 
 :root {
     --primary-color: #151414;
-    --secondary-color: #ead34b;
-    --tertiary-color: #ead34b;
+    --secondary-color: rgb(239,211,21);
+    --tertiary-color: rgb(239,211,21);
     --red-color: #d83f26;
     --gray-color: #808080;
     --color-none: none;
