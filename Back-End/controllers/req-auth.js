@@ -5,6 +5,11 @@ const User = require('../models/users')
 
 
 const addProduct = async (req,res)=>{
+  const {admin, userId} = req.user
+  if(!admin){
+    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
+  }
+  req.body.createdBy = userId
   const product = await Products.create(req.body)
   res.status(StatusCodes.CREATED).json({product})
 }
