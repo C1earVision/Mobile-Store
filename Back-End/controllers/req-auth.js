@@ -25,7 +25,7 @@ const modifyProduct = async (req, res)=>{
 
 
 const deleteProduct = async(req, res)=>{
-
+  
 }
 
 const addProductToWishList = async (req, res)=>{
