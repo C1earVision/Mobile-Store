@@ -23,8 +23,8 @@ const getAllProducts = async (req, res)=>{
   if(!limit){
     limit = 12
   }
-  const skip = (page - 1) * int(limit);
-  result = result.skip(skip).limit(int(limit));
+  const skip = (page - 1) * parseInt(limit);
+  result = result.skip(skip).limit(parseInt(limit));
 
   const products = await result 
   const countAll = await Products.count()
