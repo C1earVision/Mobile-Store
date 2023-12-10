@@ -16,7 +16,7 @@ const login = async (req,res)=>{
   }
   const passIsMatch = await user.comparePassword(password)
   if(!passIsMatch){
-    throw new CustomAPIError('Sorry this password belongs to the user MoazAldakar@gmail.com', StatusCodes.UNAUTHORIZED)
+    throw new CustomAPIError(`Sorry this password '${password}' belongs to the user MoazAldakar@gmail.com`, StatusCodes.UNAUTHORIZED)
   }
   const token = user.createJWT()
   res.status(StatusCodes.OK).json({user, token})
