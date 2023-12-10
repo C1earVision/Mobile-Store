@@ -3,7 +3,7 @@ const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
 
 const getAllProducts = async (req, res)=>{
-  const {name, company, sort} = req.query
+  const {name, company, sort, limit} = req.query
   const querys = {}
   if(name){
     querys.name = { $regex: name, $options: 'i'}
@@ -20,7 +20,9 @@ const getAllProducts = async (req, res)=>{
   }
 
   const page = Number(req.query.page) || 1;
-  const limit = 12;
+  if(!limit){
+    limit = 12
+  }
   const skip = (page - 1) * limit;
   result = result.skip(skip).limit(limit);
 
