@@ -15,7 +15,12 @@ const addProduct = async (req,res)=>{
 }
 
 const modifyProduct = async (req, res)=>{
-
+  const {params:{id},user:{admin}} = req
+  if (!admin){
+    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
+  }
+  const product = await Products.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true})
+  res.status(StatusCodes.OK).json({product})
 }
 
 
