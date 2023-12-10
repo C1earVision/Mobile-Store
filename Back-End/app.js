@@ -9,7 +9,7 @@ const reqAuthRoutes = require('./routes/req-auth-routes')
 const auth = require('./routes/auth')
 const noAuthRoutes = require('./routes/no-auth-routes')
 
-//extra security packages
+// extra security packages
 const helmet = require('helmet')
 const cors = require('cors')
 const xss = require('xss-clean')
@@ -25,11 +25,12 @@ app.use(rateLimiter({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, //limit each ip to 100 requests per windowMs
 }))
+
 //routes
 app.use('/api/v1', noAuthRoutes)
 app.use('/api/v1/auth', auth)
 // need to put route auth middle ware
-app.use('/api/v1/user', routeAuth,reqAuthRoutes)
+app.use('/api/v1/user', routeAuth, reqAuthRoutes)
 
 //error handlers
 app.use(errorHandlerMiddleware)
