@@ -7,13 +7,12 @@ const ProductsUsed = require('../models/productsUsed')
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
   const {used} = req.query
-  const user = User.findById({_id:userId}) 
+  const user = await User.findById({_id:userId}) 
   if(!admin){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   req.body.createdBy = userId
   if(used){
-    console.log(user.name)
     req.body.soldBy = user.name
     const product = await ProductsUsed.create(req.body)
     res.status(StatusCodes.CREATED).json({product})
