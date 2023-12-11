@@ -44,6 +44,7 @@ const deleteWishlistedProduct = async (req,res)=>{
 const createCheckOutSession = async (req, res)=>{
   const order = await createOrder(req.cart[0].id);
   req.prefer("return=representation")
+  console.log(order)
   res.json(order);
 }
 
@@ -87,7 +88,7 @@ async function createOrder(id) {
       }
     })
   })
-  .then((response) => console.log(response));
+  .then((response) => response.json());
 }
 
 module.exports = {
