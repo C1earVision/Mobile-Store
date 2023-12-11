@@ -4,6 +4,10 @@ const Products = require('../models/products')
 const User = require('../models/users')
 const paypal = require('@paypal/checkout-server-sdk')
 
+const Environment = process.env.NODE_ENV === 'production' ?
+paypal.core.LiveEnvironment:
+paypal.core.SandboxEnvironment
+const paypalClient = new paypal.core.PayPalHttpClient(new Environment(process.env.CLIENT_ID, process.env.PAYPAL_ACCESS_TOKEN))
 
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
@@ -46,55 +50,46 @@ const createCheckOutSession = async (req, res)=>{
   if (!admin){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
-  console.log(req.cart[0].id)
-  const order = await createOrder(req.body.cart[0].id);
-  console.log(order)
-  res.json(order);
-}
-
-async function createOrder(id) {
-  // create accessToken using your clientID and clientSecret
-  // for the full stack example, please see the Standard Integration guide
-  // https://developer.paypal.com/docs/multiparty/checkout/standard/integrate/
-  const price = await Products.findById({_id:id})
-  console.log("im here")
-  const accessToken = new paypal.core.PayPalHttpClient(paypal.core.SandboxEnvironment(process.env.CLIENT_ID,process.env.PAYPAL_ACCESS_TOKEN));
-  return fetch ("https://api-m.sandbox.paypal.com/v2/checkout/orders", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: JSON.stringify({
-      "purchase_units": [
-        {
-          "amount": {
-            "currency_code": "USD",
-            "value": `${price}`
-          },
-          "reference_id": "d9f80740-38f0-11e8-b467-0ed5f89f718b"
-        }
-      ],
-      "intent": "CAPTURE",
-      "payment_source": {
-        "paypal": {
-          "experience_context": {
-            "payment_method_preference": "IMMEDIATE_PAYMENT_REQUIRED",
-            "payment_method_selected": "PAYPAL",
-            "brand_name": "EXAMPLE INC",
-            "locale": "en-US",
-            "landing_page": "LOGIN",
-            "shipping_preference": "SET_PROVIDED_ADDRESS",
-            "user_action": "PAY_NOW",
-            "return_url": "https://example.com/returnUrl",
-            "cancel_url": "https://example.com/cancelUrl"
+  const product = await Products.findById({_id: req.body.items[0].id})
+  const request = new paypal.orders.OrdersCreateRequest()
+  const price = product.price * item.quantity
+  request.prefer("return=representation")
+  request.requestBody({
+    intent: 'CAPTURE',
+    purchase_units: [
+      {
+        amount: {
+          currency_code: 'USD',
+          value: price,
+          breakdown: {
+            item_total: {
+              currency_code: 'USD',
+              value: price
+            }
           }
+        },
+        items: {
+          name: product.name,
+          unit_amount: {
+            currency_code: 'USD',
+            value: product.price
+          },
+          quantity: req.body.items.quantity
         }
       }
-    })
+    ]
   })
-  .then((response) => response.json());
+  try {
+    const order = await paypalClient.execute(request)
+  } catch (error) {
+    
+  }
 }
+
+
+
+
+
 
 module.exports = {
   addProduct,
