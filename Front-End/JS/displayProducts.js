@@ -120,7 +120,8 @@ search_form.addEventListener('submit',async (e)=>{
 search_form_2.addEventListener('submit',async (e)=>{
   e.preventDefault()
   const search_input = document.getElementById('search-input-2')
-  console.log(search_input.value)
+  var urlParams = new URLSearchParams(window.location.search);
+  const used = Boolean(urlParams.get('used'))
   const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
@@ -128,7 +129,7 @@ search_form_2.addEventListener('submit',async (e)=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    productDiv.innerHTML = `<div onclick='handleClick(event)' class='card' id='${id}'><div class='imgBox'>
     <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
@@ -145,8 +146,7 @@ search_form_2.addEventListener('submit',async (e)=>{
 
 window.onload = async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
-  const used = urlParams.get('used')
-  console.log(used)
+  const used = Boolean(urlParams.get('used'))
   const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?used=${used}`)
   num_of_pages = Math.ceil(data.data.countAll / 12)
   while (products_container.firstChild) {
@@ -155,7 +155,8 @@ window.onload = async ()=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
+    console.log(used)
+    productDiv.innerHTML = `<div onclick="handleClick(event, ${used})" class='card' id='${id}'><div class='imgBox'>
     <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>

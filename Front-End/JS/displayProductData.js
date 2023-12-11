@@ -12,8 +12,10 @@ images_holder.addEventListener('click',(e)=>{
 
 window.onload = async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
-  product_id = urlParams.get('product_id')
-  let data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products/${product_id}`)
+  const product_id = urlParams.get('product_id')
+  const used = Boolean(urlParams.get('used'))
+  console.log(used)
+  let data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products/${product_id}?used=${used}`)
   data = data.data.product
   const {name, company, price, description} = data
   const {memory, battery} = data.specifications

@@ -37,7 +37,7 @@ const getAllProducts = async (req, res)=>{
 let getProduct = async (req, res)=>{
   const {id} = req.params
   const {used} = req.query
-  const product = used === 'true' ? ProductsUsed.findOne({_id:id})  : await Products.findOne({_id:id})
+  const product = used === 'true' ? await ProductsUsed.findOne({_id:id})  : await Products.findOne({_id:id})
   res.status(200).json({product})
 }
 
