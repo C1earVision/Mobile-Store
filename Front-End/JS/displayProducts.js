@@ -20,7 +20,7 @@ pages_div.addEventListener('click',async (e)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
     productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
-    <img src='../media/pokof3.jpeg' alt=''>
+    <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
       <h3>${name}</h3>
@@ -49,7 +49,7 @@ form.addEventListener('click',async (e)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
     productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
-    <img src='../media/pokof3.jpeg' alt=''>
+    <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
       <h3>${name}</h3>
@@ -79,7 +79,7 @@ form_mobile.addEventListener('click',async (e)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
     productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
-    <img src='../media/pokof3.jpeg' alt=''>
+    <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
       <h3>${name}</h3>
@@ -104,7 +104,7 @@ search_form.addEventListener('submit',async (e)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
     productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
-    <img src='../media/pokof3.jpeg' alt=''>
+    <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
       <h3>${name}</h3>
@@ -129,7 +129,7 @@ search_form_2.addEventListener('submit',async (e)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
     productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
-    <img src='../media/pokof3.jpeg' alt=''>
+    <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
       <h3>${name}</h3>
@@ -153,7 +153,7 @@ window.onload = async ()=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
     productDiv.innerHTML = `<div onclick="handleClick(event)" class='card' id='${id}'><div class='imgBox'>
-    <img src='../media/pokof3.jpeg' alt=''>
+    <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
       <h3>${name}</h3>
