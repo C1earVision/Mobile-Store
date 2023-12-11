@@ -47,7 +47,7 @@ const createCheckOutSession = async (req, res)=>{
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   console.log(req.cart[0].id)
-  const order = await createOrder(req.cart[0].id);
+  const order = await createOrder(req.body.cart[0].id);
   console.log(order)
   res.json(order);
 }
