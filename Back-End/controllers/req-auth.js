@@ -190,7 +190,6 @@ module.exports = {
   addProductToWishList,
   getWishListProducts,
   deleteWishlistedProduct,
-  createCheckOutSession,
   order,
   capture
 }
