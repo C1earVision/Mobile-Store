@@ -20,7 +20,15 @@ paypal.Buttons({
       })
     })
     .then((response) => response.json())
-    .then((order) => order.id);
+    .then((order) => order.data.id);
+  },
+
+  onApprove: function (data, actions) {
+    // This function captures the funds from the transaction.
+    return actions.order.create().then(function (details) {
+        // This function shows a transaction success message to your buyer.
+        alert('Transaction completed by ' + details.payer.name.given_name);
+    });
   }
 }).render('#paypal');
     
