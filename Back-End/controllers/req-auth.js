@@ -81,8 +81,10 @@ const createCheckOutSession = async (req, res)=>{
   })
   try {
     const order = await paypalClient.execute(request)
+    console.log(order)
+    res.json({id: order.result.id})
   } catch (error) {
-    
+    res.status(500).json({error: error.message})
   }
 }
 
