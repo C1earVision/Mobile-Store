@@ -42,6 +42,11 @@ const deleteWishlistedProduct = async (req,res)=>{
 }
 
 const createCheckOutSession = async (req, res)=>{
+  const {user:{admin}} = req
+  if (!admin){
+    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
+  }
+  console.log(req.cart[0].id)
   const order = await createOrder(req.cart[0].id);
   req.prefer("return=representation")
   console.log(order)
