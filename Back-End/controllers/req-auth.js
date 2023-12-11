@@ -11,13 +11,12 @@ const addProduct = async (req,res)=>{
   if(!admin){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
+  req.body.createdBy = userId
   if(used){
-    req.body.createdBy = userId
     req.body.soldBy = user.name
     const product = await ProductsUsed.create(req.body)
     res.status(StatusCodes.CREATED).json({product})
   }
-  req.body.createdBy = userId
   const product = await Products.create(req.body)
   res.status(StatusCodes.CREATED).json({product})
 }
