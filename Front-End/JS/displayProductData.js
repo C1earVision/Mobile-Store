@@ -26,7 +26,7 @@ window.onload = async ()=>{
   <span>$${price}</span>
   <span class="c">${company}</span>
   <div class="options">
-      <a href="#" id='buy-button'>Buy It Now</a>
+      <div id='paypal'></div>
       <a href="#" id='add-to-cart'>Add to Cart</a>
   </div>`
   info.appendChild(info_div)
