@@ -7,6 +7,7 @@ const ProductsUsed = require('../models/productsUsed')
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
   const {used} = req.params
+  console.log(used)
   const user = User.findById({_id:userId}) 
   if(!admin){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
