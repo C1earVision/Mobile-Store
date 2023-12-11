@@ -2,7 +2,7 @@ const CustomAPIError = require('../errors/custom-error')
 const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
 const User = require('../models/users')
-
+const ProductsUsed = require('../models/productsUsed')
 
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
@@ -14,7 +14,7 @@ const addProduct = async (req,res)=>{
   if(used){
     req.body.createdBy = userId
     req.body.soldBy = user.name
-    const product = await Products.create(req.body)
+    const product = await ProductsUsed.create(req.body)
     res.status(StatusCodes.CREATED).json({product})
   }
   req.body.createdBy = userId
