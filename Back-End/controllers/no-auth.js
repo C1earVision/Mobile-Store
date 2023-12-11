@@ -1,10 +1,10 @@
-const CustomAPIError = require('../errors/custom-error')
-const {StatusCodes} = require('http-status-codes')
-const Products = require('../models/products')
+let CustomAPIError = require('../errors/custom-error')
+let {StatusCodes} = require('http-status-codes')
+let Products = require('../models/products')
 
-const getAllProducts = async (req, res)=>{
-  const {name, company, sort, limit} = req.query
-  const querys = {}
+let getAllProducts = async (req, res)=>{
+  let {name, company, sort, limit} = req.query
+  let querys = {}
   if(name){
     querys.name = { $regex: name, $options: 'i'}
   }
@@ -19,23 +19,23 @@ const getAllProducts = async (req, res)=>{
     result = result.sort('-createdAt')
   }
 
-  const page = Number(req.query.page) || 1;
+  let page = Number(req.query.page) || 1;
   if(!limit){
     limit = 12
   }
-  const skip = (page - 1) * parseInt(limit);
+  let skip = (page - 1) * parseInt(limit);
   result = result.skip(skip).limit(parseInt(limit));
 
-  const products = await result 
-  const countAll = await Products.count()
+  let products = await result 
+  let countAll = await Products.count()
   res.status(200).json({countAll, count: products.length, products})
 }
 
 // id is inside params object
 // products.findOne({})
-const getProduct = async (req, res)=>{
-  const {id} = req.params
-  const product = await Products.findOne({_id:id})
+let getProduct = async (req, res)=>{
+  let {id} = req.params
+  let product = await Products.findOne({_id:id})
   res.status(200).json({product})
 }
 
