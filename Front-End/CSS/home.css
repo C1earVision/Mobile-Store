@@ -146,7 +146,7 @@ header {
 
 /* Search button hover effect */
 .btn-success:hover {
-    background-color: rgb(1,204,219); /* Change to your desired hover background color */
+    background-color: rgb(221, 228, 16); /* Change to your desired hover background color */
     transform: scale(1.1); /* Adjust the scale factor as needed */
     border-radius: 10rem;
 
