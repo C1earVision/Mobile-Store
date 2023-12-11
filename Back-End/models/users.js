@@ -25,6 +25,9 @@ const userSchema = new mongoose.Schema({
     minlength:5,
     maxlength:25,
   },
+  phone:{
+    type:Number
+  },
   admin:{
     type:Boolean,
     default:false

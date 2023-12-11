@@ -213,6 +213,9 @@ li a:hover{
 #card-container div i{
   color: rgb(221,228,16);
 }
+#search-form-2{
+  height: 40px;
+}
 
 .button button{
   padding: 4px 20px;
