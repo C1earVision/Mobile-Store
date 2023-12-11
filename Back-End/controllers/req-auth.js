@@ -45,7 +45,7 @@ const createCheckOutSession = async (req, res)=>{
   const order = await createOrder(req.cart[0].id);
   req.prefer("return=representation")
   console.log(order)
-  res.json(order);
+  res.json(order.result.id);
 }
 
 async function createOrder(id) {
@@ -53,7 +53,7 @@ async function createOrder(id) {
   // for the full stack example, please see the Standard Integration guide
   // https://developer.paypal.com/docs/multiparty/checkout/standard/integrate/
   const price = await Products.findById({_id:id})
-  const accessToken = process.env.PAYPAL_ACCESS_TOKEN;
+  const accessToken = new paypal.core.PayPalHttpClient(paypal.core.SandboxEnvironment(process.env.CLIENT_ID,process.env.PAYPAL_ACCESS_TOKEN));
   return fetch ("https://api-m.sandbox.paypal.com/v2/checkout/orders", {
     method: "POST",
     headers: {
