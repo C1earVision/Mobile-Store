@@ -12,21 +12,18 @@ const addProduct = async (req,res)=>{
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   req.body.createdBy = userId
-  if(used){
-    req.body.soldBy = user.name
-    const product = await ProductsUsed.create(req.body)
-    res.status(StatusCodes.CREATED).json({product})
-  }
-  const product = await Products.create(req.body)
+  used === 'true' ? req.body.soldBy = user.name : null
+  const product = used === 'true' ? await ProductsUsed.create(req.body) : await Products.create(req.body)
   res.status(StatusCodes.CREATED).json({product})
 }
 
 const modifyProduct = async (req, res)=>{
   const {params:{id},user:{admin}} = req
+  const {used} = req.query
   if (!admin){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
-  const product = await Products.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true})
+  const product = used === 'true' ? await ProductsUsed.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true}) : await Products.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true})
   res.status(StatusCodes.OK).json({product})
 }
 
