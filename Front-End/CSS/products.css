@@ -139,7 +139,7 @@ li a:hover{
 }
 
 .card:hover .imgBox img {
-    max-width: 60%;
+    max-width: 55%;
 }
 
 .card .contentBox {
@@ -170,9 +170,9 @@ li a:hover{
 .card .contentBox .cart {
     top: 100px;
     opacity: 0;
-    padding: 5px;
+    padding: 4px 12px;
     margin-top: 10px;
-    color: #000000;
+    color: rgb(221, 228, 16);
     background: #efd315;
     border-radius: 0.5rem;
     transition: 0.2s;
@@ -192,12 +192,12 @@ li a:hover{
 
 .card .contentBox .cart:hover {
     background: none;
-    color: #ec2600;
+    color: rgb(221, 228, 16);
 }
 
 .card .contentBox .cart:hover .view {
     background: none;
-    color: #ec2600;
+    color: rgb(221, 228, 16);
 }
 
 /* done by elmohamady */
@@ -211,8 +211,13 @@ li a:hover{
 }
 
 #card-container div i{
+  color: black;
+}
+
+.contentBox #cart:hover i{
   color: rgb(221,228,16);
 }
+
 #search-form-2{
   height: 40px;
 }

@@ -12,7 +12,9 @@ let num_of_pages = 1
 
 pages_div.addEventListener('click',async (e)=>{
   const page_num =  e.target.innerHTML
-  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?page=${page_num}`)
+  var urlParams = new URLSearchParams(window.location.search);
+  const used = Boolean(urlParams.get('used'))
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?page=${page_num}&used=${used}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
@@ -25,8 +27,8 @@ pages_div.addEventListener('click',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -35,13 +37,15 @@ pages_div.addEventListener('click',async (e)=>{
 
 form.addEventListener('click',async (e)=>{
   const classes = e.target.classList[0]
+  var urlParams = new URLSearchParams(window.location.search);
+  const used = Boolean(urlParams.get('used'))
   let filter_type = null
   if (classes === 'company'){
     filter_type = 'company'
   }else if (classes === 'date' || classes === 'price'){
     filter_type = 'sort'
   }
-  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?${filter_type}=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?${filter_type}=${e.target.value}&used=${used}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
@@ -54,8 +58,8 @@ form.addEventListener('click',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -65,13 +69,15 @@ form.addEventListener('click',async (e)=>{
 // mobile forms
 form_mobile.addEventListener('click',async (e)=>{
   const classes = e.target.classList[0]
+  var urlParams = new URLSearchParams(window.location.search);
+  const used = Boolean(urlParams.get('used'))
   let filter_type = null
   if (classes === 'company'){
     filter_type = 'company'
   }else if (classes === 'date' || classes === 'price'){
     filter_type = 'sort'
   }
-  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?${filter_type}=${e.target.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?${filter_type}=${e.target.value}&used=${used}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
@@ -84,8 +90,8 @@ form_mobile.addEventListener('click',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -95,8 +101,9 @@ form_mobile.addEventListener('click',async (e)=>{
 search_form.addEventListener('submit',async (e)=>{
   e.preventDefault()
   const search_input = document.getElementById('search-input')
-  console.log(search_input.value)
-  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}`)
+  var urlParams = new URLSearchParams(window.location.search);
+  const used = Boolean(urlParams.get('used'))
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}&used=${used}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
@@ -109,8 +116,8 @@ search_form.addEventListener('submit',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -122,7 +129,7 @@ search_form_2.addEventListener('submit',async (e)=>{
   const search_input = document.getElementById('search-input-2')
   var urlParams = new URLSearchParams(window.location.search);
   const used = Boolean(urlParams.get('used'))
-  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}`)
+  const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products?name=${search_input.value}&used=${used}`)
   while (products_container.firstChild) {
     products_container.removeChild(products_container.firstChild);
   }
@@ -135,8 +142,8 @@ search_form_2.addEventListener('submit',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button
-      <button class='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button
+      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -155,15 +162,14 @@ window.onload = async ()=>{
   data.data.products.map((product)=>{
     const productDiv = document.createElement('div');
     const {name, price, _id:id} = product
-    console.log(used)
     productDiv.innerHTML = `<div onclick="handleClick(event, ${used})" class='card' id='${id}'><div class='imgBox'>
     <img src='../media/pokof3.jpg' alt=''>
     </div>
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
+      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })

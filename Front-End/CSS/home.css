@@ -31,8 +31,9 @@ header {
 }
 .navbar-brand{
     font-size: 2.5rem;
-margin-left: 1.5rem;
-font-weight: bold   ;
+    margin-left: 1.5rem;
+    font-weight: bold;
+    color: rgb(238, 231, 231)
 }
 .offcanvasDarkNavbarLabel{
     font-size: 1rem;
@@ -45,7 +46,7 @@ font-weight: bold   ;
 /* Navbar item styles */
 .nav-item, .nav-link {
     font-size: 1.4rem;
-    transition: 0.5s;
+    transition: 0.3s;
     text-align: center;
     color: #fff; /* white color */
     margin-bottom: 0.5rem;
@@ -54,19 +55,24 @@ font-weight: bold   ;
 /* Navbar link hover effect */
 .nav-link:hover, .nav-link.active:hover {
     font-size: 1.6rem;
-    background-color: #ffffff;
-    border-radius: 5rem;
+    background-color: rgb(221, 228, 16);
+    border-radius: 1rem;
+    padding: 5px;
     color: #151414;
     font-weight: bold;
-letter-spacing: 0.1rem;
+    letter-spacing: 0.1rem;
 }
 
 /* Navbar dropdown link hover effect */
+.nav-item.dropdown{
+    margin-top: 1px;
+}
 .nav-item.dropdown:hover .nav-link {
-    font-size: 1.6rem;
-    background-color: #ffffff;
-    border-radius: 5rem;
+    font-size: 1.4rem;
+    background-color: rgb(221, 228, 16);
+    border-radius: 1rem;
     color: #151414;
+    padding: 7px;
     font-weight: bold;
 }
 
@@ -124,7 +130,7 @@ letter-spacing: 0.1rem;
 
 /* Navbar dropdown item hover effect */
 .dropdown-item:hover {
-    background-color: #ffffff;
+    background-color: rgb(221, 228, 16);
 
     color: #151414;
     font-weight: bold;
@@ -134,12 +140,13 @@ letter-spacing: 0.1rem;
     background-color: rgb(221, 228, 16);
     transition: 0.3s;
     border: none;
+    border-radius: 0;
     color: #000;
 }
 
 /* Search button hover effect */
 .btn-success:hover {
-    background-color: #1c0475; /* Change to your desired hover background color */
+    background-color: rgb(1,204,219); /* Change to your desired hover background color */
     transform: scale(1.1); /* Adjust the scale factor as needed */
     border-radius: 10rem;
 
@@ -333,7 +340,7 @@ p {
 }
 .slider {
     max-width: 1200px;
-    width: 90%;
+    width: 100%;
     margin: 15px auto;
     background: linear-gradient(to right, #185a9d, #43cea2);
     border-radius: 5px;
@@ -490,6 +497,12 @@ p {
     text-decoration: none;
     color: #bcdee7;
     font-weight: bold;
+}
+
+
+
+footer h3, p{
+    color: rgb(63,196,161)
 }
 
 
