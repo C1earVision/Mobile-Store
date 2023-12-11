@@ -87,7 +87,7 @@ async function createOrder(id) {
       }
     })
   })
-  .then((response) => response.json());
+  .then((response) => console.log(response));
 }
 
 module.exports = {
