@@ -1,4 +1,5 @@
 const info = document.getElementById('info')
+const payment = document.getElementById('payment')
 const description_parent_element = document.getElementById('description')
 
 const images_holder = document.getElementById('images-holder') 
@@ -24,12 +25,8 @@ window.onload = async ()=>{
   const info_div = document.createElement('div')
   info_div.innerHTML = `<h1>${name}</h1>
   <span>$${price}</span>
-  <span class="c">${company}</span>
-  <div class="options">
-      <div id='paypal'></div>
-      <a href="#" id='add-to-cart'>Add to Cart</a>
-  </div>`
-  info.appendChild(info_div)
+  <span class="c">${company}</span>`
+  info.insertBefore(info_div ,payment)
   // description
   const description_div = document.createElement('div')
   description_div.innerHTML = 
