@@ -13,6 +13,7 @@ const addProduct = async (req,res)=>{
   }
   req.body.createdBy = userId
   if(used){
+    console.log(user.name)
     req.body.soldBy = user.name
     const product = await ProductsUsed.create(req.body)
     res.status(StatusCodes.CREATED).json({product})
