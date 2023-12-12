@@ -28,6 +28,7 @@ const modifyProduct = async (req, res)=>{
 }
 
 
+// Products.deleteOne
 const deleteProduct = async(req, res)=>{
   
 }
