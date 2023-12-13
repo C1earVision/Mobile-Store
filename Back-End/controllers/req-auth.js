@@ -50,12 +50,12 @@ const addProductToWishList = async (req, res)=>{
 
 const getWishListProducts = async(req, res)=>{
   const {user:{userId}, query:{used}} = req
-  const Products = await products.find({wishListedBy:userId})
-  res.status(StatusCodes.OK).json({Products})
+  const products = used==='true'? await ProductsUsed.find({wishListedBy:userId}) : await Products.find({wishListedBy:userId})
+  res.status(StatusCodes.OK).json({products})
 }
 
 const deleteWishlistedProduct = async (req,res)=>{
-
+  
 }
 
 
