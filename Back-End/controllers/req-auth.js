@@ -55,6 +55,10 @@ const getWishListProducts = async(req, res)=>{
 }
 
 const deleteWishlistedProduct = async (req,res)=>{
+  const {user:{userId}, params:{id}, query:{used}} = req
+  // used or not?
+  const product = used === 'true' ? await ProductsUsed.findByIdAndDelete({_id:id}) : await Products.findByIdAndDelete({_id:id})
+  res.status(StatusCodes.OK).json({product})
   
 }
 
