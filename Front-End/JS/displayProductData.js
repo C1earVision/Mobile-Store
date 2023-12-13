@@ -14,7 +14,6 @@ window.onload = async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
   const used = urlParams.get('used')
-  console.log(used)
   let data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products/${product_id}?used=${used}`)
   data = data.data.product
   const {name, company, price, description, soldBy} = data
@@ -27,8 +26,8 @@ window.onload = async ()=>{
   const info_div = document.createElement('div')
   info_div.innerHTML = `<h1>${name}</h1>
   <span>$${price}</span>
-  <span class="c">Company: ${company}</span>
-  ${soldBy? `<span class="c mb-3">Seller: ${soldBy}</span>`: null}`
+  <span class="c mb-3">Company: ${company}</span>
+  ${soldBy? `<span class="c mb-3">Seller: ${soldBy}</span>`: `<span class="d-none"></span>`}`
   info.insertBefore(info_div ,payment)
   // description
   const description_div = document.createElement('div')
