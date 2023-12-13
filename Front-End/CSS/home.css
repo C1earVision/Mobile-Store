@@ -64,17 +64,22 @@ header {
 }
 
 /* Navbar dropdown link hover effect */
-.nav-item.dropdown{
-    margin-top: 1px;
-}
-.nav-item.dropdown:hover .nav-link {
-    font-size: 1.4rem;
+.nav-item.dropdown {
+    position: relative;
+    top: -7px;
+    font-weight: bold;
     background-color: rgb(221, 228, 16);
     border-radius: 1rem;
-    color: #151414;
     padding: 7px;
-    font-weight: bold;
 }
+.nav-item.dropdown:hover{
+    background-color: rgb(163, 168, 11);
+}
+.nav-item.dropdown a{
+    text-decoration: none;
+    color: #151414;
+}
+
 
 
 #user ul {

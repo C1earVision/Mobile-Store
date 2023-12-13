@@ -3,12 +3,18 @@
 }
 #mobile-filter{
   display: none;
+  background-color:rgb(239,211,21);
 }
 
 #sidebar{
   padding: 10px;
   margin: 0;
   float: left;
+  background-color:rgb(239,211,21);
+}
+
+#content-container h6{
+  font-weight: bolder;
 }
 ul{
   list-style: none;
