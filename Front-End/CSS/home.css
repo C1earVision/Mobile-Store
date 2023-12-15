@@ -503,7 +503,9 @@ p {
 }
 
 
-
+#nav-bar{
+    transition: all 0.5s;
+}
 
 
 
