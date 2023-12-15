@@ -15,5 +15,6 @@ router.route('/admin').post(addProduct)
 router.route('/admin/:id').delete(deleteProduct).patch(modifyProduct)
 router.route('/wishlist/:id').post(addProductToWishList).patch(deleteWishlistedProduct)
 router.route('/wishlist').get(getWishListProducts)
-router.route('/:name').get(getUser)
+router.route('/:id').get(getUser)
+router.route('/:id').patch(getUser)
 module.exports = router

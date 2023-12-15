@@ -67,6 +67,12 @@ const deleteWishlistedProduct = async (req,res)=>{
 }
 
 const getUser = async (req, res)=>{
+  const {id} = req.params
+  const user = await User.findById({_id:id})
+  res.status(StatusCodes.OK).json({user})
+}
+
+const updateProfilePicture = async (req, res)=>{
   const {name} = req.params
   const user = await User.findOne({name})
   res.status(StatusCodes.OK).json({user})
