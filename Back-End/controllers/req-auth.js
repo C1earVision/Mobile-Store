@@ -73,8 +73,8 @@ const getUser = async (req, res)=>{
 }
 
 const updateProfilePicture = async (req, res)=>{
-  const {name} = req.params
-  const user = await User.findOne({name})
+  const {params:{id}, body:{img}} = req
+  const user = await User.findByIdAndUpdate({_id:id}, {img}, { new: true, runValidators: true })
   res.status(StatusCodes.OK).json({user})
 }
 
@@ -93,5 +93,6 @@ module.exports = {
   addProductToWishList,
   getWishListProducts,
   deleteWishlistedProduct,
-  getUser
+  getUser,
+  updateProfilePicture
 }
