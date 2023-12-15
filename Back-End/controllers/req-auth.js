@@ -66,6 +66,12 @@ const deleteWishlistedProduct = async (req,res)=>{
   res.status(StatusCodes.OK).json({product})
 }
 
+const getUser = async (req, res)=>{
+  const {name} = req.params
+  const user = await User.findOne({name})
+  res.status(StatusCodes.OK).json({user})
+}
+
 
                     
 
@@ -81,4 +87,5 @@ module.exports = {
   addProductToWishList,
   getWishListProducts,
   deleteWishlistedProduct,
+  getUser
 }

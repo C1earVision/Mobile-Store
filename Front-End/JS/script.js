@@ -40,7 +40,7 @@ function createSlick(){
       }]
   }); 
 
-} 
+}
 $(window).on( 'resize', createSlick );
 
 
@@ -48,6 +48,7 @@ $(window).on( 'resize', createSlick );
 window.onload = async ()=>{
   const new_phones_slider = document.getElementById('new-content')
   const used_phones_slider = document.getElementById('used-content')
+  console.log('hi')
   const data_new = await axios.get("https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=-createdAt&limit=6")
   const data_used = await axios.get("https://mobilestoreapi-eo3f.onrender.com/api/v1/products?sort=-createdAt&limit=6&used=true")
 
