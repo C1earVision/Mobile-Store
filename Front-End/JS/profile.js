@@ -27,7 +27,7 @@ window.onload = async ()=>{
     </label>
     <div class="profile-info">
         <h1>${user.data.user.name}</h1>
-        <p class="email">Email: ${user.data.user.email}</span></p>
+        <p class="email">Email: ${user.data.user.email}</p>
         <div class="container">
             <a href="#"><button type="button" ><i class="fa-solid fa-mobile-screen-button"></i>  Sell your device</button></a>
         </div>

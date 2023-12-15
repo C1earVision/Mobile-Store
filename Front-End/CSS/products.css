@@ -177,7 +177,7 @@ li a:hover{
     letter-spacing: 1px;
 }
 
-.card .contentBox .cart {
+.card .contentBox .cart, .card .contentBox .view-more {
     top: 100px;
     opacity: 0;
     padding: 4px 12px;
@@ -196,20 +196,20 @@ li a:hover{
 }
 
 
-.card:hover .contentBox .cart {
+.card:hover .contentBox .cart, .card:hover .contentBox .view-more {
     top: 0;
     opacity: 1;
 }
 
-.card .contentBox .cart:hover {
+.card .contentBox .view-more:hover {
     background: none;
     color: rgb(221, 228, 16);
 }
-#cart:hover i{
+.cart:hover #cart{
   color: rgb(221, 228, 16);
 }
 
-.card .contentBox .cart:hover .view {
+.card .contentBox .cart:hover , .card .contentBox .view-more:hover .view {
     background: none;
     color: rgb(221, 228, 16);
 }

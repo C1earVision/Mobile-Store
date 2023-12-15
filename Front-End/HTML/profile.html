@@ -17,26 +17,10 @@
     <div id="particles-js"></div>
     <div id="profile-container">
     </div>
-<div class="cart">
+<div class="cart" id="cart">
         <h2>Your Shopping Cart</h2>
-        <div class="cart-item">
-            <img src="/Front-End/media/logo.jpg" alt="Product 1">
-            <div class="item-details">
-                <h3>Product 1</h3>
-                <p>Price: $19.99</p>
-                <button class="remove-item"> <i class="fa-solid fa-trash-can"></i>  Remove</button>
-            </div>
-        </div>
-        <div class="cart-item">
-            <img src="/Front-End/media/logo.jpg" alt="Product 2">
-            <div class="item-details">
-                <h3>Product 2</h3>
-                <p>Price: $29.99</p>
-                <button class="remove-item"> <i class="fa-solid fa-trash-can"></i>  Remove</button>
-            </div>
-        </div>
-        <div class="cart-total">
-            <p>Total: $49.98</p>
+        <div class="cart-total" id="cart-total">
+            <p id="total-price"></p>
             <button class="checkout-btn"> <i class="fa-solid fa-cart-shopping"></i>  Checkout</button>
         </div>
 </div>
@@ -59,6 +43,7 @@
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../JS/profile.js"></script>
+    <script src="../JS/displayCartData.js"></script>
 </body>
 
 </html>

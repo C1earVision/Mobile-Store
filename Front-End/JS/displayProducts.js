@@ -27,8 +27,8 @@ pages_div.addEventListener('click',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart'><i class='fa-solid fa-cart-shopping' id='cart'></i></button>
+      <button class='view-more'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -58,8 +58,8 @@ form.addEventListener('click',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart'><i class='fa-solid fa-cart-shopping' id='cart'></i></button>
+      <button class='view-more'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -90,8 +90,8 @@ form_mobile.addEventListener('click',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart'><i class='fa-solid fa-cart-shopping' id='cart'></i></button>
+      <button class='view-more'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -116,8 +116,8 @@ search_form.addEventListener('submit',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button>
-      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart'><i class='fa-solid fa-cart-shopping' id='cart'></i></button>
+      <button class='view-more'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -142,8 +142,8 @@ search_form_2.addEventListener('submit',async (e)=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping'></i></button
-      <button class='cart' id='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart'><i class='fa-solid fa-cart-shopping' id='cart'></i></button
+      <button class='view-more'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
@@ -168,8 +168,8 @@ window.onload = async ()=>{
     <div class='contentBox'>
       <h3>${name}</h3>
       <h2 class='price'>${price}.<small>99</small> $</h2>
-      <button class='cart' id='cart'><i class='fa-solid fa-cart-shopping' id='cart'></i></button>
-      <button class='cart'><a href='#' class='view'>View More</a></button>
+      <button class='cart'><i class='fa-solid fa-cart-shopping' id='cart'></i></button>
+      <button class='view-more'><a href='#' class='view'>View More</a></button>
     </div></div>`
     products_container.appendChild(productDiv)
   })
