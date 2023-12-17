@@ -452,3 +452,9 @@ input[type="file"] {
     background-color: #fff;
 }
 
+@media screen and (width <= 768px) {
+    #nav-bar{
+        display: block;
+        position:sticky;
+    }
+}
