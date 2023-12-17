@@ -14,6 +14,7 @@ window.onload = async ()=>{
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/${userId}`,
 
   })
+  localStorage.setItem("img", user.data.user.img);
   const profile_content = document.createElement('div')
   profile_content.classList.add("profile-content")
   profile_content.innerHTML = `
