@@ -64,17 +64,22 @@ header {
 }
 
 /* Navbar dropdown link hover effect */
-.nav-item.dropdown{
-    margin-top: 1px;
-}
-.nav-item.dropdown:hover .nav-link {
-    font-size: 1.4rem;
+.nav-item.dropdown {
+    position: relative;
+    top: -7px;
+    font-weight: bold;
     background-color: rgb(221, 228, 16);
     border-radius: 1rem;
-    color: #151414;
     padding: 7px;
-    font-weight: bold;
 }
+.nav-item.dropdown:hover{
+    background-color: rgb(163, 168, 11);
+}
+.nav-item.dropdown a{
+    text-decoration: none;
+    color: #151414;
+}
+
 
 
 #user ul {
@@ -335,14 +340,12 @@ p {
     margin: 30px 0 0;
     padding: 0;
 } 
-p {
-    color: #072f5f;
-}
+
 .slider {
     max-width: 1200px;
     width: 100%;
     margin: 15px auto;
-    background: linear-gradient(to right, #185a9d, #43cea2);
+    background: linear-gradient(to right, #1F1C2C, #928DAB);
     border-radius: 5px;
     padding: 15px 0;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); 
@@ -500,10 +503,10 @@ p {
 }
 
 
-
-footer h3, p{
-    color: rgb(63,196,161)
+#nav-bar{
+    transition: all 0.5s;
 }
+
 
 
 

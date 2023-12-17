@@ -66,6 +66,18 @@ const deleteWishlistedProduct = async (req,res)=>{
   res.status(StatusCodes.OK).json({product})
 }
 
+const getUser = async (req, res)=>{
+  const {id} = req.params
+  const user = await User.findById({_id:id})
+  res.status(StatusCodes.OK).json({user})
+}
+
+const updateProfilePicture = async (req, res)=>{
+  const {params:{id}, body:{img}} = req
+  const user = await User.findByIdAndUpdate({_id:id}, {img}, { new: true, runValidators: true })
+  res.status(StatusCodes.OK).json({user})
+}
+
 
                     
 
@@ -81,4 +93,6 @@ module.exports = {
   addProductToWishList,
   getWishListProducts,
   deleteWishlistedProduct,
+  getUser,
+  updateProfilePicture
 }
