@@ -28,7 +28,7 @@ const getAllProducts = async (req, res)=>{
   result = result.skip(skip).limit(parseInt(limit));
 
   const products = await result 
-  const countAll = used ==='true' ? await ProductsUsed.count() : await Products.count()
+  const countAll = used ==='true' ? await ProductsUsed.countDocuments() : await Products.countDocuments()
   res.status(200).json({countAll, count: products.length, products})
 }
 
