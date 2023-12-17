@@ -66,6 +66,7 @@ const deleteWishlistedProduct = async (req,res)=>{
   res.status(StatusCodes.OK).json({product})
 }
 
+// easy
 const getUser = async (req, res)=>{
   const {id} = req.params
   const user = await User.findById({_id:id})
