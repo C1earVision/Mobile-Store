@@ -58,6 +58,30 @@ h6 {
     border-width: 5px;
 }
 
+#Post {
+    transition-property: all;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    width: 15%;
+    padding-left: 10px;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+}
+
+#Post:hover{
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in;
+    width: 20%;
+    font-weight: 500;
+    background-color: rgb(255, 255, 255);
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    border-color: rgb(255, 255, 255);
+    border-width: 2px;
+}
+
 .clickable {
     filter: invert(.5);
     transition-duration: 150ms;
@@ -69,6 +93,8 @@ h6 {
     transition-duration: 200ms;
     transform: scale(1.2) rotate(72deg);
 }
+
+
 
 @media only screen and (max-width: 768px) {
     section {
