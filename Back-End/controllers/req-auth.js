@@ -4,6 +4,11 @@ const Products = require('../models/products')
 const User = require('../models/users')
 const ProductsUsed = require('../models/productsUsed')
 
+
+const addComment = async (req,res)=>{
+  
+}
+
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
   const {used} = req.query
@@ -95,5 +100,6 @@ module.exports = {
   getWishListProducts,
   deleteWishlistedProduct,
   getUser,
-  updateProfilePicture
+  updateProfilePicture,
+  addComment
 }
