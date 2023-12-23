@@ -4,9 +4,24 @@ const Products = require('../models/products')
 const User = require('../models/users')
 const ProductsUsed = require('../models/productsUsed')
 
-
 const addComment = async (req,res)=>{
+  const {user:{userId, name},query:{used},params:{id}} = req
+  const content = req.body.content // the comment btw
+  const user_stars = req.body.stars
   
+  let product = used === 'true' ? await ProductsUsed.findOne({_id:id})  : await Products.findOne({_id:id})
+  if(product.comments.some(comment => comment.userId === userId)){
+    throw new CustomAPIError('Spam Detector: User has already made a review before', StatusCodes.BAD_REQUEST)
+  }
+
+  //? O(1) Algorithm to get Average Stars
+  let reviews = product.comments.length
+  let avg = product.stars
+  let sum = reviews*avg //? avg = sum/reviews so sum = avg * reviews
+
+  // Update the Avg Stars and comments
+  await product.updateOne({$set: { stars: (sum+user_stars)/(reviews+1) } ,$push: {comments:{userId, name, content, user_stars}} }, { new: true, runValidators: true }) 
+  res.status(StatusCodes.CREATED).json({product})
 }
 
 const addProduct = async (req,res)=>{
@@ -83,14 +98,6 @@ const updateProfilePicture = async (req, res)=>{
   const user = await User.findByIdAndUpdate({_id:id}, {img}, { new: true, runValidators: true })
   res.status(StatusCodes.OK).json({user})
 }
-
-
-                    
-
-
-
-
-
 
 module.exports = {
   addProduct,
