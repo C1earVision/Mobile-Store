@@ -21,6 +21,8 @@ async function addToCart(e){
   
 }
 
+
+// token exists in localStorage.getItem('token')
 window.onload = async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
