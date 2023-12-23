@@ -62,7 +62,7 @@ const deleteWishlistedProduct = async (req,res)=>{
   }
   const index = product.wishListedBy.indexOf(userId);
   product.wishListedBy.splice(index, 1)
-  product = used === 'true'? await ProductsUsed.findByIdAndUpdate({_id:productId},{wishListedBy: product.wishListedBy}, { new: true, runValidators: true }) : await Products.findByIdAndUpdate({_id:productId},{wishListedBy: product.wishListedBy}, { new: true, runValidators: true })
+  product = used === 'true' ? await ProductsUsed.findByIdAndUpdate({_id:productId},{wishListedBy: product.wishListedBy}, { new: true, runValidators: true }) : await Products.findByIdAndUpdate({_id:productId},{wishListedBy: product.wishListedBy}, { new: true, runValidators: true })
   res.status(StatusCodes.OK).json({product})
 }
 
