@@ -1,4 +1,5 @@
 const {
+  addComment,
   addProduct,
   deleteProduct,
   modifyProduct,
@@ -13,6 +14,7 @@ const {
 const express = require('express')
 const router = express.Router()
 
+router.route('/comment/:id').post(addComment)
 router.route('/admin').post(addProduct)
 router.route('/admin/:id').delete(deleteProduct).patch(modifyProduct)
 router.route('/wishlist/:id').post(addProductToWishList).patch(deleteWishlistedProduct)
