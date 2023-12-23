@@ -13,6 +13,7 @@ const addComment = async (req,res)=>{
   if(product.comments.some(comment => comment.userId === userId)){
     throw new CustomAPIError('Spam Detector: User has already made a review before', StatusCodes.BAD_REQUEST)
   }
+  
 
   //? O(1) Algorithm to get Average Stars
   let reviews = product.comments.length
