@@ -3,7 +3,6 @@ const top_section = document.getElementById('scroll')
 const navObserver = new IntersectionObserver((entries, observer)=>{
   const entry = entries[0];
   if(!entry.isIntersecting){
-    
     nav_bar.classList.add('bg-dark')
   }else{
     nav_bar.classList.remove('bg-dark')
@@ -59,6 +58,22 @@ $(window).on( 'resize', createSlick );
 
 
 
+async function addToCart(e, used){
+  const product_id = e.target.id
+  console.log(used)
+  const product = await axios
+  .request({
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    method: "POST",
+    url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist/${product_id}?used=${used}`,
+  }).then((res)=>alert('Product added successfully')).catch((res)=>alert(res.response.data.msg))
+  
+}
+
+
+
 window.onload = async ()=>{
   const new_phones_slider = document.getElementById('new-content')
   const used_phones_slider = document.getElementById('used-content')
@@ -72,7 +87,7 @@ window.onload = async ()=>{
     <div class="desc">
       <h2>${product.name}</h2>
       <p>$${product.price}</p>
-      <a href="#" class="btn">Add to Cart</a>
+      <a onclick="addToCart(event, false)" href="#" class="btn" id="${product._id}">Add to Cart</a>
     </div>`
     new_phones_slider.appendChild(new_slider_div)
   })
@@ -84,7 +99,7 @@ window.onload = async ()=>{
     <div class="desc">
       <h2>${product.name}</h2>
       <p>$${product.price}</p>
-      <a href="#" class="btn">Add to Cart</a>
+      <a onclick="addToCart(event, true)" href="#" class="btn" id="${product._id}">Add to Cart</a>
     </div>`
     used_phones_slider.appendChild(used_slider_div)
   })

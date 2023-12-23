@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+}
+
 section {
     padding: 2%;
     max-width: 70%;
@@ -13,7 +17,6 @@ section {
     display: flex;
     flex-direction: column;
     width: 100%;
-    
     border-radius: 20px;
     background-color: rgb(238, 238, 238);
     padding: 20px;
@@ -25,7 +28,7 @@ section div div{
     flex-direction: row;
 }
 
-#add-to-cart{
+#add-to-cart, #buy-button{
     transition-property: all;
     transition-duration: 200ms;
     transition-timing-function: ease-out;
@@ -42,11 +45,8 @@ section div div{
     border-radius: 25px;
 }
 
-h6 {
-    margin: 3px 10px 50px;
-}
 
-#add-to-cart:hover{
+#add-to-cart:hover, #buy-button:hover{
     transition-property: all;
     transition-duration: 200ms;
     transition-timing-function: ease-in;
@@ -103,4 +103,8 @@ h6 {
         align-items: center;
         max-width: 90%
     }
+}
+
+#images-holder img{
+    cursor: pointer;
 }

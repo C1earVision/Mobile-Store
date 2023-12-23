@@ -42,7 +42,7 @@ const addProductToWishList = async (req, res)=>{
   const {params:{id}, user:{userId}, query:{used}} = req
   let product = used === 'true' ? await ProductsUsed.findOne({_id:id}) : await Products.findOne({_id:id})
   if(product.wishListedBy.includes(userId)){
-    throw new CustomAPIError('user already has the product in library', StatusCodes.BAD_REQUEST)
+    throw new CustomAPIError('user already has the product in cart', StatusCodes.BAD_REQUEST)
   }
   product = used === 'true' ? await ProductsUsed.findOneAndUpdate({_id:id},{ $push: {wishListedBy:userId} }, { new: true, runValidators: true }) :await Products.findOneAndUpdate({_id:id},{ $push: {wishListedBy:userId} }, { new: true, runValidators: true })
   res.status(StatusCodes.OK).json({product})
@@ -58,11 +58,11 @@ const deleteWishlistedProduct = async (req,res)=>{
   const {params:{id:productId}, query:{used}, user:{userId}} = req
   let product = used === 'true' ? await ProductsUsed.findOne({_id:productId})  : await Products.findOne({_id:productId})
   if(!product.wishListedBy.includes(userId)){
-    throw new CustomAPIError('this product doesnt exist in your library', StatusCodes.BAD_REQUEST)
+    throw new CustomAPIError('this product doesnt exist in your cart', StatusCodes.BAD_REQUEST)
   }
   const index = product.wishListedBy.indexOf(userId);
   product.wishListedBy.splice(index, 1)
-  product = await Products.findByIdAndUpdate({_id:productId},{wishListedBy: product.wishListedBy}, { new: true, runValidators: true })
+  product = used === 'true'? await ProductsUsed.findByIdAndUpdate({_id:productId},{wishListedBy: product.wishListedBy}, { new: true, runValidators: true }) : await Products.findByIdAndUpdate({_id:productId},{wishListedBy: product.wishListedBy}, { new: true, runValidators: true })
   res.status(StatusCodes.OK).json({product})
 }
 
