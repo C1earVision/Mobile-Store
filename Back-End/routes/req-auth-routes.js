@@ -6,7 +6,8 @@ const {
   getWishListProducts,
   deleteWishlistedProduct,
   getUser,
-  updateProfilePicture
+  updateProfilePicture,
+  addComment
 } = require('../controllers/req-auth')
 
 const express = require('express')
@@ -18,4 +19,5 @@ router.route('/wishlist/:id').post(addProductToWishList).patch(deleteWishlistedP
 router.route('/wishlist').get(getWishListProducts)
 router.route('/:id').get(getUser)
 router.route('/:id').patch(updateProfilePicture)
+router.route('/comment/:id').post(addComment)
 module.exports = router

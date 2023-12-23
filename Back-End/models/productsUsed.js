@@ -103,6 +103,10 @@ const ProductsUsedSchema = new mongoose.Schema({
     type:Array,
     default: []
   },
+  comments: {
+    type: Array,
+    default: []
+  },
   used:{
     type:Boolean,
     default: true

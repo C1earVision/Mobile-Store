@@ -12,7 +12,7 @@ const getAllProducts = async (req, res)=>{
   if(company){
     querys.company = company
   }
-  let result = used ==='true' ?  ProductsUsed.find(querys) : Products.find(querys)
+  let result = used === 'true' ?  ProductsUsed.find(querys) : Products.find(querys)
   if(sort){
     sortList = sort.split(',').join(' ')
     result = result.sort(sortList)

@@ -90,6 +90,14 @@ const ProductsSchema = new mongoose.Schema({
       required: [true, 'Please provide the power of the battery']
     }
   },
+  stars:{
+    type: Number,
+    default: 0.0
+  },
+  comments: {
+    type: Array,
+    default: []
+  },
   createdAt:{
     type:Date,
     default: Date.now()
