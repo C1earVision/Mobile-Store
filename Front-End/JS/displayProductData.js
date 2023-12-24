@@ -8,6 +8,7 @@ let stars = document.querySelectorAll(".clickable");
 
 let selectedStars = 0
 
+// Sending a request to the server
 post.addEventListener('click', async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
@@ -26,10 +27,16 @@ post.addEventListener('click', async ()=>{
     },
     method: "POST",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/comment/${product_id}?used=${used}`,
-  }).then((res)=>console.log(res)).catch((res)=>alert(res.response.data.msg))
+    // If Success
+  }).then((res)=>{
+    alert("Comment was posted successfully")
+    // If Error
+  }).catch((res)=>{
+    alert(res.response.data.msg)
+  })
 })
 
-
+// to Animate the stars
 stars.forEach((star, index) => {
   star.addEventListener("mouseenter", function() {
     // to Highlight stars before hovered star
@@ -37,12 +44,20 @@ stars.forEach((star, index) => {
       if (stars[i].style.filter == `invert(0)`){continue}
       stars[i].style.filter = `invert(.3)`;
     }
-    // to Greyout stars after hoverted star
+    // to Greyout stars after hovered star
     for (let i=index+1;i<stars.length;i++){
       if (stars[i].style.filter == `invert(0)`){break}
       stars[i].style.filter = `invert(.5)`;
     }
   });
+
+  // to Grey out every thing that isn't selected
+  star.addEventListener("mouseleave", function(){
+    for (let i=0;i<stars.length;i++){
+      if (stars[i].style.filter == `invert(0)`){continue}
+      stars[i].style.filter = `invert(.5)`;
+    }
+  })
   star.addEventListener("click", function(){
     selectedStars = index+1
     // to Highlight stars before selected star
@@ -75,6 +90,7 @@ async function addToCart(e){
   }).then((res)=>alert('Product added successfully')).catch((res)=>alert(res.response.data.msg))
   
 }
+
 
 // token exists in localStorage.getItem('token')
 window.onload = async ()=>{
@@ -127,7 +143,7 @@ window.onload = async ()=>{
     <h5>$${price}</h5>
   </div>
   <div class="d-flex flex-column">
-    <h7>${stars}/5 Stars | 100 Reviews</h7>
+    <h7>${stars}/5 Stars | ${comments.length} Reviews</h7>
     <h7>Company: ${company}</h7>
     <h7>${used === 'true' ? `Seller: ${soldBy}`:''}</h7>
   </div>
