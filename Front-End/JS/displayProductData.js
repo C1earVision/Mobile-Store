@@ -31,10 +31,8 @@ post.addEventListener('click', async ()=>{
     },
     method: "POST",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/comment/${product_id}?used=${used}`,
-    // If Success
   }).then((res)=>{
     location.reload()
-    // If Error
   }).catch((res)=>{
     alert(res.response.data.msg)
   })
@@ -91,7 +89,7 @@ async function addToCart(e){
     },
     method: "POST",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist/${product_id}?used=${used}`,
-  }).then((res)=>alert('Product added successfully')).catch((res)=>alert(res.response.data.msg))
+  }).then((res)=>alert('Product added to cart successfully')).catch((res)=>alert(res.response.data.msg))
   
 }
 
