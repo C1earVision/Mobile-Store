@@ -2,6 +2,15 @@
     margin: 0;
 }
 
+p{
+    margin-top: 10px;
+}
+
+#stars{
+    padding-top: 3px;
+    padding-left: 10px;
+}
+
 section {
     padding: 2%;
     max-width: 70%;
@@ -29,6 +38,10 @@ section div div{
 }
 
 #add-to-cart, #buy-button{
+    border-radius: 25px;
+    border-bottom: 0;
+    border-right: 0;
+    box-shadow: 20px;
     transition-property: all;
     transition-duration: 200ms;
     transition-timing-function: ease-out;
@@ -50,12 +63,10 @@ section div div{
     transition-property: all;
     transition-duration: 200ms;
     transition-timing-function: ease-in;
-    font-weight: 500;
     background-color: rgb(255, 255, 255);
     font-weight: 700;
     color: rgb(0, 0, 0);
     border-color: rgb(255, 255, 255);
-    border-width: 5px;
 }
 
 #Post {
