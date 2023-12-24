@@ -113,7 +113,6 @@ window.onload = async ()=>{
   let comments = data.comments
   if (comments.length > 0){
     comments.forEach(function(item){
-      console.log(item.name, item.content, item.user_stars)
       let clone = document.createElement('div');
       clone.classList.add('Card');
       clone.id = 'commentCard';
@@ -126,7 +125,6 @@ window.onload = async ()=>{
       </div>
     </div>
     <p>${item.content}</p>`;
-      console.log(clone)
       commentsContainer.appendChild(clone)
     })
   }
