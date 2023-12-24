@@ -96,7 +96,7 @@ const addComment = async (req,res)=>{
   let sum = reviews*avg //? avg = sum/reviews so sum = avg * reviews
 
   // Update the Avg Stars and comments
-  await product.updateOne({$set: { stars: (sum+user_stars)/(reviews+1) } ,$push: {comments:{userId, name, content, user_stars}} }, { new: true, runValidators: true }) 
+  product = await product.updateOne({$set: { stars: (sum+user_stars)/(reviews+1) } ,$push: {comments:{userId, name, content, user_stars}} }, { new: true, runValidators: true }) 
   res.status(StatusCodes.CREATED).json({product})
 }
 

@@ -1,5 +1,47 @@
 const product_parent_element = document.getElementById('product')
 
+const review = document.getElementById("write-review")
+const post = document.getElementById("Post")
+
+let stars = document.querySelectorAll(".clickable");
+
+let selectedStars = 0
+
+post.addEventListener('click', async ()=>{
+  var urlParams = new URLSearchParams(window.location.search);
+  const product_id = urlParams.get('product_id')
+  const used = urlParams.get('used')
+  console.log(selectedStars)
+
+  const product = await axios.
+  request({
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+    data: {
+      content: review.value,
+      stars: selectedStars
+    },
+    method: "POST",
+    url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/comment/${product_id}?used=${used}`,
+  }).then((res)=>console.log(res)).catch((res)=>alert(res.response.data.msg))
+})
+
+
+stars.forEach((star, index) => {
+  star.addEventListener("mouseenter", function() {
+    selectedStars = index+1
+
+    // to Highlight stars before selected star
+    for (let i = 0; i <= index; i++) {
+      stars[i].style.filter = `invert(0)`;
+    }
+    // to Greyout stars after selected star
+    for (let i=index+1;i<stars.length;i++){
+      stars[i].style.filter = `invert(.5)`;
+    }
+  });
+});
 
 function switchImage(e){
   const active_image = document.getElementById('active-image')
@@ -20,6 +62,7 @@ async function addToCart(e){
   }).then((res)=>alert('Product added successfully')).catch((res)=>alert(res.response.data.msg))
   
 }
+
 
 
 // token exists in localStorage.getItem('token')
