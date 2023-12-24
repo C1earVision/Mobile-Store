@@ -11,6 +11,7 @@ form.addEventListener('submit', async function(e){
     .catch(err=>console.log(err))
     localStorage.setItem("token", user.data.token);
     localStorage.setItem("admin", user.data.user.admin);
+    localStorage.setItem("name", user.data.user.name);
     localStorage.setItem("id", user.data.user._id); 
     document.location = '/Front-End/index.html'
 })

@@ -153,7 +153,9 @@ window.onload = async ()=>{
   <!-- Add to cart -->
   <hr/>
   <input class="mb-2" type="button" id="buy-button" value="Buy Now">
-  <input onclick="addToCart(event)" type="button" id="add-to-cart" value="Add To Cart">
+  <input class="mb-2" onclick="addToCart(event)" type="button" id="add-to-cart" value="Add To Cart">
+  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input class="mb-2" onclick="" type="button" id="modify-product" value="Modify Product" />':''}
+  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input onclick="" type="button" id="delete-product" value="Delete Product" />':''}
   <div class="mt-5 d-flex flex-column">
     <h5>Description: </h5>
     <h6 class="ms-4">${description}</h6>
