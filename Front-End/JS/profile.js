@@ -30,7 +30,7 @@ window.onload = async ()=>{
         <h1>${user.data.user.name}</h1>
         <p class="email">Email: ${user.data.user.email}</p>
         <div class="container">
-            <a href="#"><button type="button" ><i class="fa-solid fa-mobile-screen-button"></i>  Sell your device</button></a>
+            <a href="./AddProductPage.html?used=true"><button type="button" ><i class="fa-solid fa-mobile-screen-button"></i>  Sell your device</button></a>
         </div>
         <div class="container">
             ${localStorage.getItem('admin') === 'true' ? '<a href="./AddProductPage.html"><button type="button" ><i class="fa-solid fa-plus"></i>  Add Product</button></a>' : ''}

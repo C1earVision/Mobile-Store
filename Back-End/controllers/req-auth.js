@@ -8,7 +8,7 @@ const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
   const {used} = req.query
   const user = await User.findById({_id:userId}) 
-  if(!admin){
+  if(!admin && !used){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   req.body.createdBy = userId
