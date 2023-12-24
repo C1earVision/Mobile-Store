@@ -10,6 +10,10 @@ let selectedStars = 0
 
 // Sending a request to the server
 post.addEventListener('click', async ()=>{
+  if(!localStorage.getItem('token')){
+    alert('Must be logged in to post comment')
+    return;
+  }
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
   const used = urlParams.get('used')
@@ -29,7 +33,7 @@ post.addEventListener('click', async ()=>{
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/comment/${product_id}?used=${used}`,
     // If Success
   }).then((res)=>{
-    alert("Comment was posted successfully")
+    location.reload()
     // If Error
   }).catch((res)=>{
     alert(res.response.data.msg)
