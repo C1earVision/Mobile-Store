@@ -110,9 +110,77 @@
         </div>
       </nav>
   </header>
-  <section>
-    
-  </section>
+  <div id="scroll"></div>
+  <div class="mt-5 container-fluid p-5 d-flex flex-row"> 
+    <form class="d-flex flex-row gap-5" id="add-form">
+      <div class="d-flex flex-column text-light gap-2">
+        <h1 class="heading">Add Product</h1>
+        <label for="name">Product Name</label>
+        <input type="text" name="name" id="name_input">
+        <label for="price">Product Price</label>
+        <input type="number" name="price" id="price_input">
+        <label for="company">Product Company</label>
+        <input type="text" name="company" id="company_input">
+        <label for="description">Product Description</label>
+        <textarea name="description" id="description_input" cols="30" rows="10"></textarea>
+      </div>
+      <div class="d-flex flex-column gap-2" id="second_col">
+        <div class="text-white d-flex flex-column gap-2">
+          <h3 for="img">Product Images</>
+          <div class="d-flex flex-row gap-3">
+            <div id="drop-area">
+              <input type="file" name="img_1" id="file-input" />
+              <h6 class="message">Drag &amp; Drop your image here<br />or click to select</h6>
+            </div>
+            <div id="drop-area">
+              <input type="file" name="img_2" id="file-input" />
+              <h6 class="message">Drag &amp; Drop your image here<br />or click to select</h6>
+            </div>
+            <div id="drop-area">
+              <input type="file" name="img_3" id="file-input" />
+              <h6 class="message">Drag &amp; Drop your image here<br />or click to select</h6>
+            </div>
+          </div>
+        </div>
+        <div class="text-white d-flex flex-row gap-5">
+          <div class="d-flex flex-column">
+            <h3>Product Specifications</h3>
+            <label for="dimensions">Dimensions</label>
+            <input type="text" name="dimensions" id="dimensions_input">
+            <label for="weight">Weight</label>
+            <input type="number" name="weight" id="weight_input">
+            <label for="build">Build</label>
+            <input type="text" name="build" id="build_input">
+            <label for="sim">Sim</label>
+            <input type="text" name="sim" id="sim_input">
+          </div>
+          <div class="d-flex flex-column">
+            <h3>Display</h3>
+            <label for="d-type">Display Type</label>
+            <input type="text" name="d-type" id="d-type_input">
+            <label for="d-size">Display Size</label>
+            <input type="text" name="d-size" id="d-size_input">
+            <label for="battery">Battery</label>
+            <input type="number" name="battery" id="battery_input">
+            <label for="memory">Memory</label>
+            <input type="number" name="memory" id="memory_input">
+          </div>
+          <div class="d-flex flex-column">
+            <h3>Camera</h3>
+            <label for="cam_features">Camera Features</label>
+            <input type="text" name="cam_features" id="cam_features_input">
+            <label for="v_quality">Vedio Quality</label>
+            <input type="text" name="v_quality" id="v_quality_input">
+            <label for="cam_features_selfie">Selfie Camera Features</label>
+            <input type="text" name="cam_features_selfie" id="cam_features_selfie_input">
+            <label for="v_quality_selfie">Selfie Vedio Quality</label>
+            <input type="text" name="v_quality_selfie" id="v_quality_selfie_input">
+          </div>
+        </div>
+        <input type="submit" id="submit_btn" value="Add Product">
+      </div>
+    </form>
+  </div>
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- typed js-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -120,5 +188,6 @@
     <script src="../js/script.js" ></script>
     <script src="../JS/handleLogInStatus.js" ></script>
     <script src="../JS/changeProfilePicture.js"></script>
+    <script src="../JS/addProduct.js"></script>
 </body>
 </html>

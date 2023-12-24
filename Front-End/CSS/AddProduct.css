@@ -1,0 +1,72 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.heading{
+  color: rgb(221,228,16);
+}
+
+#name_input, #battery_input, #v_quality_selfie_input, #cam_features_selfie_input, #v_quality_input, #cam_features_input, #memory_input, #d-size_input, #d-type_input, #sim_input, #build_input, #weight_input, #dimensions_input, #price_input, #company_input, #description_input{ 
+  outline: none;
+  border-color: rgb(221,228,16);
+  padding: 3px;
+  border-radius: 7px;
+  width: 320px;
+}
+
+#second_col{
+  margin-top: 65px;
+}
+
+
+#drop-area {
+  color: black;
+  width: 340px;
+  height: 180px;
+  border: 2px dashed rgb(221,228,16);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#file-input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#drop-area:hover {
+  background-color: #f9f9f9;
+}
+
+#drop-area .message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#submit_btn{
+  background-color: rgb(221,228,16);
+  padding: 5px;
+  border-radius: 7px;
+  outline: none;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+#submit_btn:hover{
+  background-color: rgb(209, 216, 11);
+}
+#submit_btn:active{
+  background-color: rgb(176, 181, 8);
+}
