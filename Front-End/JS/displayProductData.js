@@ -1,5 +1,6 @@
 const product_parent_element = document.getElementById('product')
-
+const commentsContainer = document.getElementById('commentsContainer')
+const commentCard = document.getElementById('commentCard')
 const review = document.getElementById("write-review")
 const post = document.getElementById("Post")
 
@@ -11,8 +12,9 @@ post.addEventListener('click', async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
   const used = urlParams.get('used')
-  console.log(selectedStars)
-
+  if (selectedStars == 0 ){
+    return alert("Please give a rating")
+  }
   const product = await axios.
   request({
     headers: {
@@ -30,8 +32,19 @@ post.addEventListener('click', async ()=>{
 
 stars.forEach((star, index) => {
   star.addEventListener("mouseenter", function() {
+    // to Highlight stars before hovered star
+    for (let i = 0; i <= index; i++) {
+      if (stars[i].style.filter == `invert(0)`){continue}
+      stars[i].style.filter = `invert(.3)`;
+    }
+    // to Greyout stars after hoverted star
+    for (let i=index+1;i<stars.length;i++){
+      if (stars[i].style.filter == `invert(0)`){break}
+      stars[i].style.filter = `invert(.5)`;
+    }
+  });
+  star.addEventListener("click", function(){
     selectedStars = index+1
-
     // to Highlight stars before selected star
     for (let i = 0; i <= index; i++) {
       stars[i].style.filter = `invert(0)`;
@@ -40,7 +53,7 @@ stars.forEach((star, index) => {
     for (let i=index+1;i<stars.length;i++){
       stars[i].style.filter = `invert(.5)`;
     }
-  });
+  })
 });
 
 function switchImage(e){
@@ -63,8 +76,6 @@ async function addToCart(e){
   
 }
 
-
-
 // token exists in localStorage.getItem('token')
 window.onload = async ()=>{
   var urlParams = new URLSearchParams(window.location.search);
@@ -78,6 +89,26 @@ window.onload = async ()=>{
   const {type, size} = data.specifications.display
   const {features, video} = data.specifications.mainCamera
   const {features:features_selfie, video:video_selfie} = data.specifications.selfieCamera
+  let comments = data.comments
+  if (comments.length > 0){
+    comments.forEach(function(item){
+      console.log(item.name, item.content, item.user_stars)
+      let clone = document.createElement('div');
+      clone.classList.add('Card');
+      clone.id = 'commentCard';
+      clone.innerHTML = `<div>
+      <strong> ${item.name} </strong>
+      <div id="stars">
+        ${`<img src="../media/star.png" width="15px" height="15px" alt="Clickable Image">`.repeat(item.user_stars)
+        +`<img src="../media/star.png"  width="15px" height="15px" style="filter: invert(.5)" alt="Clickable Image">`.repeat(5-item.user_stars)
+      }
+      </div>
+    </div>
+    <p>${item.content}</p>`;
+      console.log(clone)
+      commentsContainer.appendChild(clone)
+    })
+  }
   // info
   const images_div = document.createElement('div')
   images_div.innerHTML = `<img width="400px" src="../media/pokof3.jpg" id="active-image">
