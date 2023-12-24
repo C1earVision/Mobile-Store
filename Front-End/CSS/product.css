@@ -120,6 +120,8 @@ section div div{
     cursor: pointer;
 }
 
+/* scroll bar */
+
 #commentsContainer{
     height: 450px;
     overflow-y: scroll;

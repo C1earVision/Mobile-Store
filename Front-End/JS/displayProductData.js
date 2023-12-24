@@ -103,6 +103,7 @@ window.onload = async ()=>{
   const used = urlParams.get('used')
   let data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products/${product_id}?used=${used}`)
   data = data.data.product
+  const {imges:{img_1, img_2, img_3}} = data
   const {name, company, price, description, soldBy, stars} = data
   const {memory, battery} = data.specifications
   const {dimensions, weight, build, sim} = data.specifications.body
