@@ -33,7 +33,7 @@ window.onload = async ()=>{
             <a href="#"><button type="button" ><i class="fa-solid fa-mobile-screen-button"></i>  Sell your device</button></a>
         </div>
         <div class="container">
-            ${localStorage.getItem('admin') ? '<a href="./AddProductPage.html"><button type="button" ><i class="fa-solid fa-plus"></i>  Add Product</button></a>' : ''}
+            ${localStorage.getItem('admin') === 'true' ? '<a href="./AddProductPage.html"><button type="button" ><i class="fa-solid fa-plus"></i>  Add Product</button></a>' : ''}
         </div>
     </div>`
     profile_container.appendChild(profile_content)
