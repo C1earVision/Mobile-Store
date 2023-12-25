@@ -128,11 +128,11 @@ window.onload = async ()=>{
   }
   // info
   const images_div = document.createElement('div')
-  images_div.innerHTML = `<img width="400px" src="../media/pokof3.jpg" id="active-image">
+  images_div.innerHTML = `<img width="400px" src="${img_1}" id="active-image">
   <div onclick="switchImage(event)" class="mt-2" id="images-holder">
-    <img width="70px" src="../media/pokof3.jpg">
-    <img width="70px" src="../media/download.jpeg">
-    <img width="70px" src="../media/download.jpeg">
+    <img width="70px" src="${img_1}">
+    <img width="70px" src="${img_2}">
+    <img width="70px" src="${img_3}">
   </div>`
   product_parent_element.appendChild(images_div)
 //   handle image click

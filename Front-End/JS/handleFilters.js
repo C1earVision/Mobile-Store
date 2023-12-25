@@ -5,6 +5,7 @@
 
 const toggle_filters = document.getElementById('toggle-filters')
 const mobile_filters = document.getElementById('mobile-filter')
+const insert_before_mobile = document.getElementById('insert-before-mobile')
 
 const filter_form = document.getElementById('filter-form')
 const insert_before = document.getElementById('insert-before')
