@@ -129,7 +129,7 @@ window.onload = async ()=>{
   // info
   const images_div = document.createElement('div')
   images_div.innerHTML = `<img width="400px" src="${img_1}" id="active-image">
-  <div onclick="switchImage(event)" class="mt-2" id="images-holder">
+  <div onclick="switchImage(event)" class="mt-2 alt-imgs" id="images-holder">
     <img width="70px" src="${img_1}">
     <img width="70px" src="${img_2}">
     <img width="70px" src="${img_3}">
