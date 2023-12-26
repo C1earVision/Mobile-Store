@@ -81,7 +81,7 @@ window.onload = async ()=>{
   data_used.data.products.map((product)=>{
     const used_slider_div = document.createElement('div')
     used_slider_div.innerHTML = 
-    `<img width='340px' src='./media/pokof3.jpg'>
+    `<img width='340px' src='${product.imges.img_1}'>
     <div class="desc">
       <h2>${product.name}</h2>
       <p>$${product.price}</p>

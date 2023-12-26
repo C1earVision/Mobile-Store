@@ -47,7 +47,7 @@ async function displayCartItems (){
     cart_item.classList.add('cart-item')
     cart_item.classList.add(`${product.used}`)
     cart_item.innerHTML = `
-    <img class="img" src="/Front-End/media/pokof3.jpg" alt="Product 1">
+    <img class="img" src="${product.imges.img_1}" alt="Product 1">
     <div class="item-details">
         <h3>${product.name}</h3>
         <p>Price: ${product.price}</p>
