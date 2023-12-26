@@ -3,17 +3,22 @@ const form = document.getElementById('add-form')
 
 
 window.onload = ()=>{
-  var urlParams = new URLSearchParams(window.location.search);
-  const phoneNumberDiv = document.getElementById('PhoneNumberDiv')
-  const used = Boolean(urlParams.get('used'))
-  let status = document.getElementById('status')
-  if(used === true){
-    status.innerHTML = 'USED'
-    phoneNumberDiv.classList.remove('d-none')
-    phoneNumberDiv.classList.add('d-block')
+  if(localStorage.getItem('admin') === false){
+    var urlParams = new URLSearchParams(window.location.search);
+    const phoneNumberDiv = document.getElementById('PhoneNumberDiv')
+    const used = Boolean(urlParams.get('used'))
+    let status = document.getElementById('status')
+    if(used === true){
+      status.innerHTML = 'USED'
+      phoneNumberDiv.classList.remove('d-none')
+      phoneNumberDiv.classList.add('d-block')
   }else{
     status.innerHTML = 'NEW'
   }
+  }else{
+    window.location = '/Front-End/index.html'
+  }
+  
 }
 
 form.addEventListener('submit', async function(e){
