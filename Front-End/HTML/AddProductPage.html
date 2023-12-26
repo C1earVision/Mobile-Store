@@ -114,7 +114,11 @@
   <div class="mt-5 container-fluid p-5 d-flex flex-row"> 
     <form class="d-flex flex-row gap-5" id="add-form">
       <div class="d-flex flex-column text-light gap-2">
-        <h1 class="heading">Add Product <span class="text-white" id="status">NEW</span></h1>
+        <h1 class="heading">Add Product <span class="text-white" id="status"></span></h1>
+        <div class="d-none" id="PhoneNumberDiv">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="number" placeholder="Enter your phone number" name="phoneNumber" id="phoneNumber_input">
+        </div>
         <label for="name">Product Name</label>
         <input type="text" placeholder="EX. Iphone 24 pro max" name="name" id="name_input">
         <label for="price">Product Price</label>

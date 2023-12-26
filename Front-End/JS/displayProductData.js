@@ -8,7 +8,6 @@ let stars = document.querySelectorAll(".clickable");
 
 let selectedStars = 0
 
-// Sending a request to the server
 post.addEventListener('click', async ()=>{
   if(!localStorage.getItem('token')){
     alert('Must be logged in to post comment')
@@ -103,6 +102,7 @@ window.onload = async ()=>{
   data = data.data.product
   const {imges:{img_1, img_2, img_3}} = data
   const {name, company, price, description, soldBy, stars} = data
+  console.log(stars)
   const {memory, battery} = data.specifications
   const {dimensions, weight, build, sim} = data.specifications.body
   const {type, size} = data.specifications.display
@@ -153,7 +153,7 @@ window.onload = async ()=>{
   <input class="mb-2" type="button" id="buy-button" value="Buy Now">
   <input class="mb-2" onclick="addToCart(event)" type="button" id="add-to-cart" value="Add To Cart">
   ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input class="mb-2" onclick="" type="button" id="modify-product" value="Modify Product" />':''}
-  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input onclick="" type="button" id="delete-product" value="Delete Product" />':''}
+  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input onclick="deleteProduct(event)" type="button" id="delete-product" value="Delete Product" />':''}
   <div class="mt-5 d-flex flex-column">
     <h5>Description: </h5>
     <h6 class="ms-4">${description}</h6>
@@ -179,4 +179,21 @@ window.onload = async ()=>{
     </div>
   </div>`
   product_parent_element.appendChild(details_div)
+}
+
+
+async function deleteProduct(e){
+  var urlParams = new URLSearchParams(window.location.search);
+  const product_id = urlParams.get('product_id')
+  const used = urlParams.get('used')
+  console.log(product_id, used)
+  const product = await axios
+  .request({
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    method: "DELETE",
+    url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/admin/${product_id}?used=${used}`,
+  }).then((res)=>alert('Product Deleted successfully')).catch((res)=>alert(res.response.data.msg))
+  window.location.replace('/Front-End/HTML/productsPage.html');
 }
