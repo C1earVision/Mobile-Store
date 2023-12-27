@@ -102,7 +102,6 @@ window.onload = async ()=>{
   data = data.data.product
   const {imges:{img_1, img_2, img_3}} = data
   const {name, company, price, description, soldBy, stars} = data
-  console.log(stars)
   const {memory, battery} = data.specifications
   const {dimensions, weight, build, sim} = data.specifications.body
   const {type, size} = data.specifications.display
@@ -150,7 +149,7 @@ window.onload = async ()=>{
   </div>
   <!-- Add to cart -->
   <hr/>
-  <input class="mb-2" type="button" id="buy-button" value="Buy Now">
+  <input onclick='handlePurchase(event)' class="mb-2" type="button" id="buy-button" value="Buy Now">
   <input class="mb-2" onclick="addToCart(event)" type="button" id="add-to-cart" value="Add To Cart">
   ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input class="mb-2" onclick="" type="button" id="modify-product" value="Modify Product" />':''}
   ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input onclick="deleteProduct(event)" type="button" id="delete-product" value="Delete Product" />':''}
@@ -186,7 +185,6 @@ async function deleteProduct(e){
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
   const used = urlParams.get('used')
-  console.log(product_id, used)
   const product = await axios
   .request({
     headers: {
@@ -196,4 +194,12 @@ async function deleteProduct(e){
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/admin/${product_id}?used=${used}`,
   }).then((res)=>alert('Product Deleted successfully')).catch((res)=>alert(res.response.data.msg))
   window.location.replace('/Front-End/HTML/productsPage.html');
+}
+
+
+async function handlePurchase(e){
+  var urlParams = new URLSearchParams(window.location.search);
+  const product_id = urlParams.get('product_id')
+  const used = urlParams.get('used')
+  window.location = `/Front-End/HTML/BuyPage.html?product_id=${product_id}&used=${used}`
 }

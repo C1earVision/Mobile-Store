@@ -3,6 +3,7 @@ const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
 const User = require('../models/users')
 const ProductsUsed = require('../models/productsUsed')
+const Orders = require('../models/orders')
 
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
@@ -100,6 +101,13 @@ const addComment = async (req,res)=>{
   res.status(StatusCodes.CREATED).json({product})
 }
 
+const checkOut = async(req, res)=>{
+  const {used} = req.query
+  used === 'true' ? req.body.used = true : req.body.used = false
+  const order = await Orders.create(req.body)
+  res.status(StatusCodes.CREATED).json({order})
+}
+
 module.exports = {
   addProduct,
   deleteProduct,
@@ -109,5 +117,6 @@ module.exports = {
   deleteWishlistedProduct,
   getUser,
   updateProfilePicture,
-  addComment
+  addComment,
+  checkOut
 }
