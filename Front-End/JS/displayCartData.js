@@ -1,6 +1,8 @@
 const cart = document.getElementById('cart')
 const cart_total = document.getElementById('cart-total')
 const total_price_div = document.getElementById('total-price')
+let cartItems = null
+
 
 async function remove_item(e){
   let parentElement = e.target.parentNode;
@@ -40,6 +42,7 @@ async function displayCartItems (){
   let total_price = 0
   
   const total_products = [...products_new.data.products, ...products_used.data.products]
+  cartItems = total_products
   total_products.map((product)=>{
     total_price = total_price + product.price 
     const cart_item = document.createElement('div')
@@ -56,6 +59,24 @@ async function displayCartItems (){
     cart.insertBefore(cart_item, cart_total)
   })
   total_price_div.innerHTML = `Total: ${total_price} $`
+}
+
+
+
+async function checkOut(e){
+  const product_ids = cartItems.map((product)=>{
+    return [product._id, product.used]
+  })
+
+  let product_ids_string = ''
+  if(product_ids.length > 0){
+    product_ids.map(product=>{
+      product_ids_string += ('product_id='+ product[0] + `&used=${Boolean(product[1])}&`) 
+    })
+    window.location.href = `/Front-End/HTML/BuyPage.html?${product_ids_string}`
+    return
+  }
+  alert('No items in your cart')
 }
 
 

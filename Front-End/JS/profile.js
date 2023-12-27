@@ -80,3 +80,4 @@ const convertFile = async (file) => {
   }).then((res) => fileData = res);
 };
 
+
