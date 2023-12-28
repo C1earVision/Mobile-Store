@@ -50,7 +50,7 @@ form.addEventListener('submit', async function(e){
   formData = [...formData]
   var urlParams = new URLSearchParams(window.location.search);
   const product_ids = urlParams.getAll('product_id')
-  const used = urlParams.Allget('used')
+  const used = urlParams.getAll('used')
   const data = []
   for(let i=0; i<product_ids.length;i++){
     data.push({
@@ -61,7 +61,7 @@ form.addEventListener('submit', async function(e){
     })
   }
   data.map(async (product)=>{
-    const product = await axios.
+    await axios.
     request({
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
