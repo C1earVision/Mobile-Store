@@ -27,6 +27,7 @@ form.addEventListener('submit', async function(e){
   const used = Boolean(urlParams.get('used'))
   let formData = new FormData(form);
   formData = [...formData]
+  localStorage.setItem('phoneNumber', formData[0][1])
   if(used){
     formData[5][1] = await convertFile(formData[5][1])
     formData[6][1] = await convertFile(formData[6][1])

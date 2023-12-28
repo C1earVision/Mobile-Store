@@ -22,11 +22,11 @@ async function getCartDetails(){
     return data
   })
   Promise.all(products).then(function(results) {
+    addCartDetails(results)
     allProducts = results
     for(let i=0;i<allProducts.length;i++){
       allProducts[i] = {name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id}
     }
-    addCartDetails(results)
   })
   
 }
@@ -74,19 +74,30 @@ form.addEventListener('submit', async function(e){
       method: "POST",
       url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/checkout?used=${used[i]}`,
     }).then((res)=>{
-      alert('Your order has been made')
-      sendMail(localStorage.getItem('name'), data[0][2], allProducts, localStorage.getItem('email'))
+      const purchasedUnitsString = `
+      Name: ${allProducts[i].name},
+      Price: ${allProducts[i].price} $,
+      ID: ${allProducts[i].id}
+      ${used[i]?`used:${used[i]},
+                 PhoneNumber: ${localStorage.getItem('phoneNumber')}`:''}`
+      const addressString = `
+            City: ${data[0].address.city},
+            State: ${data[0].address.state},
+            Street: ${data[0].address.street},
+            Zip_code: ${data[0].address.zip_code}`
+      sendMail(localStorage.getItem('name'), addressString, purchasedUnitsString, localStorage.getItem('email'))
       console.log(res)
     }).catch((res)=>{
       console.log(res)
     })
   }
+  alert('Your order has been made')
   async function sendMail(name, address, purchasedUnits, fromEmail){
     (function (){
       emailjs.init("SabE1f0DV1WXWiRjt");
     })();
   
-    emailjs.send("service_yf00xvi","template_feg8cwq",{
+    emailjs.send("service_yf00xvi","template_r9q43gd",{
         name,
         purchasedUnits,
         address,
