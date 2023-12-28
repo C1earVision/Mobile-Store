@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const Orders = new mongoose.Schema({
   user_id:{
     type:String,
-    ref:'users',
     requierd:[true, 'Please provide user_id'],
   },
   used:{
