@@ -102,6 +102,7 @@ const addComment = async (req,res)=>{
 }
 
 const checkOut = async(req, res)=>{
+  console.log(req.body)
   const order = await Orders.create(req.body)
   res.status(StatusCodes.CREATED).json({order})
 }

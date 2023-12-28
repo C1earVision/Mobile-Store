@@ -60,22 +60,21 @@ form.addEventListener('submit', async function(e){
       items:product_ids[i]
     })
   }
-  console.log(data)
-  data.map(async (product)=>{
-    console.log('hello')
+  for(let i=0; i<product_ids.length;i++){
     await axios.
     request({
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
-      data: data,
+      data: data[i],
       method: "POST",
-      url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/checkout?used=${used}`,
+      url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/checkout?used=${used[i]}`,
     }).then((res)=>{
+      alert('Your order has been made')
       console.log(res)
     }).catch((res)=>{
       console.log(res)
     })
-  })
+  }
 
 })
