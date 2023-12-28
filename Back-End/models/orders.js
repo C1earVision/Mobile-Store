@@ -2,10 +2,9 @@ const mongoose = require('mongoose')
 
 const Orders = new mongoose.Schema({
   user_id:{
-    type:mongoose.Types.ObjectId,
+    type:String,
     ref:'users',
     requierd:[true, 'Please provide user_id'],
-    unique:false
   },
   used:{
     type:Boolean
