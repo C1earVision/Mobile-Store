@@ -3,6 +3,7 @@
 <h6>1000$</h6>
 </div> */}
 const form = document.getElementById('form')
+let allProducts = null
 
 window.onload = async ()=>{
   await getCartDetails()
@@ -16,20 +17,23 @@ async function getCartDetails(){
   for(let i=0;i<product_ids.length;i++){
     productData.push([product_ids[i],used[i]])
   }
-  console.log(productData)
   let products = productData.map(async (product)=>{
     const data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products/${product[0]}?used=${product[1]}`).catch((err)=>console.log(err))
     return data
   })
   Promise.all(products).then(function(results) {
+    allProducts = results
+    for(let i=0;i<allProducts.length;i++){
+      allProducts[i] = {name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id}
+    }
     addCartDetails(results)
   })
+  
 }
 
 function addCartDetails(products){
   const cart_total = document.getElementById('cart-total')
   let total = 0
-  console.log(products)
   products.map((product)=>{
     total += product.data.product.price
     const item = document.createElement('div')
@@ -71,10 +75,22 @@ form.addEventListener('submit', async function(e){
       url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/checkout?used=${used[i]}`,
     }).then((res)=>{
       alert('Your order has been made')
+      sendMail(localStorage.getItem('name'), data[0][2], allProducts, localStorage.getItem('email'))
       console.log(res)
     }).catch((res)=>{
       console.log(res)
     })
   }
-
+  async function sendMail(name, address, purchasedUnits, fromEmail){
+    (function (){
+      emailjs.init("SabE1f0DV1WXWiRjt");
+    })();
+  
+    emailjs.send("service_yf00xvi","template_feg8cwq",{
+        name,
+        purchasedUnits,
+        address,
+        fromEmail
+    }).catch((err)=>console.log(err))
+  }
 })
