@@ -25,7 +25,7 @@ async function getCartDetails(){
     addCartDetails(results)
     allProducts = results
     for(let i=0;i<allProducts.length;i++){
-      allProducts[i] = {name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id}
+      allProducts[i] = {name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id, createdBy:allProducts[i].createdBy}
     }
   })
   
@@ -73,19 +73,28 @@ form.addEventListener('submit', async function(e){
       data: data[i],
       method: "POST",
       url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/checkout?used=${used[i]}`,
-    }).then((res)=>{
+    }).then(async (res)=>{
+      const user = await axios.
+      request({
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        method: "GET",
+        url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/getUser?used=${used[i]}`,
+      })
+      console.log(user)
       const purchasedUnitsString = `
       Name: ${allProducts[i].name},
       Price: ${allProducts[i].price} $,
       ID: ${allProducts[i].id}
-      ${used[i]?`used:${used[i]},
+      ${used[i] === 'true'?`used:${used[i]},
                  PhoneNumber: ${localStorage.getItem('phoneNumber')}`:''}`
       const addressString = `
             City: ${data[0].address.city},
             State: ${data[0].address.state},
             Street: ${data[0].address.street},
             Zip_code: ${data[0].address.zip_code}`
-      sendMail(localStorage.getItem('name'), addressString, purchasedUnitsString, localStorage.getItem('email'))
+      // sendMail(localStorage.getItem('name'), addressString, purchasedUnitsString, localStorage.getItem('email'))
       console.log(res)
     }).catch((res)=>{
       console.log(res)

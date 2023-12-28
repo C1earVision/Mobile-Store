@@ -18,6 +18,7 @@ const addProduct = async (req,res)=>{
   res.status(StatusCodes.CREATED).json({product})
 }
 
+
 const modifyProduct = async (req, res)=>{
   const {params:{id},user:{admin}} = req
   const {used} = req.query
@@ -42,7 +43,7 @@ const modifyUser = async (req, res)=>{
 // Products.deleteOne
 const deleteProduct = async(req, res)=>{
   const {params:{id},user:{admin}, query:{used}} = req
-  if (!admin) {
+  if (!admin && !used) {
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   const product = used === 'true' ? await ProductsUsed.findByIdAndDelete({_id:id}) : await Products.findByIdAndDelete({_id:id})
@@ -79,8 +80,12 @@ const deleteWishlistedProduct = async (req,res)=>{
 
 // easy
 const getUser = async (req, res)=>{
-  const {id} = req.params
-  const user = await User.findById({_id:id})
+  const {user:{userId}} = req
+  const {used} = req.query
+  if (!admin && !used) {
+    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
+  }
+  const user = await User.findById({_id:userId})
   res.status(StatusCodes.OK).json({user})
 }
 
