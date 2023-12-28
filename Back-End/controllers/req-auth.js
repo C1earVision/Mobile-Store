@@ -80,12 +80,8 @@ const deleteWishlistedProduct = async (req,res)=>{
 
 // easy
 const getUser = async (req, res)=>{
-  const {user:{userId}} = req
-  const {used} = req.query
-  if (!admin && !used) {
-    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
-  }
-  const user = await User.findById({_id:userId})
+  const {id} = req.params
+  const user = await User.findById({_id:id})
   res.status(StatusCodes.OK).json({user})
 }
 
@@ -122,6 +118,16 @@ const checkOut = async(req, res)=>{
   res.status(StatusCodes.CREATED).json({order})
 }
 
+const getUserID = async(req, res)=>{
+  const {user:{userId}} = req
+  const {used} = req.query
+  if (!admin && !used) {
+    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
+  }
+  const user = await User.findById({_id:userId})
+  res.status(StatusCodes.OK).json({user})
+}
+
 module.exports = {
   addProduct,
   deleteProduct,
@@ -133,5 +139,6 @@ module.exports = {
   updateProfilePicture,
   addComment,
   checkOut,
-  modifyUser
+  modifyUser,
+  getUserID
 }
