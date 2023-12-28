@@ -80,9 +80,9 @@ form.addEventListener('submit', async function(e){
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
         method: "GET",
-        url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/getUserID?used=${used[i]}`,
+        url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/getUser`,
       })
-      console.log(user)
+      console.log(user.data.user.phoneNumber)
       const purchasedUnitsString = `
       Name: ${allProducts[i].name},
       Price: ${allProducts[i].price} $,

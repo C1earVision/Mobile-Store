@@ -4,14 +4,13 @@ const profilePicture = document.getElementById('img')
 
 
 window.onload = async ()=>{
-  const userId = localStorage.getItem('id')
   const user = await axios
   .request({
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     method: "GET",
-    url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/${userId}`,
+    url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/getUser`,
 
   })
   localStorage.setItem("img", user.data.user.img);
