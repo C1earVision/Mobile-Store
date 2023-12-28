@@ -21,11 +21,21 @@ const addProduct = async (req,res)=>{
 const modifyProduct = async (req, res)=>{
   const {params:{id},user:{admin}} = req
   const {used} = req.query
-  if (!admin){
+  if (!admin && !used){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   const product = used === 'true' ? await ProductsUsed.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true}) : await Products.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true})
   res.status(StatusCodes.OK).json({product})
+}
+
+const modifyUser = async (req, res)=>{
+  const {params:{id},user:{admin}} = req
+  const {used} = req.query
+  if (!admin && !used){
+    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
+  }
+  const user = await User.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true}) 
+  res.status(StatusCodes.OK).json({user})
 }
 
 
@@ -117,5 +127,6 @@ module.exports = {
   getUser,
   updateProfilePicture,
   addComment,
-  checkOut
+  checkOut,
+  modifyUser
 }

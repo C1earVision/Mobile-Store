@@ -10,7 +10,6 @@ async function remove_item(e){
     parentElement = parentElement.parentNode;
   }
   const used = parentElement.classList[1]
-  console.log(used)
   const deleted_item = await axios
   .request({
     headers: {
@@ -23,6 +22,7 @@ async function remove_item(e){
 }
 
 async function displayCartItems (){
+  
   const products_new = await axios
   .request({
     headers: {
@@ -30,7 +30,7 @@ async function displayCartItems (){
     },
     method: "GET",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist`,
-  })
+  }).catch((err)=>console.log(err))
   const products_used = await axios
   .request({
     headers: {
@@ -38,7 +38,8 @@ async function displayCartItems (){
     },
     method: "GET",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist?used=true`,
-  })
+  }).catch((err)=>console.log(err))
+  console.log(products_new)
   let total_price = 0
   
   const total_products = [...products_new.data.products, ...products_used.data.products]
