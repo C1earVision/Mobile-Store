@@ -3,8 +3,6 @@ const mongoose = require('mongoose')
 const Orders = new mongoose.Schema({
   user_id:{
     type:String,
-    requierd:[true, 'Please provide user_id'],
-    unique: false
   },
   used:{
     type:Boolean
