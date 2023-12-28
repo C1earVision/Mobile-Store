@@ -113,7 +113,10 @@ const ProductsUsedSchema = new mongoose.Schema({
   },
   soldBy:{
     type:String,
-  }
+  },
+  phoneNumber:{
+    type:Number
+  },
 })
 
 

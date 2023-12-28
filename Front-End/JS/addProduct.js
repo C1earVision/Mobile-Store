@@ -37,19 +37,7 @@ form.addEventListener('submit', async function(e){
     formData[5][1] = await convertFile(formData[5][1])
     formData[6][1] = await convertFile(formData[6][1])
     formData[7][1] = await convertFile(formData[7][1])
-    console.log(formData[0][1], localStorage.getItem('phoneNumber'))
-    await axios.
-    request({
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      data: {phoneNumber:formData[0][1]},
-      method: "PATCH",
-      url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/admin/modifyUser/${localStorage.getItem('id')}?used=${used}`,
-    }).catch((res)=>{
-      console.log(res)
-    })
-    data = {imges:{img_1:formData[5][1], img_2:formData[6][1], img_3:formData[7][1]}, name:formData[1][1], price:Number(formData[2][1]), company:formData[3][1], description:formData[4][1], specifications:{body:{dimensions:formData[8][1], weight:Number(formData[9][1]), build:formData[10][1], sim:formData[11][1]}, display:{type:formData[12][1], size:formData[13][1]}, battery:Number(formData[14][1]), memory:Number(formData[15][1]), mainCamera:{features:formData[16][1], video:formData[17][1]}, selfieCamera:{features:formData[18][1], video:formData[19][1]}}}
+    data = {phoneNumber: formData[0][1], imges:{img_1:formData[5][1], img_2:formData[6][1], img_3:formData[7][1]}, name:formData[1][1], price:Number(formData[2][1]), company:formData[3][1], description:formData[4][1], specifications:{body:{dimensions:formData[8][1], weight:Number(formData[9][1]), build:formData[10][1], sim:formData[11][1]}, display:{type:formData[12][1], size:formData[13][1]}, battery:Number(formData[14][1]), memory:Number(formData[15][1]), mainCamera:{features:formData[16][1], video:formData[17][1]}, selfieCamera:{features:formData[18][1], video:formData[19][1]}}}
   }else{
     console.log('im here')
     formData[4][1] = await convertFile(formData[4][1])

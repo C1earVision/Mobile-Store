@@ -74,27 +74,19 @@ form.addEventListener('submit', async function(e){
       method: "POST",
       url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/checkout?used=${used[i]}`,
     }).then(async (res)=>{
-      const user = await axios.
-      request({
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-        method: "GET",
-        url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/getUser`,
-      })
-      console.log(user.data.user.phoneNumber)
       const purchasedUnitsString = `
       Name: ${allProducts[i].name},
       Price: ${allProducts[i].price} $,
       ID: ${allProducts[i].id}
       ${used[i] === 'true'?`used:${used[i]},
-                 PhoneNumber: ${localStorage.getItem('phoneNumber')}`:''}`
+                 PhoneNumber: ${allProducts[i].phoneNumber}`:''}`
       const addressString = `
             City: ${data[0].address.city},
             State: ${data[0].address.state},
             Street: ${data[0].address.street},
             Zip_code: ${data[0].address.zip_code}`
       // sendMail(localStorage.getItem('name'), addressString, purchasedUnitsString, localStorage.getItem('email'))
+     
       console.log(res)
     }).catch((res)=>{
       console.log(res)
