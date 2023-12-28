@@ -102,8 +102,6 @@ const addComment = async (req,res)=>{
 }
 
 const checkOut = async(req, res)=>{
-  const {used} = req.query
-  used === 'true' ? req.body.used = true : req.body.used = false
   const order = await Orders.create(req.body)
   res.status(StatusCodes.CREATED).json({order})
 }

@@ -60,7 +60,9 @@ form.addEventListener('submit', async function(e){
       items:product_ids[i]
     })
   }
+  console.log(data)
   data.map(async (product)=>{
+    console.log('hello')
     await axios.
     request({
       headers: {
