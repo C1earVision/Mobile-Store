@@ -25,7 +25,7 @@ async function getCartDetails(){
     addCartDetails(results)
     allProducts = results
     for(let i=0;i<allProducts.length;i++){
-      allProducts[i] = {name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id, createdBy:allProducts[i].createdBy}
+      allProducts[i] = {name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id, phoneNumber:allProducts[i].data.product.phoneNumber}
     }
   })
   
@@ -79,13 +79,14 @@ form.addEventListener('submit', async function(e){
       Price: ${allProducts[i].price} $,
       ID: ${allProducts[i].id}
       ${used[i] === 'true'?`used:${used[i]},
-                 PhoneNumber: ${allProducts[i].phoneNumber}`:''}`
+                 PhoneNumber of seller: ${allProducts[i].phoneNumber}`:''}`
       const addressString = `
             City: ${data[0].address.city},
             State: ${data[0].address.state},
             Street: ${data[0].address.street},
             Zip_code: ${data[0].address.zip_code}`
-      // sendMail(localStorage.getItem('name'), addressString, purchasedUnitsString, localStorage.getItem('email'))
+      console.log(allProducts[i].phoneNumber)
+      sendMail(localStorage.getItem('name'), addressString, purchasedUnitsString, localStorage.getItem('email'))
      
       console.log(res)
     }).catch((res)=>{
