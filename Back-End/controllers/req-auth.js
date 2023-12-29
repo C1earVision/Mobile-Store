@@ -29,15 +29,6 @@ const modifyProduct = async (req, res)=>{
   res.status(StatusCodes.OK).json({product})
 }
 
-const modifyUser = async (req, res)=>{
-  const {params:{id},user:{admin}} = req
-  const {used} = req.query
-  if (!admin && !used){
-    throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
-  }
-  const user = await User.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true}) 
-  res.status(StatusCodes.OK).json({user})
-}
 
 
 // Products.deleteOne
@@ -59,6 +50,7 @@ const addProductToWishList = async (req, res)=>{
   product = used === 'true' ? await ProductsUsed.findOneAndUpdate({_id:id},{ $push: {wishListedBy:userId} }, { new: true, runValidators: true }) :await Products.findOneAndUpdate({_id:id},{ $push: {wishListedBy:userId} }, { new: true, runValidators: true })
   res.status(StatusCodes.OK).json({product})
 }
+
 
 const getWishListProducts = async(req, res)=>{
   const {user:{userId}, query:{used}} = req
@@ -130,5 +122,4 @@ module.exports = {
   updateProfilePicture,
   addComment,
   checkOut,
-  modifyUser,
 }
