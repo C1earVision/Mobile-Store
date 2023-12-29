@@ -25,7 +25,7 @@ async function getCartDetails(){
     addCartDetails(results)
     allProducts = results
     for(let i=0;i<allProducts.length;i++){
-      allProducts[i] = {name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id, phoneNumber:allProducts[i].data.product.phoneNumber}
+      allProducts[i] = {used:allProducts[i].data.product.used, name: allProducts[i].data.product.name, price: allProducts[i].data.product.price, id:allProducts[i].data.product._id, phoneNumber:allProducts[i].data.product.phoneNumber}
     }
   })
   
@@ -85,9 +85,24 @@ form.addEventListener('submit', async function(e){
             State: ${data[0].address.state},
             Street: ${data[0].address.street},
             Zip_code: ${data[0].address.zip_code}`
-      console.log(allProducts[i].phoneNumber)
       sendMail(localStorage.getItem('name'), addressString, purchasedUnitsString, localStorage.getItem('email'))
-     
+      allProducts[i].used?
+      await axios.
+        request({
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+          method: "DELETE",
+          url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/admin/${allProducts[i].id}?used=${used[i]}`,
+        }):
+        await axios.
+        request({
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+          method: "PATCH",
+          url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist/${allProducts[i].id}?used=${used[i]}`,
+        })
       console.log(res)
     }).catch((res)=>{
       console.log(res)
