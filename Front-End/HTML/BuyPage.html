@@ -1,22 +1,18 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!--slider-->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"> 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-      <!-- end -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-      <link rel="stylesheet" href="CSS/home.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-      <!-- Include the customized Bootstrap CSS file -->
-      <link href="path/to/bootstrap-custom.css" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-      <title>Phondizer</title>
-      <link rel="icon" type="image/png" href="media/gerndizer[1]-01.png"/>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../CSS/buyPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Include the customized Bootstrap CSS file -->
+    <link href="path/to/bootstrap-custom.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -112,100 +108,49 @@
             </div>
           </div>
         </nav>
-  </header>
-<!--=============================================home section======================================================-->
-    <section class="home">
-      <div class="home-content">
-        <h3 id="scroll">Welcome at . . .</h3>
-        <style>
-          /* Style to align elements horizontally */
-          .header-container {
-            display: flex;
-            align-items: center;
-          }
-      
-          /* Style to add spacing between elements if needed */
-          .header-container img {
-            margin-right: 10px;
-            margin-top: -45px;
-            
-            
-          }
-        </style>
-      
-        <!-- Header container with flex layout -->
-        <div class="header-container">
-          <!-- First image -->
-          <img id="Lefth" class="Lefth" src="/Front-End/media/gerndizer-hornL.png" width="100px" alt="" >
-          
-          <!-- H1 element -->
-          <h1>Phondizer</h1>
-          
-          <!-- Second image -->
-          <img id="Righh" class="Righh" src="/Front-End/media/gerndizer-hornR.png" width="100px" alt="" >
-        </div>
-    <h3 >The Biggest Phone Store In The World</h3>
-        <h2 class="multi-text"></h2>
-      
-        <div class="icon-container">
-            <a href="#new">
-              <i class='bx bx-chevron-up bx-fade-up' style='color:#ffffff' ></i>
-            </a>
+    </header>
+    <div class="wrapper">
+        <div class="container">
+            <form id="form">
+                <h1>
+                    <i class="fas fa-shipping-fast"></i>
+                    Shipping Details
+                </h1>
+                <div class="street">
+                    <label for="name">Street</label>
+                    <input type="text" name="address">
+                </div>
+                <div class="address-info">
+                    <div>
+                        <label for="city">City</label>
+                        <input type="text" name="city">
+                    </div>
+                    <div>
+                        <label for="state">State</label>
+                        <input type="text" name="state">
+                    </div>
+                    <div>
+                        <label for="zip_code">Zip</label>
+                        <input type="text" name="zip_code">
+                    </div>
+                </div>
+                <h1 id="cart-details">
+                  <i class="fa-solid fa-cart-shopping"></i> Cart details
+                </h1>
+                <h1 id="cart-total"></h1>
+                <div class="btns" id="btns">
+                    <input type="submit" value="Check out">
+                    <button>Back to cart</button>
+                </div>
+            </form>
         </div>
     </div>
-</section>
-
-<!--=============================================new phones section======================================================-->
-<section class="new" id="new">
-  <div class="new-content">
-    <h1>New Phones</h1>
-    <section class="slider" id="new-content">
-
-    </section> 
-  </div>
-
-      
-</section>
-
-<!--=============================================used phones section======================================================-->
-<section class="used" id="used">
-  <div class="used-content" >
-    <h1>Used Phones</h1>
-    <section class="slider" id="used-content">
-
-    </section> 
-
-  </div>
-
-      
-</section>
-
-
-
-    <footer>
-      <div class="d-flex flex-column gap-3">
-        <h3>Follow us on social Media</h3>
-        <div class="flex flex-row">
-          <i role="button" class="fa-brands fa-facebook fa-2x m-2"></i>
-          <i role="button" class="fa-brands fa-twitter fa-2x m-2"></i>
-          <i role="button" class="fa-brands fa-github fa-2x m-2"></i>
-          <i role="button" class="fa-brands fa-instagram fa-2x m-2"></i>
-          <i role="button" class="fa-brands fa-linkedin fa-2x m-2"></i>
-        </div>
-      </div>
-        <p>&copy; 2023 All rights reserved  |  Desgined with <i class="fa-regular fa-heart fa-beat" style="color: rgb(239,211,21);"></i> By Phondizer Team  </p>
-    </footer>
-    <!-- scroll reval-->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- typed js-->
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="JS/handleLogInStatus.js" ></script>
-    <script src="JS/changeProfilePicture.js"></script>
-    <!-- slider -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script> 
-    <script src="js/script.js" ></script>
-    <script src="js/HandleNavBar.js" ></script>
+    <script src="../JS/handleLogInStatus.js" ></script>
+    <script src="../JS/changeProfilePicture.js"></script>
+    <script src="../js/script.js" ></script>
+    <script src="../js/HandleNavBar.js" ></script>
+    <script src="../js/buyPage.js" ></script>
   </body>
-  </html>
+</html>

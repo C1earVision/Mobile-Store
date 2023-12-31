@@ -8,8 +8,11 @@ let stars = document.querySelectorAll(".clickable");
 
 let selectedStars = 0
 
-// Sending a request to the server
 post.addEventListener('click', async ()=>{
+  if(!localStorage.getItem('token')){
+    alert('Must be logged in to post comment')
+    return;
+  }
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
   const used = urlParams.get('used')
@@ -27,10 +30,8 @@ post.addEventListener('click', async ()=>{
     },
     method: "POST",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/comment/${product_id}?used=${used}`,
-    // If Success
   }).then((res)=>{
-    alert("Comment was posted successfully")
-    // If Error
+    location.reload()
   }).catch((res)=>{
     alert(res.response.data.msg)
   })
@@ -87,7 +88,7 @@ async function addToCart(e){
     },
     method: "POST",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist/${product_id}?used=${used}`,
-  }).then((res)=>alert('Product added successfully')).catch((res)=>alert(res.response.data.msg))
+  }).then((res)=>alert('Product added to cart successfully')).catch((res)=>alert(res.response.data.msg))
   
 }
 
@@ -99,6 +100,7 @@ window.onload = async ()=>{
   const used = urlParams.get('used')
   let data = await axios.get(`https://mobilestoreapi-eo3f.onrender.com/api/v1/products/${product_id}?used=${used}`)
   data = data.data.product
+  const {imges:{img_1, img_2, img_3}} = data
   const {name, company, price, description, soldBy, stars} = data
   const {memory, battery} = data.specifications
   const {dimensions, weight, build, sim} = data.specifications.body
@@ -108,7 +110,6 @@ window.onload = async ()=>{
   let comments = data.comments
   if (comments.length > 0){
     comments.forEach(function(item){
-      console.log(item.name, item.content, item.user_stars)
       let clone = document.createElement('div');
       clone.classList.add('Card');
       clone.id = 'commentCard';
@@ -121,17 +122,16 @@ window.onload = async ()=>{
       </div>
     </div>
     <p>${item.content}</p>`;
-      console.log(clone)
       commentsContainer.appendChild(clone)
     })
   }
   // info
   const images_div = document.createElement('div')
-  images_div.innerHTML = `<img width="400px" src="../media/pokof3.jpg" id="active-image">
-  <div onclick="switchImage(event)" class="mt-2" id="images-holder">
-    <img width="70px" src="../media/pokof3.jpg">
-    <img width="70px" src="../media/download.jpeg">
-    <img width="70px" src="../media/download.jpeg">
+  images_div.innerHTML = `<img width="400px" src="${img_1}" id="active-image">
+  <div onclick="switchImage(event)" class="mt-2 alt-imgs" id="images-holder">
+    <img width="70px" src="${img_1}">
+    <img width="70px" src="${img_2}">
+    <img width="70px" src="${img_3}">
   </div>`
   product_parent_element.appendChild(images_div)
 //   handle image click
@@ -149,8 +149,10 @@ window.onload = async ()=>{
   </div>
   <!-- Add to cart -->
   <hr/>
-  <input class="mb-2" type="button" id="buy-button" value="Buy Now">
-  <input onclick="addToCart(event)" type="button" id="add-to-cart" value="Add To Cart">
+  <input onclick='handlePurchase(event)' class="mb-2" type="button" id="buy-button" value="Buy Now">
+  <input class="mb-2" onclick="addToCart(event)" type="button" id="add-to-cart" value="Add To Cart">
+  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input class="mb-2" onclick="" type="button" id="modify-product" value="Modify Product" />':''}
+  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input onclick="deleteProduct(event)" type="button" id="delete-product" value="Delete Product" />':''}
   <div class="mt-5 d-flex flex-column">
     <h5>Description: </h5>
     <h6 class="ms-4">${description}</h6>
@@ -176,4 +178,28 @@ window.onload = async ()=>{
     </div>
   </div>`
   product_parent_element.appendChild(details_div)
+}
+
+
+async function deleteProduct(e){
+  var urlParams = new URLSearchParams(window.location.search);
+  const product_id = urlParams.get('product_id')
+  const used = urlParams.get('used')
+  const product = await axios
+  .request({
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    method: "DELETE",
+    url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/admin/${product_id}?used=${used}`,
+  }).then((res)=>alert('Product Deleted successfully')).catch((res)=>alert(res.response.data.msg))
+  window.location.replace('/Front-End/HTML/productsPage.html');
+}
+
+
+async function handlePurchase(e){
+  var urlParams = new URLSearchParams(window.location.search);
+  const product_id = urlParams.get('product_id')
+  const used = urlParams.get('used')
+  window.location = `/Front-End/HTML/BuyPage.html?product_id=${product_id}&used=${used}`
 }

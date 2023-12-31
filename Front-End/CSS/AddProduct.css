@@ -8,7 +8,7 @@
   color: rgb(221,228,16);
 }
 
-#name_input, #battery_input, #v_quality_selfie_input, #cam_features_selfie_input, #v_quality_input, #cam_features_input, #memory_input, #d-size_input, #d-type_input, #sim_input, #build_input, #weight_input, #dimensions_input, #price_input, #company_input, #description_input{ 
+#name_input, #phoneNumber_input, #battery_input, #v_quality_selfie_input, #cam_features_selfie_input, #v_quality_input, #cam_features_input, #memory_input, #d-size_input, #d-type_input, #sim_input, #build_input, #weight_input, #dimensions_input, #price_input, #company_input, #description_input{ 
   outline: none;
   border-color: rgb(221,228,16);
   padding: 3px;

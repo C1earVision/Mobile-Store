@@ -1,6 +1,8 @@
 const cart = document.getElementById('cart')
 const cart_total = document.getElementById('cart-total')
 const total_price_div = document.getElementById('total-price')
+let cartItems = null
+
 
 async function remove_item(e){
   let parentElement = e.target.parentNode;
@@ -8,7 +10,6 @@ async function remove_item(e){
     parentElement = parentElement.parentNode;
   }
   const used = parentElement.classList[1]
-  console.log(used)
   const deleted_item = await axios
   .request({
     headers: {
@@ -21,6 +22,7 @@ async function remove_item(e){
 }
 
 async function displayCartItems (){
+  
   const products_new = await axios
   .request({
     headers: {
@@ -28,7 +30,7 @@ async function displayCartItems (){
     },
     method: "GET",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist`,
-  })
+  }).catch((err)=>console.log(err))
   const products_used = await axios
   .request({
     headers: {
@@ -36,10 +38,12 @@ async function displayCartItems (){
     },
     method: "GET",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/wishlist?used=true`,
-  })
+  }).catch((err)=>console.log(err))
+  console.log(products_new)
   let total_price = 0
   
   const total_products = [...products_new.data.products, ...products_used.data.products]
+  cartItems = total_products
   total_products.map((product)=>{
     total_price = total_price + product.price 
     const cart_item = document.createElement('div')
@@ -47,7 +51,7 @@ async function displayCartItems (){
     cart_item.classList.add('cart-item')
     cart_item.classList.add(`${product.used}`)
     cart_item.innerHTML = `
-    <img class="img" src="/Front-End/media/pokof3.jpg" alt="Product 1">
+    <img class="img" src="${product.imges.img_1}" alt="Product 1">
     <div class="item-details">
         <h3>${product.name}</h3>
         <p>Price: ${product.price}</p>
@@ -56,6 +60,24 @@ async function displayCartItems (){
     cart.insertBefore(cart_item, cart_total)
   })
   total_price_div.innerHTML = `Total: ${total_price} $`
+}
+
+
+
+async function checkOut(e){
+  const product_ids = cartItems.map((product)=>{
+    return [product._id, product.used]
+  })
+
+  let product_ids_string = ''
+  if(product_ids.length > 0){
+    product_ids.map(product=>{
+      product_ids_string += ('product_id='+ product[0] + `&used=${Boolean(product[1])}&`) 
+    })
+    window.location.href = `/Front-End/HTML/BuyPage.html?${product_ids_string}`
+    return
+  }
+  alert('No items in your cart')
 }
 
 

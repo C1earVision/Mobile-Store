@@ -12,7 +12,9 @@ form.addEventListener('submit', async function(e){
     localStorage.setItem("token", user.data.token);
     localStorage.setItem("admin", user.data.user.admin);
     localStorage.setItem("id", user.data.user._id);
+    localStorage.setItem("name", user.data.user.name);
     localStorage.setItem("img", user.data.user.img);
+    localStorage.setItem("email", user.data.user.email);
     document.location = '/Front-End/index.html'
 })
 

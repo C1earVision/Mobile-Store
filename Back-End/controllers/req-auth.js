@@ -3,12 +3,13 @@ const {StatusCodes} = require('http-status-codes')
 const Products = require('../models/products')
 const User = require('../models/users')
 const ProductsUsed = require('../models/productsUsed')
+const Orders = require('../models/orders')
 
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
   const {used} = req.query
   const user = await User.findById({_id:userId}) 
-  if(!admin){
+  if(!admin && !used){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   req.body.createdBy = userId
@@ -17,10 +18,11 @@ const addProduct = async (req,res)=>{
   res.status(StatusCodes.CREATED).json({product})
 }
 
+
 const modifyProduct = async (req, res)=>{
   const {params:{id},user:{admin}} = req
   const {used} = req.query
-  if (!admin){
+  if (!admin && !used){
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   const product = used === 'true' ? await ProductsUsed.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true}) : await Products.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true})
@@ -28,10 +30,11 @@ const modifyProduct = async (req, res)=>{
 }
 
 
+
 // Products.deleteOne
 const deleteProduct = async(req, res)=>{
   const {params:{id},user:{admin}, query:{used}} = req
-  if (!admin) {
+  if (!admin && !used) {
     throw new CustomAPIError('this user has no access to this route', StatusCodes.UNAUTHORIZED)
   }
   const product = used === 'true' ? await ProductsUsed.findByIdAndDelete({_id:id}) : await Products.findByIdAndDelete({_id:id})
@@ -47,6 +50,7 @@ const addProductToWishList = async (req, res)=>{
   product = used === 'true' ? await ProductsUsed.findOneAndUpdate({_id:id},{ $push: {wishListedBy:userId} }, { new: true, runValidators: true }) :await Products.findOneAndUpdate({_id:id},{ $push: {wishListedBy:userId} }, { new: true, runValidators: true })
   res.status(StatusCodes.OK).json({product})
 }
+
 
 const getWishListProducts = async(req, res)=>{
   const {user:{userId}, query:{used}} = req
@@ -68,8 +72,8 @@ const deleteWishlistedProduct = async (req,res)=>{
 
 // easy
 const getUser = async (req, res)=>{
-  const {id} = req.params
-  const user = await User.findById({_id:id})
+  const {user:{userId}} = req
+  const user = await User.findById({_id:userId})
   res.status(StatusCodes.OK).json({user})
 }
 
@@ -99,6 +103,13 @@ const addComment = async (req,res)=>{
   res.status(StatusCodes.CREATED).json({product})
 }
 
+const checkOut = async(req, res)=>{
+  console.log(req.body)
+  const order = await Orders.create(req.body)
+  res.status(StatusCodes.CREATED).json({order})
+}
+
+
 module.exports = {
   addProduct,
   deleteProduct,
@@ -108,5 +119,6 @@ module.exports = {
   deleteWishlistedProduct,
   getUser,
   updateProfilePicture,
-  addComment
+  addComment,
+  checkOut,
 }
