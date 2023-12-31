@@ -86,7 +86,6 @@ const addComment = async (req,res)=>{
   
   let product = used === 'true' ? await ProductsUsed.findOne({_id:id})  : await Products.findOne({_id:id})
   if(product.comments.some(comment => comment.userId === userId)){
-    // Temporarly disabled for testing
     throw new CustomAPIError('User has already made a review before', StatusCodes.BAD_REQUEST)
   }
 
