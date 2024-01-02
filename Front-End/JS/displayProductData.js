@@ -151,7 +151,7 @@ window.onload = async ()=>{
   <hr/>
   <input onclick='handlePurchase(event)' class="mb-2" type="button" id="buy-button" value="Buy Now">
   <input class="mb-2" onclick="addToCart(event)" type="button" id="add-to-cart" value="Add To Cart">
-  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input class="mb-2" onclick="" type="button" id="modify-product" value="Modify Product" />':''}
+  ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? `<a href="./updatePage.html?product_id="${data._id}"" class="mb-2" onclick="" type="button" id="modify-product">Modify Product</a>`:``}
   ${(localStorage.getItem('admin') === 'true' && used === 'false') || (used === 'true' && soldBy === `${localStorage.getItem('name')}`)? '<input onclick="deleteProduct(event)" type="button" id="delete-product" value="Delete Product" />':''}
   <div class="mt-5 d-flex flex-column">
     <h5>Description: </h5>

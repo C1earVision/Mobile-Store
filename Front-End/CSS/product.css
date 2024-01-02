@@ -157,3 +157,8 @@ section div div{
 .alt-imgs{
     width: fit-content;
 }
+
+#modify-product{
+    text-align: center;
+    text-decoration: none;
+}
