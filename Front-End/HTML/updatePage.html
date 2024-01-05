@@ -116,9 +116,9 @@
       <div class="d-flex flex-column text-light gap-2" id="form_div">
         <h1 class="heading">Update Product</h1>
         <label for="name" id="insert-before">Product Name</label>
-        <input type="text" placeholder="EX. Iphone 24 pro max" name="name" id="name_input">
+        <input type="text" name="name" id="name_input">
         <label for="price">Product Price</label>
-        <input type="number" placeholder="EX. 1000" name="price" id="price_input">
+        <input type="number" name="price" id="price_input">
         <label for="company">Product Company</label>
         <select name="company" id="company_input">
           <option value="Apple">Apple</option> 
@@ -136,15 +136,15 @@
           <h3>Product Images</h3>
           <div class="d-flex flex-row gap-3">
             <div id="drop-area">
-              <input type="file" name="img_1" id="file-input" />
+              <input type="file" name="img_1" id="file-input1" />
               <h6 class="message">Drag &amp; Drop your image here<br />or click to select</h6>
             </div>
             <div id="drop-area">
-              <input type="file" name="img_2" id="file-input" />
+              <input type="file" name="img_2" id="file-input2" />
               <h6 class="message">Drag &amp; Drop your image here<br />or click to select</h6>
             </div>
             <div id="drop-area">
-              <input type="file" name="img_3" id="file-input" />
+              <input type="file" name="img_3" id="file-input3" />
               <h6 class="message">Drag &amp; Drop your image here<br />or click to select</h6>
             </div>
           </div>
@@ -184,7 +184,7 @@
             <input placeholder="EX. 1080p 60fps" type="text" name="v_quality_selfie" id="v_quality_selfie_input">
           </div>
         </div>
-        <input type="submit" id="submit_btn" value="Add Product">
+        <input type="submit" id="submit_btn" value="Update Product">
       </div>
     </form>
   </div>

@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-#file-input {
+#file-input1, #file-input2, #file-input3{
   width: 100%;
   height: 100%;
   position: absolute;
