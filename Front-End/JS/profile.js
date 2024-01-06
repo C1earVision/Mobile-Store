@@ -18,7 +18,7 @@ window.onload = async ()=>{
   profile_content.classList.add("profile-content")
   profile_content.innerHTML = `
     <div class="profile-image">
-        <img src="${user.data.user.img || "/Front-End/media/logo.jpg"}" alt="/Front-End/media/logo.jpg" id="img">
+        <img src="${user.data.user.img || "../media/logo.jpg"}" alt="img" id="img">
     </div>
     <input type="file" id="fileInput" style="display:none">
 
