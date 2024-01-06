@@ -135,7 +135,7 @@ window.onload = async ()=>{
   </div>`
   product_parent_element.appendChild(images_div)
 //   handle image click
-
+  console.log(stars)
   const details_div = document.createElement('div')
   details_div.classList.add('Card')
   details_div.innerHTML = `<h3>${name}</h3>

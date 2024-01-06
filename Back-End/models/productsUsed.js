@@ -117,6 +117,10 @@ const ProductsUsedSchema = new mongoose.Schema({
   phoneNumber:{
     type:Number
   },
+  stars:{
+    type: Number,
+    default: 0.0
+  },
 })
 
 
