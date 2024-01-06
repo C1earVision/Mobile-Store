@@ -28,12 +28,18 @@ window.onload = async ()=>{
     <div class="profile-info">
         <h1>${user.data.user.name}</h1>
         <p class="email">Email: ${user.data.user.email}</p>
-        <div class="container">
-            <a href="./AddProductPage.html?used=true"><button type="button" ><i class="fa-solid fa-mobile-screen-button"></i>  Sell your device</button></a>
+        <div class='butons_container'>
+          <div class="container">
+              <a href="./AddProductPage.html?used=true"><button type="button" ><i class="fa-solid fa-mobile-screen-button"></i>  Sell your device</button></a>
+          </div>
+          <div class="container">
+              ${localStorage.getItem('admin') === 'true' ? '<a href="./AddProductPage.html"><button type="button" ><i class="fa-solid fa-plus"></i>  Add Product</button></a>' : ''}
+          </div>
+          <div class="container">
+              ${localStorage.getItem('admin') === 'true' ? '<button onclick="generateReport(event)" type="button" >Download report</button>' : ''}
+          </div>
         </div>
-        <div class="container">
-            ${localStorage.getItem('admin') === 'true' ? '<a href="./AddProductPage.html"><button type="button" ><i class="fa-solid fa-plus"></i>  Add Product</button></a>' : ''}
-        </div>
+
     </div>`
     profile_container.appendChild(profile_content)
     const profilePictureInput = document.getElementById('fileInput')
@@ -60,7 +66,6 @@ window.onload = async ()=>{
         url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/getUser`,
         data: {img:profilePictureData}
       })
-      console.log(data)
       profilePicture.src = profilePictureData
     })
 }
@@ -78,5 +83,25 @@ const convertFile = async (file) => {
     };
   }).then((res) => fileData = res);
 };
+
+async function generateReport(e){
+  const doc = await axios.request({
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    method: "GET",
+    responseType: 'blob',
+    url: `http://localhost:3000/api/v1/user/generateReport`,
+  }).then((res)=>{
+    const url = window.URL.createObjectURL(new Blob([res.data]));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'report.xlsx';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  })
+
+}
 
 

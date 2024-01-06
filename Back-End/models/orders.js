@@ -4,6 +4,9 @@ const Orders = new mongoose.Schema({
   user_id:{
     type:String,
   },
+  user_name:{
+    type:String
+  },
   used:{
     type:Boolean
   },
@@ -21,9 +24,8 @@ const Orders = new mongoose.Schema({
       type:Number
     }
   },
-  items:{
-    type:Array,
-    default:[]
+  item:{
+    type:String
   }
 })
 

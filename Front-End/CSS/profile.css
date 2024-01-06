@@ -458,3 +458,12 @@ input[type="file"] {
         position:sticky;
     }
 }
+
+.container{
+    width: 30%;
+}
+.butons_container{
+    width: 650px;
+    display: flex;
+    flex-flow: row wrap;
+}

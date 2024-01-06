@@ -4,6 +4,8 @@ const Products = require('../models/products')
 const User = require('../models/users')
 const ProductsUsed = require('../models/productsUsed')
 const Orders = require('../models/orders')
+const Excel = require('excel4node');
+const fs = require('fs');
 
 const addProduct = async (req,res)=>{
   const {admin, userId} = req.user
@@ -104,11 +106,62 @@ const addComment = async (req,res)=>{
 }
 
 const checkOut = async(req, res)=>{
-  console.log(req.body)
   const order = await Orders.create(req.body)
   res.status(StatusCodes.CREATED).json({order})
 }
 
+const generateReport = async(req, res)=>{
+  const wb = new Excel.Workbook();
+  const ws = wb.addWorksheet('Sheet 1');
+
+  const userIds = await Orders.distinct('user_name')
+  const Items = await Orders.distinct('item')
+  console.log(userIds)
+  console.log(Items)
+  // Sample data - Replace this with your actual data
+  const userData = [
+    { userName: 'User1', productName: 'ProductA', price: 20 },
+
+    // Add more data as needed
+  ];
+
+  // Set up the table headers
+  const headerStyle = wb.createStyle({
+    font: { bold: true },
+  });
+
+  ws.cell(1, 1).string('User Name').style(headerStyle);
+  ws.cell(1, 2).string('Product Name').style(headerStyle);
+  ws.cell(1, 3).string('Price').style(headerStyle);
+
+  // Populate the data rows
+  for (let i = 0; i < userData.length; i++) {
+    const data = userData[i];
+    ws.cell(i + 2, 1).string(data.userName);
+    ws.cell(i + 2, 2).string(data.productName);
+    ws.cell(i + 2, 3).number(data.price);
+  }
+
+  // Save the Excel file
+  const filename = 'report.xlsx';
+  wb.write(filename, (err, stats) => {
+    if (err) {
+      console.error('Error writing Excel file:', err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      res.download(filename, (err) => {
+        if (err) {
+          console.error('Error sending Excel file:', err);
+          res.status(500).send('Internal Server Error');
+        }
+        // Delete the file after sending
+        fs.unlinkSync(filename);
+      });
+    }
+  });
+
+
+}
 
 module.exports = {
   addProduct,
@@ -121,4 +174,5 @@ module.exports = {
   updateProfilePicture,
   addComment,
   checkOut,
+  generateReport
 }

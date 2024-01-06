@@ -9,7 +9,7 @@ const {
   updateProfilePicture,
   addComment,
   checkOut,
-  removeItemFromCartAfterPurchase
+  generateReport
 } = require('../controllers/req-auth')
 
 const express = require('express')
@@ -23,4 +23,5 @@ router.route('/getUser').get(getUser)
 router.route('/:id').patch(updateProfilePicture)
 router.route('/comment/:id').post(addComment)
 router.route('/checkout').post(checkOut)
+router.route('/generateReport').get(generateReport)
 module.exports = router
