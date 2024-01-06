@@ -114,16 +114,15 @@ const generateReport = async(req, res)=>{
   const wb = new Excel.Workbook();
   const ws = wb.addWorksheet('Sheet 1');
 
-  const userIds = await Orders.distinct('user_name')
-  const Items = await Orders.distinct('item')
-  console.log(userIds)
-  console.log(Items)
+  const orders = await Orders.find({});
   // Sample data - Replace this with your actual data
-  const userData = [
-    { userName: 'User1', productName: 'ProductA', price: 20 },
-
-    // Add more data as needed
-  ];
+  // { userName: 'User1', Email: 'asdf', productName: 'ProductA', price: 20 },
+  let userData = [];
+  let totalPrice = 0
+  orders.map((product)=>{
+    userData.push({ userName: product.user_name, email: product.user_email, productName: product.item, price: product.price })
+    totalPrice += product.price
+  })
 
   // Set up the table headers
   const headerStyle = wb.createStyle({
@@ -131,17 +130,20 @@ const generateReport = async(req, res)=>{
   });
 
   ws.cell(1, 1).string('User Name').style(headerStyle);
-  ws.cell(1, 2).string('Product Name').style(headerStyle);
-  ws.cell(1, 3).string('Price').style(headerStyle);
+  ws.cell(1, 2).string('Email').style(headerStyle);
+  ws.cell(1, 3).string('Product Name').style(headerStyle);
+  ws.cell(1, 4).string('Price').style(headerStyle);
+  ws.cell(1, 5).string('Total Earnings').style(headerStyle);
 
   // Populate the data rows
   for (let i = 0; i < userData.length; i++) {
     const data = userData[i];
     ws.cell(i + 2, 1).string(data.userName);
-    ws.cell(i + 2, 2).string(data.productName);
-    ws.cell(i + 2, 3).number(data.price);
+    ws.cell(i + 2, 2).string(data.email);
+    ws.cell(i + 2, 3).string(data.productName);
+    ws.cell(i + 2, 4).number(data.price);
   }
-
+  ws.cell(2, 5).number(totalPrice);
   // Save the Excel file
   const filename = 'report.xlsx';
   wb.write(filename, (err, stats) => {
