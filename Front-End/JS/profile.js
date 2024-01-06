@@ -91,7 +91,7 @@ async function generateReport(e){
     },
     method: "GET",
     responseType: 'blob',
-    url: `https://localhost:3000/api/v1/user/generateReport`,
+    url: `http://localhost:3000/api/v1/user/generateReport`,
   }).then((res)=>{
     const url = window.URL.createObjectURL(new Blob([res.data]));
     const a = document.createElement('a');
