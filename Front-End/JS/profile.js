@@ -46,11 +46,11 @@ window.onload = async ()=>{
     let fileSizeCheck = null
     profilePictureInput?.addEventListener('change', async (e)=>{
       const file = fileInput.files[0];
-      const maxFileSizeInMB = 0.2;
+      const maxFileSizeInMB = 0.07;
       const maxFileSizeInKB = 1024 * 1024 * maxFileSizeInMB;
     
       if (file.size > maxFileSizeInKB) {
-        alert(`Please select a file that is 200 KB or less.`);
+        alert(`Please select a file that is 30 KB or less.`);
         fileSizeCheck = false
         return
       }else{
