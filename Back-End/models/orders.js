@@ -32,7 +32,11 @@ const Orders = new mongoose.Schema({
   },
   price:{
     type:Number
-  }
+  },
+  createdAt:{
+    type:Date,
+    default: Date.now()
+  },
 })
 
 
