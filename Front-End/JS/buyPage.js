@@ -61,8 +61,10 @@ form.addEventListener('submit', async function(e){
       user_id:localStorage.getItem('id'),
       user_name:localStorage.getItem('name'),
       used:used[i],
+      user_email:localStorage.getItem('email'),
       address:{street:formData[0][1],city:formData[1][1],state:formData[2][1],zip_code:formData[3][1]},
-      item:allProducts.name
+      item:allProducts[i].name,
+      price:allProducts[i].price
     })
   }
   for(let i=0; i<product_ids.length;i++){
