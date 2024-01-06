@@ -23,7 +23,7 @@ async function handleClick(e, used){
     parentElement = parentElement.parentNode;
   }
   const product_id = parentElement.id
-  document.location.href = `/Front-End/HTML/productPage.html?product_id=${product_id}&used=${used}`
+  document.location.href = `./productPage.html?product_id=${product_id}&used=${used}`
 }
 
 

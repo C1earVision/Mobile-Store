@@ -193,7 +193,7 @@ async function deleteProduct(e){
     method: "DELETE",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/admin/${product_id}?used=${used}`,
   }).then((res)=>alert('Product Deleted successfully')).catch((res)=>alert(res.response.data.msg))
-  window.location.replace('/Front-End/HTML/productsPage.html');
+  window.location.replace('./productsPage.html');
 }
 
 
@@ -201,5 +201,5 @@ async function handlePurchase(e){
   var urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get('product_id')
   const used = urlParams.get('used')
-  window.location = `/Front-End/HTML/BuyPage.html?product_id=${product_id}&used=${used}`
+  window.location = `./BuyPage.html?product_id=${product_id}&used=${used}`
 }

@@ -74,7 +74,7 @@ async function checkOut(e){
     product_ids.map(product=>{
       product_ids_string += ('product_id='+ product[0] + `&used=${Boolean(product[1])}&`) 
     })
-    window.location.href = `/Front-End/HTML/BuyPage.html?${product_ids_string}`
+    window.location.href = `./BuyPage.html?${product_ids_string}`
     return
   }
   alert('No items in your cart')
