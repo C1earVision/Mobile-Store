@@ -113,8 +113,23 @@ const checkOut = async(req, res)=>{
 const generateReport = async(req, res)=>{
   const wb = new Excel.Workbook();
   const ws = wb.addWorksheet('Sheet 1');
+  // Calculate the start date for the last month
+  const lastMonthStartDate = new Date();
+  lastMonthStartDate.setMonth(lastMonthStartDate.getMonth() - 1);
+  lastMonthStartDate.setHours(0, 0, 0, 0);
 
-  const orders = await Orders.find({});
+  // Calculate the end date for the last month
+  const lastMonthEndDate = new Date();
+  lastMonthEndDate.setHours(23, 59, 59, 999);
+
+  // Query to find documents created within the last month
+  const query = {
+    createdAt: {
+      $gte: lastMonthStartDate,
+      $lt: lastMonthEndDate,
+    },
+  };
+  const orders = await Orders.find({query});
   // Sample data - Replace this with your actual data
   // { userName: 'User1', Email: 'asdf', productName: 'ProductA', price: 20 },
   let userData = [];
