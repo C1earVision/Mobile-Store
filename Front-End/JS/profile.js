@@ -63,7 +63,7 @@ window.onload = async ()=>{
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         method: "PATCH",
-        url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/getUser`,
+        url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/${localStorage.getItem('id')}`,
         data: {img:profilePictureData}
       })
       profilePicture.src = profilePictureData
