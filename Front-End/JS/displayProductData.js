@@ -143,7 +143,7 @@ window.onload = async ()=>{
     <h5>$${price}</h5>
   </div>
   <div class="d-flex flex-column">
-    <h7>${stars}/5 Stars | ${comments.length} Reviews</h7>
+    <h7>${Math.floor(stars * 10)/10}/5 Stars | ${comments.length} Reviews</h7>
     <h7>Company: ${company}</h7>
     <h7>${used === 'true' ? `Seller: ${soldBy}`:''}</h7>
   </div>
