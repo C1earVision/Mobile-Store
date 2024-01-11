@@ -1,4 +1,5 @@
 The project is hosted on this url https://phondizer.netlify.app/
+this project was made using node version v18.17.1 and using any higher version might produce some porblems
 
 To run the project localy you have to first type: npm install in the terminal of both the Front-End and the Back-End folders
 then to open the back-end server type: npm start in the terminal of the Back-End folder.
