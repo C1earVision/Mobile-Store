@@ -7,15 +7,9 @@ const file_input_3 = document.getElementById('file-input3')
 const drop_area = document.getElementById('drop-area')
 
 
-file_input_1.addEventListener('change', ()=>{
-  drop_area.classList.add('uploaded');
-})
-file_input_2.addEventListener('change', ()=>{
-  drop_area.classList.add('uploaded');
-})
-file_input_3.addEventListener('change', ()=>{
-  drop_area.classList.add('uploaded');
-})
+if (file_input_1.files.length > 0 || file_input_2.files.length > 0 || file_input_3.files.length > 0){
+  drop_area.style.backgroundColor = '#a6a6a6';
+}
 
 
 window.onload = ()=>{
