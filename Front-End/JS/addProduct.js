@@ -7,9 +7,12 @@ const file_input_3 = document.getElementById('file-input3')
 const drop_area = document.getElementById('drop-area')
 
 
-if (file_input_1.files.length > 0 || file_input_2.files.length > 0 || file_input_3.files.length > 0){
-  drop_area.style.backgroundColor = '#a6a6a6';
-}
+form.addEventListener('change', ()=>{
+  if (file_input_1.files.length > 0 || file_input_2.files.length > 0 || file_input_3.files.length > 0){
+    drop_area.style.backgroundColor = '#a6a6a6';
+  }
+})
+
 
 
 window.onload = ()=>{
