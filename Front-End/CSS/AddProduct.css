@@ -21,7 +21,7 @@
 }
 
 
-#drop-area {
+.drop-area {
   color: black;
   width: 340px;
   height: 180px;
@@ -43,11 +43,11 @@
   cursor: pointer;
 }
 
-#drop-area:hover {
+.drop-area:hover {
   background-color: #f9f9f9;
 }
 
-#drop-area .message {
+.drop-area .message {
   position: absolute;
   top: 50%;
   left: 50%;

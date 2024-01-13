@@ -4,13 +4,16 @@ const form_div = document.getElementById('form_div')
 const file_input_1 = document.getElementById('file-input1')
 const file_input_2 = document.getElementById('file-input2')
 const file_input_3 = document.getElementById('file-input3')
-const drop_area = document.getElementById('drop-area')
+const drop_area = document.getElementsByClassName('drop-area')
 
 
 form.addEventListener('change', ()=>{
   console.log('changed')
   if (file_input_1.files.length > 0 || file_input_2.files.length > 0 || file_input_3.files.length > 0){
-    drop_area.style.backgroundColor = '#a6a6a6';
+    for(let i=0; i<drop_area.length;i++){
+      drop_area[i].classList.add('uploaded')
+    }
+    
   }
 })
 
