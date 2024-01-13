@@ -9,11 +9,14 @@ const drop_area = document.getElementsByClassName('drop-area')
 
 form.addEventListener('change', ()=>{
   console.log('changed')
-  if (file_input_1.files.length > 0 || file_input_2.files.length > 0 || file_input_3.files.length > 0){
-    for(let i=0; i<drop_area.length;i++){
-      drop_area[i].classList.add('uploaded')
-    }
-    
+  if (file_input_1.files.length > 0){
+    drop_area[0].classList.add('uploaded')
+  }
+  if (file_input_2.files.length > 0){
+    drop_area[1].classList.add('uploaded')
+  }
+  if (file_input_3.files.length > 0){
+    drop_area[2].classList.add('uploaded')
   }
 })
 
