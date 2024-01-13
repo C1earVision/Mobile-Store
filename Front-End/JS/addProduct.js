@@ -4,11 +4,11 @@ const form_div = document.getElementById('form_div')
 const file_input_1 = document.getElementById('file-input-1')
 const file_input_2 = document.getElementById('file-input-2')
 const file_input_3 = document.getElementById('file-input-3')
-const drop_aria = document.getElementById('drop-area')
+const drop_area = document.getElementById('drop-area')
 
 
 if (file_input_1.files.length > 0 || file_input_2.files.length > 0 || file_input_3.files.length > 0){
-  drop_aria.style.backgroundColor = '#a6a6a6'
+  drop_area.style.backgroundColor = '#a6a6a6';
 }
 
 
