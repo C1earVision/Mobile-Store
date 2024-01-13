@@ -1,9 +1,9 @@
 const form = document.getElementById('add-form')
 const insert_before = document.getElementById('insert-before')
 const form_div = document.getElementById('form_div')
-const file_input_1 = document.getElementById('file-input-1')
-const file_input_2 = document.getElementById('file-input-2')
-const file_input_3 = document.getElementById('file-input-3')
+const file_input_1 = document.getElementById('file-input1')
+const file_input_2 = document.getElementById('file-input2')
+const file_input_3 = document.getElementById('file-input3')
 const drop_area = document.getElementById('drop-area')
 
 
