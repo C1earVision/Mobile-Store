@@ -1,10 +1,16 @@
 const form = document.getElementById('add-form')
 const insert_before = document.getElementById('insert-before')
 const form_div = document.getElementById('form_div')
-{/* <div class="d-none" id="PhoneNumberDiv">
-      <label for="phoneNumber">Phone Number</label>
-      <input type="number" placeholder="Enter your phone number" name="phoneNumber" id="phoneNumber_input">
-    </div> */}
+const file_input_1 = document.getElementById('file-input-1')
+const file_input_2 = document.getElementById('file-input-2')
+const file_input_3 = document.getElementById('file-input-3')
+const drop_aria = document.getElementById('drop-area')
+
+
+if (file_input_1.files.length > 0 || file_input_2.files.length > 0 || file_input_3.files.length > 0){
+  drop_aria.style.backgroundColor = '#a6a6a6'
+}
+
 
 window.onload = ()=>{
   var urlParams = new URLSearchParams(window.location.search);
