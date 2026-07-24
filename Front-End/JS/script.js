@@ -19,7 +19,6 @@ const typed = new Typed('.multi-text', {
 });
 
 
-// done by elmohamady
 
 function createSlick(){  
   $(".slider").not('.slick-initialized').slick({

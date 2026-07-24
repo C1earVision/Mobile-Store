@@ -1,57 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900& display=swap');
-*{
+
+* {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins','sans-serif';
+    font-family: 'Poppins', 'sans-serif';
     margin: 0;
     padding: 0;
     background-color: #151414;
 }
+
 section {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
 }
 
-#signUp,#signIn,#signUp2,#signIn2{
+#signUp,
+#signIn,
+#signUp2,
+#signIn2 {
     display: none;
 }
 
-#signOut,#userProfile,#signOut2,#userProfile2{
+#signOut,
+#userProfile,
+#signOut2,
+#userProfile2 {
     display: none;
 }
+
 header {
 
     text-align: left;
     padding: 1em;
 }
-.navbar-brand{
+
+.navbar-brand {
     font-size: 2.5rem;
     margin-left: 1.5rem;
     font-weight: bold;
     color: rgb(238, 231, 231)
 }
-.offcanvasDarkNavbarLabel{
+
+.offcanvasDarkNavbarLabel {
     font-size: 1rem;
 }
+
 .offcanvas .offcanvas-body {
     background-image: url('../media/nav1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 /* Navbar item styles */
-.nav-item, .nav-link {
+.nav-item,
+.nav-link {
     font-size: 1.4rem;
     transition: 0.3s;
     text-align: center;
-    color: #fff; /* white color */
+    color: #fff;
+    /* white color */
     margin-bottom: 0.5rem;
 }
 
 /* Navbar link hover effect */
-.nav-link:hover, .nav-link.active:hover {
+.nav-link:hover,
+.nav-link.active:hover {
     font-size: 1.6rem;
     background-color: rgb(221, 228, 16);
     border-radius: 1rem;
@@ -70,10 +86,12 @@ header {
     border-radius: 1rem;
     padding: 7px;
 }
-.nav-item.dropdown:hover{
+
+.nav-item.dropdown:hover {
     background-color: rgb(163, 168, 11);
 }
-.nav-item.dropdown a{
+
+.nav-item.dropdown a {
     text-decoration: none;
     color: #151414;
 }
@@ -92,7 +110,8 @@ header {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    margin-left: 10rem; /* Adjust margin as needed */
+    margin-left: 10rem;
+    /* Adjust margin as needed */
 }
 
 .out .out-icon {
@@ -104,17 +123,17 @@ header {
     border: 2px solid #ffffff;
     border-radius: 5px;
     transition: color 0.3s, background-color 0.3s;
-    margin-bottom: 10px; /* Adjust margin-bottom as needed */
+    margin-bottom: 10px;
 }
 
 .out .out-icon:hover {
     color: #ff0000;
     background-color: #ffffff;
-    border-radius:5rem;
+    border-radius: 5rem;
 
 }
 
-/* done by Elmohamady */
+
 .out {
     cursor: pointer;
 }
@@ -122,13 +141,15 @@ header {
 
 
 
-/* done by elmohamady */
-#drop-down-menu{
+
+#drop-down-menu {
     display: none;
 }
-.dropDown{
+
+.dropDown {
     margin-top: 33px;
 }
+
 /* end */
 
 /* Navbar dropdown item hover effect */
@@ -138,6 +159,7 @@ header {
     color: #151414;
     font-weight: bold;
 }
+
 /* Search button styles */
 .btn-success {
     background-color: rgb(221, 228, 16);
@@ -149,20 +171,23 @@ header {
 
 /* Search button hover effect */
 .btn-success:hover {
-    background-color: rgb(221, 228, 16); /* Change to your desired hover background color */
-    transform: scale(1.1); /* Adjust the scale factor as needed */
+    background-color: rgb(221, 228, 16);
+    /* Change to your desired hover background color */
+    transform: scale(1.1);
+    /* Adjust the scale factor as needed */
     border-radius: 10rem;
 
 }
-    
+
 
 .home {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #151414;
-   
+
 }
+
 .home-content {
     display: flex;
     flex-direction: column;
@@ -171,6 +196,7 @@ header {
     text-align: center;
     padding: 2rem;
 }
+
 .home-content h1 {
     font-size: 8rem;
     font-weight: 700;
@@ -185,21 +211,22 @@ header {
 .home-content h3 {
     font-size: 2rem;
     font-weight: 500;
-letter-spacing: .2rem;
+    letter-spacing: .2rem;
     color: #ffffff;
-margin-bottom: 3rem;
-margin-top: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
 }
-.home-content h2{
+
+.home-content h2 {
     font-size: 2rem;
     font-weight: 500;
-letter-spacing: .2rem;
+    letter-spacing: .2rem;
     color: #ffffff;
-margin-bottom: 2rem;
-margin-top: 1rem;
-background: linear-gradient(90deg,rgb(0, 205, 219), #6131ff);
--webkit-background-clip: text;
-color: transparent;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    background: linear-gradient(90deg, rgb(0, 205, 219), #6131ff);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 
@@ -209,7 +236,7 @@ color: transparent;
     align-items: center;
     width: 5rem;
     height: 5rem;
-margin-top:3rem;
+    margin-top: 3rem;
     bottom: 2rem;
     right: 2rem;
 }
@@ -218,39 +245,42 @@ margin-top:3rem;
 .icon-container i {
     font-size: 5rem;
 
-    transition:4s  ;
+    transition: 4s;
 }
+
 .new {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #151414;
-   
+
 }
+
 .used {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #151414;
-   
+
 }
 
 
-.new-content h1{
+.new-content h1 {
     text-align: center;
     font-size: 3rem;
-    color: #ffffff ;
+    color: #ffffff;
     font-weight: 700;
     line-height: 1.3;
     margin-top: 5rem;
-    margin-bottom:2rem;
+    margin-bottom: 2rem;
     color: #ffffff;
     letter-spacing: 1rem;
 }
-.used-content h1{
+
+.used-content h1 {
     text-align: center;
     font-size: 3rem;
-    color: #ffffff ;
+    color: #ffffff;
     font-weight: 700;
     line-height: 1.3;
     margin-top: 5rem;
@@ -278,17 +308,19 @@ footer {
         font-size: 2.1rem;
         letter-spacing: 0.3rem;
         margin-top: 0rem;
-        
+
     }
 
-    .home-content h3{
+    .home-content h3 {
         font-size: 1.0rem;
         margin-top: 2rem;
         margin-bottom: 3rem;
     }
-    .home-content h2{
+
+    .home-content h2 {
         font-size: 1rem;
     }
+
     .home-content p {
         font-size: 0.7rem;
     }
@@ -297,31 +329,37 @@ footer {
 @media screen and (max-width: 768px) {
     .header-container {
 
-      align-items:center;
+        align-items: center;
     }
-    .navbar-brand{
+
+    .navbar-brand {
         font-size: 2.1rem;
-    margin-left: 0rem;
-    font-weight: bold   ;
+        margin-left: 0rem;
+        font-weight: bold;
     }
-    .container-fluid{
+
+    .container-fluid {
         width: auto;
     }
-    
-  
+
+
     .header-container img {
         width: 25px;
 
-      margin-top: 0;
-      margin-bottom: 10px; /* Add spacing between image and other elements in smaller screens */
+        margin-top: 0;
+        margin-bottom: 10px;
+        /* Add spacing between image and other elements in smaller screens */
     }
+
     #user .user-img img {
 
-        margin-right:auto; /* Adjust margin as needed */
+        margin-right: auto;
+        /* Adjust margin as needed */
     }
 
-  }
-@media screen and (max-width: 375px){
+}
+
+@media screen and (max-width: 375px) {
     #user .out .out-icon {
 
         font-size: 10px;
@@ -330,14 +368,14 @@ footer {
     }
 }
 
-/* done by elmohamady */
+
 
 
 h2,
 p {
     margin: 30px 0 0;
     padding: 0;
-} 
+}
 
 .slider {
     max-width: 1200px;
@@ -346,50 +384,55 @@ p {
     background: linear-gradient(to right, #1F1C2C, #928DAB);
     border-radius: 5px;
     padding: 15px 0;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); 
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
-.slick-slider button{ 
+.slick-slider button {
     position: absolute;
     top: 50%;
     background: #fff;
     border: none;
     outline: none;
-    z-index:100;
+    z-index: 100;
     width: 50px;
-    height: 50px; 
+    height: 50px;
     color: transparent;
     cursor: pointer;
-    transform: translate(0%,-70%);
+    transform: translate(0%, -70%);
     border-radius: 36px;
-    box-shadow: 0px 2px 20px rgba(0,0,0,0.07);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.07);
 }
-.slick-slider .slick-prev{
-    left:-30px;
+
+.slick-slider .slick-prev {
+    left: -30px;
 }
-.slick-slider .slick-prev::before{
+
+.slick-slider .slick-prev::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f104";
-    font-size:30px;
+    font-size: 30px;
     color: #072f5f;
     left: 8px;
     position: relative;
     z-index: 10;
 }
-.slick-slider .slick-next{
-    right:-30px;
+
+.slick-slider .slick-next {
+    right: -30px;
 }
-.slick-slider .slick-next::after{
+
+.slick-slider .slick-next::after {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f105";
-    font-size:30px;
+    font-size: 30px;
     color: #072f5f;
     right: 15px;
     position: relative;
     z-index: 10;
 }
+
 .slick-slide {
     color: #333;
     padding: 40px 0;
@@ -412,9 +455,11 @@ p {
     left: 50px;
     line-height: 1;
 }
-.slick-slide .desc h2 span{
-    color:#bcdee7;
+
+.slick-slide .desc h2 span {
+    color: #bcdee7;
 }
+
 .slick-slide .desc p {
     position: relative;
     top: 50px;
@@ -429,6 +474,7 @@ p {
 .slick-next:before {
     color: black;
 }
+
 .slick-dots {
     text-align: center;
 }
@@ -451,6 +497,7 @@ p {
 .slick-dots button {
     display: none;
 }
+
 .slick-slide {
     opacity: 0.2;
     transition: all 300ms ease;
@@ -466,7 +513,7 @@ p {
 }
 
 .slick-current .desc h2 {
-    left: 0; 
+    left: 0;
 }
 
 .slick-current .desc p {
@@ -489,37 +536,27 @@ p {
     font-weight: bold;
     pointer-events: initial;
 }
-.credit{
+
+.credit {
     text-align: center;
     color: #fff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.credit a{
+
+.credit a {
     text-decoration: none;
     color: #bcdee7;
     font-weight: bold;
 }
 
 
-#nav-bar{
+#nav-bar {
     transition: all 0.5s;
 }
 
 
-.slider-link{
+.slider-link {
     cursor: pointer;
     text-decoration: none;
-    
+
 }
-
-
-
-    
-
-
-
-
-
-
-
-
