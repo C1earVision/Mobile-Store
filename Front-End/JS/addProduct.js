@@ -26,7 +26,7 @@ window.onload = ()=>{
   var urlParams = new URLSearchParams(window.location.search);
   const used = Boolean(urlParams.get('used'))
   if(localStorage.getItem('admin') === false && !used){
-    window.location = '/Front-End/index.html'
+    window.location = '../index.html'
   }else{
     let status = document.getElementById('status')
     if(used === true){

@@ -38,7 +38,7 @@ header {
 .offcanvasDarkNavbarLabel{
     font-size: 1rem;
 }
-.offcanvas-body {
+.offcanvas .offcanvas-body {
     background-image: url('../media/nav1.jpg');
     background-repeat: no-repeat;
     background-size: cover;

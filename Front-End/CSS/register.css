@@ -87,6 +87,12 @@ button:hover {
     color: white;
 }
 
+.imgcontainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 h6 {
     margin: 2%;
     font-size: 2em;
