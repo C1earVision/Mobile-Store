@@ -39,7 +39,7 @@ header {
     font-size: 1rem;
 }
 .offcanvas-body {
-    background-image: url('/Front-Endvbndsfkjbv;ksjdfbv;kjnb/media/nav1.jpg');
+    background-image: url('../media/nav1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }

@@ -193,7 +193,7 @@ async function deleteProduct(e){
     method: "DELETE",
     url: `https://mobilestoreapi-eo3f.onrender.com/api/v1/user/admin/${product_id}?used=${used}`,
   }).then((res)=>alert('Product Deleted successfully')).catch((res)=>alert(res.response.data.msg))
-  window.location.replace('./productsPage.html');
+  window.location.replace('./ProductsPage.html');
 }
 
 
