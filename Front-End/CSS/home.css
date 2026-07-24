@@ -15,7 +15,6 @@ section {
     padding: 20px;
 }
 
-/* done by Elmohamady */
 #signUp,#signIn,#signUp2,#signIn2{
     display: none;
 }
@@ -23,7 +22,6 @@ section {
 #signOut,#userProfile,#signOut2,#userProfile2{
     display: none;
 }
-/* End */
 header {
 
     text-align: left;
